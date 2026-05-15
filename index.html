@@ -1,54 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Time Capsule (SPSW)</title>
+<title>Our Time Capsule 💌</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   ROOT VARIABLES & RESET
+   ROOT VARIABLES — LIGHT THEME
    ============================================================ */
 :root {
-  --pink:       #f9a8c9;
-  --pink-deep:  #e8709a;
-  --pink-light: #fde8f1;
-  --lavender:   #c9b8f0;
-  --lav-light:  #ede8fb;
-  --rose:       #f7c5d5;
-  --cream:      #fff8f9;
-  --white:      #ffffff;
-  --text-dark:  #3a2340;
-  --text-mid:   #7a5f8a;
-  --text-soft:  #b8a0c8;
-  --gold:       #f4c882;
-  --mint:       #aee8d8;
-  --danger:     #f08080;
-  --glass-bg:   rgba(255,255,255,0.55);
-  --glass-border: rgba(255,200,220,0.45);
-  --shadow:     0 8px 40px rgba(180,100,140,0.13);
-  --shadow-lg:  0 20px 60px rgba(180,100,140,0.20);
-  --radius:     20px;
-  --radius-sm:  12px;
-  --transition: 0.3s cubic-bezier(.4,0,.2,1);
+  --pink:        #f9a8c9;
+  --pink-deep:   #e8709a;
+  --pink-light:  #fde8f1;
+  --lavender:    #c9b8f0;
+  --lav-light:   #ede8fb;
+  --rose:        #f7c5d5;
+  --cream:       #fff8f9;
+  --white:       #ffffff;
+  --text-dark:   #3a2340;
+  --text-mid:    #7a5f8a;
+  --text-soft:   #b8a0c8;
+  --gold:        #f4c882;
+  --mint:        #aee8d8;
+  --danger:      #f08080;
+  --glass-bg:    rgba(255,255,255,0.55);
+  --glass-border:rgba(255,200,220,0.45);
+  --shadow:      0 8px 40px rgba(180,100,140,0.13);
+  --shadow-lg:   0 20px 60px rgba(180,100,140,0.20);
+  --radius:      20px;
+  --radius-sm:   12px;
+  --transition:  0.3s cubic-bezier(.4,0,.2,1);
+  --body-bg1:    #fce4ec;
+  --body-bg2:    #ede7f6;
+  --body-bg3:    #e8f5e9;
+  --orb1:        rgba(249,168,201,0.35);
+  --orb2:        rgba(201,184,240,0.30);
+  --nav-bg:      rgba(255,248,249,0.82);
+  --nav-border:  rgba(249,168,201,0.25);
+  --input-bg:    rgba(255,255,255,0.75);
+  --input-border:rgba(249,168,201,0.35);
+  --upload-bg:   rgba(255,255,255,0.4);
+  --scrollbar:   var(--pink);
+  --card-body-bg:transparent;
+  --modal-bg:    rgba(60,20,60,0.35);
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ============================================================
+   DARK THEME VARIABLES
+   ============================================================ */
+[data-theme="dark"] {
+  --pink:        #f472b6;
+  --pink-deep:   #ec4899;
+  --pink-light:  #2d1a24;
+  --lavender:    #a78bfa;
+  --lav-light:   #1e1a2e;
+  --rose:        #f9a8d4;
+  --cream:       #0f0a14;
+  --white:       #1a1025;
+  --text-dark:   #f3e8ff;
+  --text-mid:    #c4b5d8;
+  --text-soft:   #7c6a8e;
+  --gold:        #fbbf24;
+  --mint:        #34d399;
+  --danger:      #f87171;
+  --glass-bg:    rgba(20,12,30,0.72);
+  --glass-border:rgba(244,114,182,0.22);
+  --shadow:      0 8px 40px rgba(0,0,0,0.45);
+  --shadow-lg:   0 20px 60px rgba(0,0,0,0.60);
+  --body-bg1:    #0f0a14;
+  --body-bg2:    #130e1e;
+  --body-bg3:    #0c1118;
+  --orb1:        rgba(236,72,153,0.18);
+  --orb2:        rgba(167,139,250,0.15);
+  --nav-bg:      rgba(15,10,20,0.88);
+  --nav-border:  rgba(244,114,182,0.15);
+  --input-bg:    rgba(30,18,40,0.85);
+  --input-border:rgba(244,114,182,0.25);
+  --upload-bg:   rgba(20,12,30,0.6);
+  --scrollbar:   #ec4899;
+  --modal-bg:    rgba(0,0,0,0.70);
+}
 
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 16px; scroll-behavior: smooth; }
 
 body {
   font-family: 'Lato', sans-serif;
-  background: linear-gradient(135deg, #fce4ec 0%, #ede7f6 40%, #fce4ec 70%, #e8f5e9 100%);
+  background: linear-gradient(135deg, var(--body-bg1) 0%, var(--body-bg2) 40%, var(--body-bg1) 70%, var(--body-bg3) 100%);
   background-attachment: fixed;
   min-height: 100vh;
   color: var(--text-dark);
   overflow-x: hidden;
   position: relative;
+  transition: background 0.5s ease, color 0.3s ease;
 }
 
-/* Animated gradient orbs */
 body::before, body::after {
   content: '';
   position: fixed;
@@ -61,12 +112,12 @@ body::before, body::after {
 body::before {
   width: 500px; height: 500px;
   top: -100px; left: -100px;
-  background: radial-gradient(circle, rgba(249,168,201,0.35) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--orb1) 0%, transparent 70%);
 }
 body::after {
   width: 400px; height: 400px;
   bottom: -100px; right: -100px;
-  background: radial-gradient(circle, rgba(201,184,240,0.30) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--orb2) 0%, transparent 70%);
   animation-delay: -6s;
 }
 @keyframes orbFloat {
@@ -74,9 +125,6 @@ body::after {
   100% { transform: translate(40px,30px) scale(1.1); }
 }
 
-/* ============================================================
-   FLOATING HEARTS CANVAS
-   ============================================================ */
 #hearts-canvas {
   position: fixed;
   inset: 0;
@@ -84,16 +132,10 @@ body::after {
   z-index: 1;
 }
 
-/* ============================================================
-   SCROLLBAR
-   ============================================================ */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--pink); border-radius: 10px; }
+::-webkit-scrollbar-thumb { background: var(--scrollbar); border-radius: 10px; }
 
-/* ============================================================
-   UTILITY
-   ============================================================ */
 .hidden { display: none !important; }
 .page   { position: relative; z-index: 2; min-height: 100vh; }
 
@@ -107,97 +149,37 @@ body::after {
   border: 1.5px solid var(--glass-border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+  transition: background 0.4s ease, border-color 0.4s ease;
 }
 
 /* ============================================================
-   TYPOGRAPHY
+   SETUP SCREEN (GitHub config)
    ============================================================ */
-.font-display { font-family: 'Playfair Display', serif; }
-.font-script  { font-family: 'Dancing Script', cursive; }
-
-/* ============================================================
-   BUTTONS
-   ============================================================ */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 26px;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  font-family: 'Lato', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  transition: var(--transition);
-  position: relative;
-  overflow: hidden;
-  text-decoration: none;
-  white-space: nowrap;
-}
-.btn::after {
-  content: '';
-  position: absolute;
+#setup-screen {
+  position: fixed;
   inset: 0;
-  background: rgba(255,255,255,0.2);
-  opacity: 0;
-  transition: opacity 0.2s;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--body-bg1), var(--body-bg2));
+  padding: 16px;
 }
-.btn:hover::after  { opacity: 1; }
-.btn:active        { transform: scale(0.97); }
-
-.btn-primary {
-  background: linear-gradient(135deg, var(--pink-deep), var(--lavender));
-  color: #fff;
-  box-shadow: 0 6px 24px rgba(232,112,154,0.35);
-}
-.btn-primary:hover { box-shadow: 0 10px 32px rgba(232,112,154,0.50); transform: translateY(-2px); }
-
-.btn-ghost {
-  background: rgba(255,255,255,0.6);
-  color: var(--text-mid);
-  border: 1.5px solid var(--glass-border);
-}
-.btn-ghost:hover { background: var(--pink-light); color: var(--pink-deep); }
-
-.btn-danger { background: linear-gradient(135deg,#f08080,#e57373); color:#fff; }
-.btn-gold   { background: linear-gradient(135deg,var(--gold),#e8a020); color:#fff; box-shadow: 0 6px 20px rgba(244,200,130,0.4); }
-.btn-mint   { background: linear-gradient(135deg,var(--mint),#6bcfb4); color:#fff; }
-.btn-sm     { padding: 8px 18px; font-size: 0.82rem; }
-.btn-icon   { width:38px; height:38px; padding:0; justify-content:center; border-radius:50%; }
-
-/* ============================================================
-   INPUTS & FORMS
-   ============================================================ */
-.input-field {
+.setup-card {
+  max-width: 480px;
   width: 100%;
-  padding: 14px 18px;
-  border: 2px solid rgba(249,168,201,0.35);
-  border-radius: var(--radius-sm);
-  background: rgba(255,255,255,0.75);
-  font-family: 'Lato', sans-serif;
-  font-size: 0.95rem;
-  color: var(--text-dark);
-  transition: var(--transition);
-  outline: none;
+  padding: 48px 40px;
+  text-align: center;
+  animation: fadeInUp 0.7s ease both;
 }
-.input-field:focus { border-color: var(--pink-deep); background: #fff; box-shadow: 0 0 0 4px rgba(232,112,154,0.12); }
-.input-field::placeholder { color: var(--text-soft); }
-
-textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
-
-.form-group { display: flex; flex-direction: column; gap: 8px; }
-.form-label {
-  font-family: 'Playfair Display', serif;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text-mid);
-  letter-spacing: 0.3px;
-}
+.setup-logo { font-size: 3.5rem; margin-bottom: 12px; display: block; animation: heartBeat 1.8s ease-in-out infinite; }
+.setup-title { font-family: 'Dancing Script', cursive; font-size: 2.2rem; color: var(--pink-deep); margin-bottom: 6px; }
+.setup-sub { font-size: 0.85rem; color: var(--text-soft); margin-bottom: 28px; line-height: 1.6; }
+.setup-steps { display: flex; flex-direction: column; gap: 14px; text-align: left; margin-bottom: 24px; }
+.setup-step-label { font-family: 'Playfair Display', serif; font-size: 0.85rem; color: var(--text-mid); margin-bottom: 5px; font-weight: 600; }
 
 /* ============================================================
-   PIN / LOCK SCREEN
+   LOCK SCREEN
    ============================================================ */
 #lock-screen {
   position: fixed;
@@ -206,55 +188,29 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #fce4ec, #ede7f6, #fce4ec);
-  animation: lockBgPulse 8s ease-in-out infinite alternate;
+  background: linear-gradient(135deg, var(--body-bg1), var(--body-bg2), var(--body-bg1));
+  padding: 16px;
 }
-@keyframes lockBgPulse {
-  0%   { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
-}
-
 .lock-card {
   max-width: 420px;
-  width: calc(100% - 32px);
+  width: 100%;
   padding: 48px 40px;
   text-align: center;
   animation: fadeInUp 0.7s ease both;
 }
-
-.lock-logo {
-  font-size: 4rem;
-  margin-bottom: 8px;
-  animation: heartBeat 1.5s ease-in-out infinite;
-  display: block;
-}
+.lock-logo { font-size: 4rem; margin-bottom: 8px; animation: heartBeat 1.5s ease-in-out infinite; display: block; }
 @keyframes heartBeat {
   0%,100% { transform: scale(1); }
-  14%      { transform: scale(1.15); }
-  28%      { transform: scale(1); }
-  42%      { transform: scale(1.08); }
-  56%      { transform: scale(1); }
+  14%     { transform: scale(1.15); }
+  28%     { transform: scale(1); }
+  42%     { transform: scale(1.08); }
+  56%     { transform: scale(1); }
 }
+.lock-title { font-family: 'Dancing Script', cursive; font-size: 2.2rem; color: var(--pink-deep); margin-bottom: 4px; }
+.lock-subtitle { font-size: 0.88rem; color: var(--text-soft); margin-bottom: 32px; font-style: italic; }
+.setup-hint { font-size: 0.8rem; color: var(--text-soft); margin-bottom: 16px; min-height: 18px; }
 
-.lock-title {
-  font-family: 'Dancing Script', cursive;
-  font-size: 2.2rem;
-  color: var(--pink-deep);
-  margin-bottom: 4px;
-}
-.lock-subtitle {
-  font-size: 0.88rem;
-  color: var(--text-soft);
-  margin-bottom: 32px;
-  font-style: italic;
-}
-
-.pin-dots {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  margin-bottom: 24px;
-}
+.pin-dots { display: flex; justify-content: center; gap: 14px; margin-bottom: 24px; }
 .pin-dot {
   width: 18px; height: 18px;
   border-radius: 50%;
@@ -277,20 +233,19 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
 }
 .pin-key {
   aspect-ratio: 1;
-  border: none;
   border-radius: 50%;
-  background: rgba(255,255,255,0.7);
+  background: var(--glass-bg);
   font-family: 'Lato', sans-serif;
   font-size: 1.4rem;
   font-weight: 700;
   color: var(--text-dark);
   cursor: pointer;
   transition: var(--transition);
-  border: 2px solid rgba(249,168,201,0.3);
-  box-shadow: 0 4px 12px rgba(180,100,140,0.10);
+  border: 2px solid var(--glass-border);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   display: flex; align-items: center; justify-content: center;
 }
-.pin-key:hover  { background: var(--pink-light); transform: scale(1.08); box-shadow: 0 6px 20px rgba(180,100,140,0.18); }
+.pin-key:hover  { background: var(--pink-light); transform: scale(1.08); }
 .pin-key:active { transform: scale(0.96); }
 .pin-key.del    { font-size: 1rem; color: var(--text-mid); }
 .pin-key.enter  { background: linear-gradient(135deg, var(--pink-deep), var(--lavender)); color: #fff; border-color: transparent; font-size: 1rem; }
@@ -306,740 +261,322 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
 }
 @keyframes shake {
   0%,100% { transform: translateX(0); }
-  20%      { transform: translateX(-8px); }
-  40%      { transform: translateX(8px); }
-  60%      { transform: translateX(-6px); }
-  80%      { transform: translateX(6px); }
-}
-
-/* Setup PIN mode */
-.setup-hint {
-  font-size: 0.8rem;
-  color: var(--text-soft);
-  margin-bottom: 16px;
-  min-height: 18px;
+  20%     { transform: translateX(-8px); }
+  40%     { transform: translateX(8px); }
+  60%     { transform: translateX(-6px); }
+  80%     { transform: translateX(6px); }
 }
 
 /* ============================================================
-   MAIN APP
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 26px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn::after { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.15); opacity: 0; transition: opacity 0.2s; }
+.btn:hover::after  { opacity: 1; }
+.btn:active        { transform: scale(0.97); }
+
+.btn-primary { background: linear-gradient(135deg, var(--pink-deep), var(--lavender)); color: #fff; box-shadow: 0 6px 24px rgba(232,112,154,0.35); }
+.btn-primary:hover { box-shadow: 0 10px 32px rgba(232,112,154,0.50); transform: translateY(-2px); }
+.btn-ghost { background: var(--glass-bg); color: var(--text-mid); border: 1.5px solid var(--glass-border); }
+.btn-ghost:hover { background: var(--pink-light); color: var(--pink-deep); }
+.btn-danger { background: linear-gradient(135deg,#f08080,#e57373); color:#fff; }
+.btn-gold   { background: linear-gradient(135deg,var(--gold),#e8a020); color:#fff; box-shadow: 0 6px 20px rgba(244,200,130,0.4); }
+.btn-mint   { background: linear-gradient(135deg,var(--mint),#6bcfb4); color:#fff; }
+.btn-sm     { padding: 8px 18px; font-size: 0.82rem; }
+.btn-icon   { width:38px; height:38px; padding:0; justify-content:center; border-radius:50%; }
+
+/* ============================================================
+   INPUTS
+   ============================================================ */
+.input-field {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid var(--input-border);
+  border-radius: var(--radius-sm);
+  background: var(--input-bg);
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  transition: var(--transition);
+  outline: none;
+}
+.input-field:focus { border-color: var(--pink-deep); background: var(--white); box-shadow: 0 0 0 4px rgba(232,112,154,0.12); }
+.input-field::placeholder { color: var(--text-soft); }
+textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-label { font-family: 'Playfair Display', serif; font-size: 0.9rem; font-weight: 600; color: var(--text-mid); letter-spacing: 0.3px; }
+
+/* ============================================================
+   MAIN APP / NAV
    ============================================================ */
 #app { display: none; }
 
-/* ============================================================
-   TOP NAV
-   ============================================================ */
 .topnav {
   position: sticky;
   top: 0;
   z-index: 100;
   backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px);
-  background: rgba(255,248,249,0.82);
-  border-bottom: 1.5px solid rgba(249,168,201,0.25);
+  background: var(--nav-bg);
+  border-bottom: 1.5px solid var(--nav-border);
   padding: 0 24px;
   height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: background 0.4s ease;
 }
-.nav-brand {
-  font-family: 'Dancing Script', cursive;
-  font-size: 1.6rem;
-  color: var(--pink-deep);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-}
-.nav-tabs {
-  display: flex;
-  gap: 4px;
-  background: rgba(255,255,255,0.55);
-  padding: 5px;
-  border-radius: 50px;
-  border: 1.5px solid var(--glass-border);
-}
-.nav-tab {
-  padding: 8px 18px;
-  border: none;
-  border-radius: 50px;
-  background: transparent;
-  cursor: pointer;
-  font-family: 'Lato', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--text-soft);
-  transition: var(--transition);
-  display: flex; align-items: center; gap: 6px;
-}
+.nav-brand { font-family: 'Dancing Script', cursive; font-size: 1.6rem; color: var(--pink-deep); display: flex; align-items: center; gap: 8px; text-decoration: none; cursor: default; }
+.nav-tabs { display: flex; gap: 4px; background: var(--glass-bg); padding: 5px; border-radius: 50px; border: 1.5px solid var(--glass-border); }
+.nav-tab { padding: 8px 18px; border: none; border-radius: 50px; background: transparent; cursor: pointer; font-family: 'Lato', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--text-soft); transition: var(--transition); display: flex; align-items: center; gap: 6px; }
 .nav-tab:hover  { color: var(--text-mid); }
-.nav-tab.active {
-  background: linear-gradient(135deg, var(--pink-deep), var(--lavender));
-  color: #fff;
-  box-shadow: 0 4px 16px rgba(232,112,154,0.30);
-}
-
+.nav-tab.active { background: linear-gradient(135deg, var(--pink-deep), var(--lavender)); color: #fff; box-shadow: 0 4px 16px rgba(232,112,154,0.30); }
 .nav-actions { display: flex; align-items: center; gap: 10px; }
-.nav-avatar {
-  width: 38px; height: 38px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--pink), var(--lavender));
+.nav-avatar { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--pink), var(--lavender)); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; box-shadow: 0 4px 12px rgba(180,100,140,0.20); cursor: pointer; border: 2px solid var(--white); }
+
+/* Theme toggle */
+.theme-toggle-btn {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1.5px solid var(--glass-border);
+  cursor: pointer;
   display: flex; align-items: center; justify-content: center;
   font-size: 1.1rem;
-  box-shadow: 0 4px 12px rgba(180,100,140,0.20);
-  cursor: pointer;
-  border: 2px solid #fff;
-}
-
-/* Mobile hamburger */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  padding: 6px;
-  background: none;
-  border: none;
-}
-.hamburger span {
-  width: 22px; height: 2.5px;
-  background: var(--text-mid);
-  border-radius: 4px;
   transition: var(--transition);
 }
+.theme-toggle-btn:hover { background: var(--pink-light); }
+
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; background: none; border: none; }
+.hamburger span { width: 22px; height: 2.5px; background: var(--text-mid); border-radius: 4px; transition: var(--transition); }
+
+.mobile-menu {
+  position: fixed;
+  top: 64px; left: 0; right: 0;
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  border-bottom: 1.5px solid var(--nav-border);
+  padding: 16px;
+  display: flex; flex-direction: column; gap: 8px;
+  z-index: 99;
+  transform: translateY(-110%);
+  transition: transform 0.3s ease;
+}
+.mobile-menu.open { transform: translateY(0); }
+.mobile-menu .nav-tab { width: 100%; justify-content: flex-start; border-radius: var(--radius-sm); }
 
 /* ============================================================
-   MAIN CONTENT LAYOUT
+   CONTENT LAYOUT
    ============================================================ */
-.content-wrap {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 32px 20px 80px;
-}
+.content-wrap { max-width: 1100px; margin: 0 auto; padding: 32px 20px 80px; }
 
-/* ============================================================
-   HOME / DASHBOARD
-   ============================================================ */
-.hero-section {
-  text-align: center;
-  padding: 32px 0 40px;
-  position: relative;
-}
-.hero-section::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 50%; transform: translateX(-50%);
-  width: 120px; height: 2px;
-  background: linear-gradient(90deg, transparent, var(--pink), transparent);
-}
-.hero-couple {
-  font-family: 'Dancing Script', cursive;
-  font-size: clamp(2rem, 6vw, 3.4rem);
-  color: var(--text-dark);
-  margin-bottom: 8px;
-  line-height: 1.2;
-}
+.hero-section { text-align: center; padding: 32px 0 40px; position: relative; }
+.hero-section::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 120px; height: 2px; background: linear-gradient(90deg, transparent, var(--pink), transparent); }
+.hero-couple { font-family: 'Dancing Script', cursive; font-size: clamp(2rem, 6vw, 3.4rem); color: var(--text-dark); margin-bottom: 8px; line-height: 1.2; }
 .hero-couple span { color: var(--pink-deep); }
-.hero-sub {
-  font-size: 0.95rem;
-  color: var(--text-soft);
-  font-style: italic;
-  margin-bottom: 24px;
-}
+.hero-sub { font-size: 0.95rem; color: var(--text-soft); font-style: italic; margin-bottom: 24px; }
+.fab-row { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-bottom: 36px; }
 
-.stats-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 16px;
-  margin: 32px 0;
-}
-.stat-card {
-  padding: 22px 16px;
-  text-align: center;
-}
-.stat-card .stat-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.2rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--pink-deep), var(--lavender));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1;
-  margin-bottom: 4px;
-}
-.stat-card .stat-label {
-  font-size: 0.78rem;
-  color: var(--text-soft);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 700;
-}
+.stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin: 32px 0; }
+.stat-card { padding: 22px 16px; text-align: center; }
+.stat-card .stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; background: linear-gradient(135deg, var(--pink-deep), var(--lavender)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; margin-bottom: 4px; }
+.stat-card .stat-label { font-size: 0.78rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
 
-.anniversary-banner {
-  padding: 28px 32px;
-  margin-bottom: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  background: linear-gradient(135deg, rgba(249,168,201,0.25), rgba(201,184,240,0.25));
-  flex-wrap: wrap;
-}
-.anniversary-banner .ann-left { flex: 1; min-width: 180px; }
-.anniversary-banner .ann-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem;
-  color: var(--text-dark);
-  margin-bottom: 6px;
-}
-.anniversary-banner .ann-date {
-  font-size: 0.85rem;
-  color: var(--text-soft);
-  margin-bottom: 14px;
-}
-.ann-timer {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-.ann-unit {
-  text-align: center;
-  min-width: 60px;
-}
-.ann-unit .num {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--pink-deep);
-  line-height: 1;
-  display: block;
-}
-.ann-unit .lbl {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--text-soft);
-  font-weight: 700;
-}
-
-/* Quick action FAB */
-.fab-row {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 36px;
-}
+.anniversary-banner { padding: 28px 32px; margin-bottom: 32px; display: flex; align-items: center; justify-content: space-between; gap: 20px; background: linear-gradient(135deg, rgba(249,168,201,0.15), rgba(201,184,240,0.15)); flex-wrap: wrap; }
+.ann-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--text-dark); margin-bottom: 6px; }
+.ann-date  { font-size: 0.85rem; color: var(--text-soft); margin-bottom: 14px; }
+.ann-timer { display: flex; gap: 16px; flex-wrap: wrap; }
+.ann-unit  { text-align: center; min-width: 60px; }
+.ann-unit .num { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--pink-deep); line-height: 1; display: block; }
+.ann-unit .lbl { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-soft); font-weight: 700; }
 
 /* ============================================================
-   CAPSULES SECTION
+   CAPSULE CARDS
    ============================================================ */
-.section-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  color: var(--text-dark);
-}
+.section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 14px; }
+.section-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--text-dark); }
 .section-title span { color: var(--pink-deep); }
 
-.filter-tabs {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-.filter-tab {
-  padding: 7px 16px;
-  border: 2px solid rgba(249,168,201,0.35);
-  border-radius: 50px;
-  background: rgba(255,255,255,0.6);
-  color: var(--text-soft);
-  font-size: 0.82rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: var(--transition);
-}
+.filter-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+.filter-tab { padding: 7px 16px; border: 2px solid var(--input-border); border-radius: 50px; background: var(--glass-bg); color: var(--text-soft); font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: var(--transition); }
 .filter-tab:hover  { border-color: var(--pink); color: var(--pink-deep); }
 .filter-tab.active { background: linear-gradient(135deg,var(--pink-deep),var(--lavender)); border-color: transparent; color:#fff; }
 
-/* Capsules grid */
-.capsules-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 22px;
-}
+.capsules-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px; }
 
-/* Capsule card */
-.capsule-card {
-  border-radius: var(--radius);
-  overflow: hidden;
-  transition: var(--transition);
-  animation: fadeInUp 0.5s ease both;
-  position: relative;
-}
+.capsule-card { border-radius: var(--radius); overflow: hidden; transition: var(--transition); animation: fadeInUp 0.5s ease both; position: relative; }
 .capsule-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
 
-.capsule-card .card-header {
-  padding: 20px 22px 14px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
-  border-bottom: 1.5px solid rgba(249,168,201,0.20);
-}
-.capsule-card .card-icon {
-  width: 46px; height: 46px; min-width: 46px;
-  border-radius: 14px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.4rem;
-  box-shadow: 0 4px 12px rgba(180,100,140,0.15);
-}
-.card-icon.locked   { background: linear-gradient(135deg,#f9a8c9,#c9b8f0); }
-.card-icon.unlocked { background: linear-gradient(135deg,#aee8d8,#6bcfb4); }
-
+.capsule-card .card-header { padding: 20px 22px 14px; display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; border-bottom: 1.5px solid var(--glass-border); }
+.capsule-card .card-icon { width: 46px; height: 46px; min-width: 46px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+.card-icon.locked   { background: linear-gradient(135deg,var(--pink),var(--lavender)); }
+.card-icon.unlocked { background: linear-gradient(135deg,var(--mint),#6bcfb4); }
+.card-icon.soon     { background: linear-gradient(135deg,var(--gold),#e8a020); }
 .card-meta { flex: 1; }
-.capsule-card .card-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--text-dark);
-  margin-bottom: 4px;
-  word-break: break-word;
-}
-.card-by {
-  font-size: 0.75rem;
-  color: var(--text-soft);
-}
+.capsule-card .card-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; color: var(--text-dark); margin-bottom: 4px; word-break: break-word; cursor: pointer; }
+.capsule-card .card-title:hover { color: var(--pink-deep); }
+.card-by { font-size: 0.75rem; color: var(--text-soft); }
 .card-by span { font-weight: 700; color: var(--pink-deep); }
-
 .card-actions { display: flex; gap: 6px; }
 
-.capsule-card .card-body {
-  padding: 16px 22px;
-}
-.capsule-card .card-preview {
-  font-size: 0.88rem;
-  color: var(--text-mid);
-  line-height: 1.7;
-  margin-bottom: 14px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
+.capsule-card .card-body { padding: 16px 22px; }
+.capsule-card .card-preview { font-size: 0.88rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 14px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .card-preview.blurred { filter: blur(5px); user-select: none; }
 
-.capsule-card .card-footer {
-  padding: 14px 22px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  flex-wrap: wrap;
-}
+.capsule-card .card-footer { padding: 14px 22px 20px; display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
 
-.status-badge {
-  padding: 5px 14px;
-  border-radius: 50px;
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
+.status-badge { padding: 5px 14px; border-radius: 50px; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
 .status-badge.locked   { background: var(--pink-light); color: var(--pink-deep); }
-.status-badge.unlocked { background: #e6f9f4; color: #2da67c; }
-.status-badge.soon     { background: #fff3e0; color: #e67e22; }
+.status-badge.unlocked { background: rgba(46,213,115,0.15); color: var(--mint); }
+.status-badge.soon     { background: rgba(244,200,130,0.2); color: var(--gold); }
 
-.countdown-text {
-  font-family: 'Playfair Display', serif;
-  font-size: 0.95rem;
-  color: var(--text-mid);
-  font-style: italic;
-}
-.countdown-text.done { color: #2da67c; font-weight: 700; }
+.countdown-text { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: var(--text-mid); font-style: italic; }
+.countdown-text.done { color: var(--mint); font-weight: 700; }
 
-/* Photo in capsule */
-.card-photo {
-  width: 100%;
-  max-height: 180px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 14px;
-}
+.card-photo { width: 100%; max-height: 180px; object-fit: cover; border-radius: 10px; margin-bottom: 14px; }
 
-/* Empty state */
-.empty-state {
-  grid-column: 1/-1;
-  text-align: center;
-  padding: 60px 20px;
-}
-.empty-icon { font-size: 4rem; margin-bottom: 16px; opacity: 0.6; }
-.empty-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
-  color: var(--text-mid);
-  margin-bottom: 8px;
-}
-.empty-sub { font-size: 0.9rem; color: var(--text-soft); margin-bottom: 24px; }
+.empty-state { grid-column: 1/-1; text-align: center; padding: 60px 20px; }
+.empty-icon  { font-size: 4rem; margin-bottom: 16px; opacity: 0.6; }
+.empty-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--text-mid); margin-bottom: 8px; }
+.empty-sub   { font-size: 0.9rem; color: var(--text-soft); margin-bottom: 24px; }
 
 /* ============================================================
-   DIARY SECTION
+   DIARY
    ============================================================ */
-.diary-layout {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 24px;
-  min-height: 600px;
-}
-
-.diary-sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.diary-person-card {
-  padding: 22px 18px;
-  cursor: pointer;
-  transition: var(--transition);
-  border: 2px solid transparent;
-  position: relative;
-  overflow: hidden;
-}
-.diary-person-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(249,168,201,0.12), rgba(201,184,240,0.12));
-  opacity: 0;
-  transition: var(--transition);
-}
+.diary-layout { display: grid; grid-template-columns: 280px 1fr; gap: 24px; min-height: 600px; }
+.diary-sidebar { display: flex; flex-direction: column; gap: 16px; }
+.diary-person-card { padding: 22px 18px; cursor: pointer; transition: var(--transition); border: 2px solid transparent; position: relative; overflow: hidden; }
+.diary-person-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(249,168,201,0.08), rgba(201,184,240,0.08)); opacity: 0; transition: var(--transition); }
 .diary-person-card:hover::before { opacity: 1; }
-.diary-person-card.selected {
-  border-color: var(--pink);
-  box-shadow: 0 6px 24px rgba(232,112,154,0.18);
-}
+.diary-person-card.selected { border-color: var(--pink); box-shadow: 0 6px 24px rgba(232,112,154,0.18); }
 .diary-person-card.selected::before { opacity: 1; }
+.diary-person-avatar { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 10px; position: relative; z-index: 1; box-shadow: 0 4px 14px rgba(0,0,0,0.12); }
+.diary-person-name  { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; color: var(--text-dark); position: relative; z-index: 1; margin-bottom: 2px; }
+.diary-person-count { font-size: 0.78rem; color: var(--text-soft); position: relative; z-index: 1; }
 
-.diary-person-avatar {
-  width: 52px; height: 52px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.6rem;
-  margin-bottom: 10px;
-  position: relative;
-  z-index: 1;
-  box-shadow: 0 4px 14px rgba(180,100,140,0.18);
-}
-.diary-person-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--text-dark);
-  position: relative; z-index: 1;
-  margin-bottom: 2px;
-}
-.diary-person-count {
-  font-size: 0.78rem;
-  color: var(--text-soft);
-  position: relative; z-index: 1;
-}
-
-.diary-entry-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-height: 320px;
-  overflow-y: auto;
-  padding-right: 4px;
-}
-.diary-entry-item {
-  padding: 12px 15px;
-  border-radius: var(--radius-sm);
-  background: rgba(255,255,255,0.6);
-  border: 1.5px solid rgba(249,168,201,0.20);
-  cursor: pointer;
-  transition: var(--transition);
-}
+.diary-entry-list { display: flex; flex-direction: column; gap: 10px; max-height: 320px; overflow-y: auto; padding-right: 4px; }
+.diary-entry-item { padding: 12px 15px; border-radius: var(--radius-sm); background: var(--glass-bg); border: 1.5px solid var(--glass-border); cursor: pointer; transition: var(--transition); }
 .diary-entry-item:hover  { border-color: var(--pink); }
 .diary-entry-item.active { border-color: var(--pink-deep); background: var(--pink-light); }
 .dei-title { font-weight: 700; font-size: 0.9rem; color: var(--text-dark); margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .dei-date  { font-size: 0.73rem; color: var(--text-soft); }
 
-.diary-main {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.diary-editor {
-  padding: 28px;
-}
-.diary-entry-view {
-  padding: 28px;
-}
-.diary-entry-content {
-  font-family: 'Lato', sans-serif;
-  font-size: 1rem;
-  line-height: 1.9;
-  color: var(--text-mid);
-  white-space: pre-wrap;
-  word-break: break-word;
-}
-.diary-meta-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.diary-meta-bar .dm-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
-  color: var(--text-dark);
-}
-.diary-meta-bar .dm-date {
-  font-size: 0.82rem;
-  color: var(--text-soft);
-  font-style: italic;
-}
+.diary-main { display: flex; flex-direction: column; gap: 20px; }
+.diary-editor, .diary-entry-view { padding: 28px; }
+.diary-entry-content { font-size: 1rem; line-height: 1.9; color: var(--text-mid); white-space: pre-wrap; word-break: break-word; }
+.diary-meta-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
+.diary-meta-bar .dm-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--text-dark); }
+.diary-meta-bar .dm-date  { font-size: 0.82rem; color: var(--text-soft); font-style: italic; }
 
-/* Diary lock */
-.diary-lock-overlay {
-  text-align: center;
-  padding: 60px 30px;
-}
-.diary-lock-overlay .dl-icon { font-size: 3.5rem; margin-bottom: 16px; }
-.diary-lock-overlay .dl-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
-  color: var(--text-dark);
-  margin-bottom: 8px;
-}
-.diary-lock-overlay .dl-sub { font-size: 0.9rem; color: var(--text-soft); margin-bottom: 24px; }
+.diary-lock-overlay { text-align: center; padding: 60px 30px; }
+.diary-lock-overlay .dl-icon  { font-size: 3.5rem; margin-bottom: 16px; }
+.diary-lock-overlay .dl-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--text-dark); margin-bottom: 8px; }
+.diary-lock-overlay .dl-sub   { font-size: 0.9rem; color: var(--text-soft); margin-bottom: 24px; }
 .diary-pin-input { display: flex; gap: 10px; justify-content: center; margin-bottom: 14px; }
-.diary-pin-input input {
-  width: 50px; height: 50px;
-  text-align: center;
-  font-size: 1.4rem;
-  font-weight: 700;
-  border: 2px solid var(--pink-light);
-  border-radius: 12px;
-  background: rgba(255,255,255,0.8);
-  outline: none;
-  transition: var(--transition);
-}
+.diary-pin-input input { width: 50px; height: 50px; text-align: center; font-size: 1.4rem; font-weight: 700; border: 2px solid var(--input-border); border-radius: 12px; background: var(--input-bg); color: var(--text-dark); outline: none; transition: var(--transition); }
 .diary-pin-input input:focus { border-color: var(--pink-deep); box-shadow: 0 0 0 3px rgba(232,112,154,0.15); }
 
 /* ============================================================
-   SETTINGS SECTION
+   SETTINGS
    ============================================================ */
-.settings-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 24px;
-}
+.settings-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
 .settings-card { padding: 28px; }
-.settings-card-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
-  color: var(--text-dark);
-  margin-bottom: 20px;
-  padding-bottom: 12px;
-  border-bottom: 1.5px solid rgba(249,168,201,0.25);
-  display: flex; align-items: center; gap: 8px;
-}
+.settings-card-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--text-dark); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1.5px solid var(--glass-border); display: flex; align-items: center; gap: 8px; }
 .color-emoji { font-size: 1.1rem; }
 
-.music-player {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  align-items: center;
-}
-.music-controls {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
+.toggle-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--glass-border); }
+.toggle-row:last-child { border-bottom: none; }
+.toggle-label { font-size: 0.9rem; color: var(--text-mid); }
+.toggle-switch { width: 44px; height: 24px; background: var(--input-border); border-radius: 50px; position: relative; cursor: pointer; transition: var(--transition); border: none; }
+.toggle-switch::after { content: ''; position: absolute; width: 18px; height: 18px; background: #fff; border-radius: 50%; top: 3px; left: 3px; transition: var(--transition); box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
+.toggle-switch.on { background: linear-gradient(135deg, var(--pink-deep), var(--lavender)); }
+.toggle-switch.on::after { left: 23px; }
 
 /* ============================================================
    MODAL
    ============================================================ */
-.modal-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(60,20,60,0.35);
-  backdrop-filter: blur(6px);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  animation: fadeIn 0.25s ease;
-}
+.modal-backdrop { position: fixed; inset: 0; background: var(--modal-bg); backdrop-filter: blur(6px); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 16px; animation: fadeIn 0.25s ease; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-.modal-box {
-  width: 100%;
-  max-width: 580px;
-  max-height: 90vh;
-  overflow-y: auto;
-  animation: fadeInUp 0.3s ease;
-  padding: 36px 32px;
-}
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.modal-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 28px;
-}
-.modal-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
-  color: var(--text-dark);
-}
-.modal-close {
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  border: none;
-  background: var(--pink-light);
-  color: var(--text-mid);
-  cursor: pointer;
-  font-size: 1.1rem;
-  display: flex; align-items: center; justify-content: center;
-  transition: var(--transition);
-}
+.modal-box { width: 100%; max-width: 580px; max-height: 90vh; overflow-y: auto; animation: fadeInUp 0.3s ease; padding: 36px 32px; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
+.modal-title  { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--text-dark); }
+.modal-close  { width: 36px; height: 36px; border-radius: 50%; border: none; background: var(--pink-light); color: var(--text-mid); cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; transition: var(--transition); }
 .modal-close:hover { background: var(--pink); color: #fff; }
-
-.modal-form { display: flex; flex-direction: column; gap: 20px; }
+.modal-form   { display: flex; flex-direction: column; gap: 20px; }
 .modal-actions { display: flex; gap: 12px; justify-content: flex-end; flex-wrap: wrap; }
 
-/* Image preview */
-.img-preview-wrap {
-  position: relative;
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-}
-.img-preview {
-  width: 100%;
-  max-height: 200px;
-  object-fit: cover;
-  border-radius: var(--radius-sm);
-}
-.img-preview-rm {
-  position: absolute;
-  top: 8px; right: 8px;
-  background: rgba(0,0,0,0.5);
-  border: none;
-  border-radius: 50%;
-  width: 28px; height: 28px;
-  color: #fff;
-  cursor: pointer;
-  font-size: 0.85rem;
-  display: flex; align-items: center; justify-content: center;
-}
+.img-preview-wrap { position: relative; border-radius: var(--radius-sm); overflow: hidden; }
+.img-preview { width: 100%; max-height: 200px; object-fit: cover; border-radius: var(--radius-sm); }
+.img-preview-rm { position: absolute; top: 8px; right: 8px; background: rgba(0,0,0,0.5); border: none; border-radius: 50%; width: 28px; height: 28px; color: #fff; cursor: pointer; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; }
 
-/* Upload area */
-.upload-area {
-  border: 2.5px dashed rgba(249,168,201,0.5);
-  border-radius: var(--radius-sm);
-  padding: 24px;
-  text-align: center;
-  cursor: pointer;
-  transition: var(--transition);
-  background: rgba(255,255,255,0.4);
-}
+.upload-area { border: 2.5px dashed var(--input-border); border-radius: var(--radius-sm); padding: 24px; text-align: center; cursor: pointer; transition: var(--transition); background: var(--upload-bg); }
 .upload-area:hover { border-color: var(--pink-deep); background: var(--pink-light); }
 .upload-area .ua-icon { font-size: 2rem; margin-bottom: 8px; }
 .upload-area p { font-size: 0.85rem; color: var(--text-soft); }
 
+/* Emergency PIN area inside view modal */
+.emergency-pin-area { margin-top: 16px; padding: 16px; border-radius: var(--radius-sm); background: rgba(244,114,182,0.07); border: 1.5px dashed var(--glass-border); }
+.emergency-pin-area label { font-size: 0.78rem; color: var(--text-soft); display: block; margin-bottom: 8px; font-style: italic; }
+.emergency-row { display: flex; gap: 8px; }
+.emergency-row input { flex: 1; padding: 10px 14px; border: 2px solid var(--input-border); border-radius: var(--radius-sm); background: var(--input-bg); color: var(--text-dark); font-size: 0.9rem; outline: none; transition: var(--transition); }
+.emergency-row input:focus { border-color: var(--pink-deep); }
+
 /* ============================================================
-   NOTIFICATION TOAST
+   TOAST
    ============================================================ */
-#toast-container {
-  position: fixed;
-  bottom: 28px; right: 20px;
-  z-index: 99999;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: calc(100vw - 40px);
-}
-.toast {
-  padding: 14px 22px;
-  border-radius: var(--radius-sm);
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(12px);
-  border: 1.5px solid rgba(249,168,201,0.35);
-  box-shadow: var(--shadow);
-  font-size: 0.9rem;
-  color: var(--text-dark);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  animation: toastIn 0.3s ease both;
-  max-width: 360px;
-}
-@keyframes toastIn {
-  from { opacity: 0; transform: translateY(16px) scale(0.96); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
-}
+#toast-container { position: fixed; bottom: 28px; right: 20px; z-index: 99999; display: flex; flex-direction: column; gap: 10px; max-width: calc(100vw - 40px); }
+.toast { padding: 14px 22px; border-radius: var(--radius-sm); background: var(--glass-bg); backdrop-filter: blur(12px); border: 1.5px solid var(--glass-border); box-shadow: var(--shadow); font-size: 0.9rem; color: var(--text-dark); display: flex; align-items: center; gap: 10px; animation: toastIn 0.3s ease both; max-width: 360px; }
+@keyframes toastIn { from { opacity: 0; transform: translateY(16px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
 .toast-icon { font-size: 1.2rem; }
 .toast.success { border-color: rgba(46,213,115,0.4); }
 .toast.error   { border-color: rgba(240,128,128,0.4); }
-.toast.info    { border-color: rgba(201,184,240,0.5); }
+.toast.info    { border-color: var(--glass-border); }
+
+/* ============================================================
+   SYNC INDICATOR
+   ============================================================ */
+.sync-indicator { position: fixed; top: 70px; right: 16px; z-index: 200; font-size: 0.72rem; color: var(--text-soft); display: flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 50px; background: var(--glass-bg); border: 1px solid var(--glass-border); }
+.sync-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--mint); animation: syncPulse 2s ease-in-out infinite; }
+.sync-dot.syncing { background: var(--gold); animation: spin 0.8s linear infinite; width: 8px; height: 8px; border: 2px solid var(--gold); border-top-color: transparent; border-radius: 50%; }
+.sync-dot.error   { background: var(--danger); animation: none; }
+@keyframes syncPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+@keyframes spin { to { transform: rotate(360deg); } }
 
 /* ============================================================
    PHOTO EXPAND
    ============================================================ */
-.photo-expand-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  z-index: 20000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  animation: fadeIn 0.2s ease;
-}
-.photo-expand-backdrop img {
-  max-width: 90vw;
-  max-height: 88vh;
-  border-radius: var(--radius);
-  object-fit: contain;
-  box-shadow: 0 24px 80px rgba(0,0,0,0.5);
-}
+.photo-expand-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.90); z-index: 20000; display: flex; align-items: center; justify-content: center; cursor: pointer; animation: fadeIn 0.2s ease; }
+.photo-expand-backdrop img { max-width: 90vw; max-height: 88vh; border-radius: var(--radius); object-fit: contain; box-shadow: 0 24px 80px rgba(0,0,0,0.5); }
 
 /* ============================================================
-   MUSIC PROGRESS BAR
+   MUSIC
    ============================================================ */
-.music-progress {
-  width: 100%;
-  height: 5px;
-  background: rgba(249,168,201,0.25);
-  border-radius: 10px;
-  overflow: hidden;
-}
-.music-progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--pink-deep), var(--lavender));
-  border-radius: 10px;
-  transition: width 1s linear;
-  width: 0%;
-}
+.music-progress { width: 100%; height: 5px; background: var(--input-border); border-radius: 10px; overflow: hidden; }
+.music-progress-fill { height: 100%; background: linear-gradient(90deg, var(--pink-deep), var(--lavender)); border-radius: 10px; transition: width 1s linear; width: 0%; }
+.music-controls { display: flex; gap: 10px; align-items: center; }
+
+/* ============================================================
+   BURST ANIMATION
+   ============================================================ */
+.capsule-open-animation { position: fixed; inset: 0; z-index: 5000; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+.capsule-open-burst { font-size: 5rem; animation: burstAnim 1.2s ease forwards; }
+@keyframes burstAnim { 0% { transform: scale(0) rotate(-20deg); opacity: 0; } 40% { transform: scale(1.3) rotate(10deg); opacity: 1; } 70% { transform: scale(0.9) rotate(-5deg); opacity: 1; } 100% { transform: scale(1.5) rotate(0); opacity: 0; } }
 
 /* ============================================================
    RESPONSIVE
@@ -1047,131 +584,70 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
 @media (max-width: 768px) {
   .nav-tabs { display: none; }
   .hamburger { display: flex; }
-  .mobile-menu {
-    position: fixed;
-    top: 64px; left: 0; right: 0;
-    background: rgba(255,248,249,0.97);
-    backdrop-filter: blur(20px);
-    border-bottom: 1.5px solid rgba(249,168,201,0.25);
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    z-index: 99;
-    transform: translateY(-110%);
-    transition: transform 0.3s ease;
-  }
-  .mobile-menu.open { transform: translateY(0); }
-  .mobile-menu .nav-tab { width: 100%; justify-content: flex-start; border-radius: var(--radius-sm); }
-  
   .diary-layout { grid-template-columns: 1fr; }
   .diary-sidebar { flex-direction: row; overflow-x: auto; }
   .diary-person-card { min-width: 160px; }
   .diary-entry-list { display: none; }
-  
   .lock-card { padding: 36px 24px; }
   .modal-box { padding: 24px 20px; }
-  
   .content-wrap { padding: 20px 14px 60px; }
-  
   .anniversary-banner { flex-direction: column; }
 }
-
 @media (max-width: 480px) {
   .capsules-grid { grid-template-columns: 1fr; }
   .settings-grid { grid-template-columns: 1fr; }
   .stats-row { grid-template-columns: repeat(2, 1fr); }
   .pin-keypad { max-width: 220px; }
-  .pin-key { font-size: 1.2rem; }
 }
 
-/* Loading spinner */
-.spinner {
-  width: 28px; height: 28px;
-  border: 3px solid rgba(249,168,201,0.3);
-  border-top-color: var(--pink-deep);
-  border-radius: 50%;
-  animation: spin 0.7s linear infinite;
-  margin: 0 auto;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-
-/* Stagger animation for cards */
+.spinner { width: 28px; height: 28px; border: 3px solid var(--input-border); border-top-color: var(--pink-deep); border-radius: 50%; animation: spin 0.7s linear infinite; margin: 0 auto; }
 .capsule-card:nth-child(1) { animation-delay: 0.05s; }
 .capsule-card:nth-child(2) { animation-delay: 0.10s; }
 .capsule-card:nth-child(3) { animation-delay: 0.15s; }
 .capsule-card:nth-child(4) { animation-delay: 0.20s; }
-.capsule-card:nth-child(5) { animation-delay: 0.25s; }
-.capsule-card:nth-child(6) { animation-delay: 0.30s; }
-
-/* Toggle switch */
-.toggle-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(249,168,201,0.15);
-}
-.toggle-row:last-child { border-bottom: none; }
-.toggle-label { font-size: 0.9rem; color: var(--text-mid); }
-.toggle-switch {
-  width: 44px; height: 24px;
-  background: rgba(249,168,201,0.3);
-  border-radius: 50px;
-  position: relative;
-  cursor: pointer;
-  transition: var(--transition);
-  border: none;
-}
-.toggle-switch::after {
-  content: '';
-  position: absolute;
-  width: 18px; height: 18px;
-  background: #fff;
-  border-radius: 50%;
-  top: 3px; left: 3px;
-  transition: var(--transition);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-}
-.toggle-switch.on { background: linear-gradient(135deg, var(--pink-deep), var(--lavender)); }
-.toggle-switch.on::after { left: 23px; }
-
-/* ============================================================
-   OPEN CAPSULE ANIMATION
-   ============================================================ */
-.capsule-open-animation {
-  position: fixed;
-  inset: 0;
-  z-index: 5000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-}
-.capsule-open-burst {
-  font-size: 5rem;
-  animation: burstAnim 1.2s ease forwards;
-}
-@keyframes burstAnim {
-  0%   { transform: scale(0) rotate(-20deg); opacity: 0; }
-  40%  { transform: scale(1.3) rotate(10deg); opacity: 1; }
-  70%  { transform: scale(0.9) rotate(-5deg); opacity: 1; }
-  100% { transform: scale(1.5) rotate(0); opacity: 0; }
-}
 </style>
 </head>
 <body>
 
-<!-- Floating hearts canvas -->
 <canvas id="hearts-canvas"></canvas>
-
-<!-- Toast container -->
 <div id="toast-container"></div>
+<div class="sync-indicator" id="sync-indicator">
+  <div class="sync-dot" id="sync-dot"></div>
+  <span id="sync-text">Synced</span>
+</div>
+
+<!-- ============================================================
+     GITHUB SETUP SCREEN
+     ============================================================ -->
+<div id="setup-screen">
+  <div class="glass setup-card">
+    <span class="setup-logo">💝</span>
+    <h1 class="setup-title">Connect Your Capsule</h1>
+    <p class="setup-sub">To sync between you and your partner in real-time, we need your GitHub repository details. This only needs to be done once.</p>
+    <div class="setup-steps">
+      <div>
+        <div class="setup-step-label">GitHub Username</div>
+        <input class="input-field" id="gh-username" placeholder="e.g. yourusername">
+      </div>
+      <div>
+        <div class="setup-step-label">Repository Name</div>
+        <input class="input-field" id="gh-repo" placeholder="e.g. our-time-capsule">
+      </div>
+      <div>
+        <div class="setup-step-label">GitHub Personal Access Token <a href="https://github.com/settings/tokens/new?scopes=repo&description=TimeCapsule" target="_blank" style="color:var(--pink-deep);font-size:0.75rem;">(create one here →)</a></div>
+        <input class="input-field" type="password" id="gh-token" placeholder="ghp_...">
+        <p style="font-size:0.72rem;color:var(--text-soft);margin-top:4px;">Token needs repo scope. It's saved only in your browser.</p>
+      </div>
+    </div>
+    <button class="btn btn-primary" onclick="connectGitHub()" style="width:100%;">💌 Connect & Start</button>
+    <p style="font-size:0.7rem;color:var(--text-soft);margin-top:12px;">Your token is stored locally only. It's never shared.</p>
+  </div>
+</div>
 
 <!-- ============================================================
      LOCK SCREEN
      ============================================================ -->
-<div id="lock-screen">
+<div id="lock-screen" class="hidden">
   <div class="glass lock-card">
     <span class="lock-logo">💝</span>
     <h1 class="lock-title" id="lock-title">Our Time Capsule</h1>
@@ -1184,7 +660,7 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
       <div class="pin-dot" id="dot-3"></div>
     </div>
     <div class="pin-error" id="pin-error"></div>
-    <div class="pin-keypad" id="pin-keypad">
+    <div class="pin-keypad">
       <button class="pin-key" onclick="keyPress('1')">1</button>
       <button class="pin-key" onclick="keyPress('2')">2</button>
       <button class="pin-key" onclick="keyPress('3')">3</button>
@@ -1198,7 +674,6 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
       <button class="pin-key" onclick="keyPress('0')">0</button>
       <button class="pin-key enter" onclick="keyEnter()">✓</button>
     </div>
-    <p style="font-size:0.75rem;color:var(--text-soft);margin-top:8px;" id="lock-hint-text"></p>
   </div>
 </div>
 
@@ -1206,27 +681,22 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
      MAIN APP
      ============================================================ -->
 <div id="app" class="page">
-
-  <!-- NAV -->
   <nav class="topnav">
-    <a href="#" class="nav-brand" onclick="return false">💌 <span id="nav-brand-text">Our Capsule</span></a>
-    
+    <div class="nav-brand">💌 <span id="nav-brand-text">Our Capsule</span></div>
     <div class="nav-tabs" id="nav-tabs">
       <button class="nav-tab active" onclick="showPage('home')" data-page="home">🏠 Home</button>
       <button class="nav-tab" onclick="showPage('capsules')" data-page="capsules">💌 Capsules</button>
       <button class="nav-tab" onclick="showPage('diary')" data-page="diary">📔 Diaries</button>
       <button class="nav-tab" onclick="showPage('settings')" data-page="settings">⚙️ Settings</button>
     </div>
-
     <div class="nav-actions">
+      <button class="theme-toggle-btn" id="theme-toggle-btn" onclick="toggleTheme()" title="Toggle dark/light mode">🌙</button>
       <div class="nav-avatar" onclick="showPage('settings')" title="Settings">⚙️</div>
       <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
-
-  <!-- Mobile menu -->
   <div class="mobile-menu" id="mobile-menu">
     <button class="nav-tab" onclick="showPage('home');closeMobileMenu()" data-page="home">🏠 Home</button>
     <button class="nav-tab" onclick="showPage('capsules');closeMobileMenu()" data-page="capsules">💌 Capsules</button>
@@ -1234,52 +704,30 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
     <button class="nav-tab" onclick="showPage('settings');closeMobileMenu()" data-page="settings">⚙️ Settings</button>
   </div>
 
-  <!-- =========================================================
-       HOME PAGE
-       ========================================================= -->
+  <!-- HOME -->
   <div id="page-home" class="content-wrap">
     <div class="hero-section">
-      <h1 class="hero-couple" id="hero-names">💕 <span id="hero-name1">Partner 1</span> & <span id="hero-name2">Partner 2</span> 💕</h1>
+      <h1 class="hero-couple">💕 <span id="hero-name1">Partner 1</span> & <span id="hero-name2">Partner 2</span> 💕</h1>
       <p class="hero-sub" id="hero-tagline">"Every moment with you is worth saving forever."</p>
       <div class="fab-row">
         <button class="btn btn-primary" onclick="openCapsuleModal()">💌 New Time Capsule</button>
         <button class="btn btn-ghost" onclick="showPage('diary')">📔 Write in Diary</button>
       </div>
     </div>
-
-    <!-- Stats -->
     <div class="stats-row">
-      <div class="stat-card glass">
-        <div class="stat-num" id="stat-total">0</div>
-        <div class="stat-label">Capsules Created</div>
-      </div>
-      <div class="stat-card glass">
-        <div class="stat-num" id="stat-locked">0</div>
-        <div class="stat-label">Still Locked 🔒</div>
-      </div>
-      <div class="stat-card glass">
-        <div class="stat-num" id="stat-unlocked">0</div>
-        <div class="stat-label">Unlocked 💌</div>
-      </div>
-      <div class="stat-card glass">
-        <div class="stat-num" id="stat-diary">0</div>
-        <div class="stat-label">Diary Entries</div>
-      </div>
+      <div class="stat-card glass"><div class="stat-num" id="stat-total">0</div><div class="stat-label">Capsules Created</div></div>
+      <div class="stat-card glass"><div class="stat-num" id="stat-locked">0</div><div class="stat-label">Still Locked 🔒</div></div>
+      <div class="stat-card glass"><div class="stat-num" id="stat-unlocked">0</div><div class="stat-label">Unlocked 💌</div></div>
+      <div class="stat-card glass"><div class="stat-num" id="stat-diary">0</div><div class="stat-label">Diary Entries</div></div>
     </div>
-
-    <!-- Anniversary banner -->
-    <div class="glass anniversary-banner" id="anniversary-banner">
-      <div class="ann-left">
-        <div class="ann-title font-display">💑 Our Anniversary</div>
+    <div class="glass anniversary-banner">
+      <div style="flex:1;min-width:180px;">
+        <div class="ann-title">💑 Our Anniversary</div>
         <div class="ann-date" id="ann-date-label">Set your anniversary date in Settings</div>
         <div class="ann-timer" id="ann-timer"></div>
       </div>
-      <div>
-        <button class="btn btn-ghost btn-sm" onclick="showPage('settings')">Set Date ✨</button>
-      </div>
+      <button class="btn btn-ghost btn-sm" onclick="showPage('settings')">Set Date ✨</button>
     </div>
-
-    <!-- Recent capsules preview -->
     <div class="section-header">
       <h2 class="section-title">Recent <span>Capsules</span></h2>
       <button class="btn btn-ghost btn-sm" onclick="showPage('capsules')">View All →</button>
@@ -1287,37 +735,29 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
     <div class="capsules-grid" id="home-capsules-grid"></div>
   </div>
 
-  <!-- =========================================================
-       CAPSULES PAGE
-       ========================================================= -->
+  <!-- CAPSULES -->
   <div id="page-capsules" class="content-wrap hidden">
     <div class="section-header">
       <h2 class="section-title">Our <span>Time Capsules</span></h2>
       <button class="btn btn-primary" onclick="openCapsuleModal()">💌 New Capsule</button>
     </div>
-    
     <div class="filter-tabs" style="margin-bottom:24px;">
-      <button class="filter-tab active" onclick="filterCapsules('all', this)">All</button>
-      <button class="filter-tab" onclick="filterCapsules('locked', this)">🔒 Locked</button>
-      <button class="filter-tab" onclick="filterCapsules('unlocked', this)">💌 Unlocked</button>
-      <button class="filter-tab" onclick="filterCapsules('soon', this)">⏰ Opening Soon</button>
+      <button class="filter-tab active" onclick="filterCapsules('all',this)">All</button>
+      <button class="filter-tab" onclick="filterCapsules('locked',this)">🔒 Locked</button>
+      <button class="filter-tab" onclick="filterCapsules('unlocked',this)">💌 Unlocked</button>
+      <button class="filter-tab" onclick="filterCapsules('soon',this)">⏰ Opening Soon</button>
     </div>
-
     <div class="capsules-grid" id="capsules-grid"></div>
   </div>
 
-  <!-- =========================================================
-       DIARY PAGE
-       ========================================================= -->
+  <!-- DIARY -->
   <div id="page-diary" class="content-wrap hidden">
     <div class="section-header">
       <h2 class="section-title">Our <span>Diaries</span></h2>
-      <button class="btn btn-primary" id="new-diary-btn" onclick="openDiaryEditor()">✏️ New Entry</button>
+      <button class="btn btn-primary" onclick="openDiaryEditor()">✏️ New Entry</button>
     </div>
-    <p style="font-size:0.85rem;color:var(--text-soft);margin-bottom:24px;font-style:italic;">Each diary is private and password-protected. Select a diary to unlock and write. 🔐</p>
-
+    <p style="font-size:0.85rem;color:var(--text-soft);margin-bottom:24px;font-style:italic;">Each diary is private and PIN-protected. 🔐</p>
     <div class="diary-layout">
-      <!-- Sidebar -->
       <div class="diary-sidebar">
         <div class="glass diary-person-card selected" id="diary-card-p1" onclick="selectDiary(0)">
           <div class="diary-person-avatar" id="diary-avatar-p1" style="background:linear-gradient(135deg,var(--pink),var(--lavender));">💗</div>
@@ -1329,18 +769,13 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
           <div class="diary-person-name" id="diary-name-p2">Partner 2</div>
           <div class="diary-person-count" id="diary-count-p2">0 entries</div>
         </div>
-
-        <!-- Entry list -->
         <div class="diary-entry-list" id="diary-entry-list"></div>
       </div>
-
-      <!-- Main diary area -->
       <div class="diary-main">
-        <!-- Lock overlay -->
         <div class="glass diary-lock-overlay" id="diary-lock-overlay">
           <div class="dl-icon">🔐</div>
           <div class="dl-title">Private Diary</div>
-          <div class="dl-sub" id="diary-lock-name">Enter the PIN to unlock your diary</div>
+          <div class="dl-sub" id="diary-lock-name">Enter PIN to unlock</div>
           <div class="diary-pin-input" id="diary-pin-inputs">
             <input type="password" maxlength="1" oninput="diaryPinMove(this,0)" onkeydown="diaryPinBack(event,0)">
             <input type="password" maxlength="1" oninput="diaryPinMove(this,1)" onkeydown="diaryPinBack(event,1)">
@@ -1350,8 +785,6 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
           <div style="color:var(--danger);font-size:0.82rem;min-height:20px;margin-bottom:10px;" id="diary-pin-error"></div>
           <button class="btn btn-primary" onclick="unlockDiary()">🔓 Unlock Diary</button>
         </div>
-
-        <!-- Entry view -->
         <div class="glass diary-entry-view hidden" id="diary-entry-view">
           <div class="diary-meta-bar">
             <div>
@@ -1361,13 +794,11 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
             <div style="display:flex;gap:8px;">
               <button class="btn btn-ghost btn-sm" onclick="editCurrentDiaryEntry()">✏️ Edit</button>
               <button class="btn btn-danger btn-sm" onclick="deleteCurrentDiaryEntry()">🗑</button>
-              <button class="btn btn-ghost btn-sm" onclick="closeDiaryEntry()">✕ Close</button>
+              <button class="btn btn-ghost btn-sm" onclick="closeDiaryEntry()">✕</button>
             </div>
           </div>
           <div class="diary-entry-content" id="diary-view-content"></div>
         </div>
-
-        <!-- Editor -->
         <div class="glass diary-editor hidden" id="diary-editor-panel">
           <div class="diary-meta-bar">
             <div class="dm-title" id="diary-editor-title-bar">New Entry</div>
@@ -1382,15 +813,13 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
               <label class="form-label">Your Thoughts ✨</label>
               <textarea class="input-field" id="diary-entry-body" placeholder="Write everything you feel..." style="min-height:200px;"></textarea>
             </div>
-            <div style="display:flex;gap:12px;justify-content:flex-end;flex-wrap:wrap;">
+            <div style="display:flex;gap:12px;justify-content:flex-end;">
               <button class="btn btn-ghost" onclick="closeDiaryEditor()">Cancel</button>
               <button class="btn btn-primary" onclick="saveDiaryEntry()">💾 Save Entry</button>
             </div>
           </div>
         </div>
-
-        <!-- Empty diary state -->
-        <div class="glass empty-state" id="diary-empty-state" style="grid-column:1/-1;">
+        <div class="glass empty-state hidden" id="diary-empty-state">
           <div class="empty-icon">📔</div>
           <div class="empty-title">No entries yet</div>
           <div class="empty-sub">Unlock your diary and start writing!</div>
@@ -1399,94 +828,69 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
     </div>
   </div>
 
-  <!-- =========================================================
-       SETTINGS PAGE
-       ========================================================= -->
+  <!-- SETTINGS -->
   <div id="page-settings" class="content-wrap hidden">
-    <div class="section-header">
-      <h2 class="section-title">⚙️ <span>Settings</span></h2>
-    </div>
-    
+    <div class="section-header"><h2 class="section-title">⚙️ <span>Settings</span></h2></div>
     <div class="settings-grid">
-      <!-- Couple info -->
       <div class="glass settings-card">
         <div class="settings-card-title"><span class="color-emoji">💑</span> Couple Info</div>
         <div style="display:flex;flex-direction:column;gap:16px;">
-          <div class="form-group">
-            <label class="form-label">Partner 1 Name 💗</label>
-            <input class="input-field" id="s-name1" placeholder="Your name">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Partner 1 Emoji</label>
-            <input class="input-field" id="s-emoji1" placeholder="💗" maxlength="4" style="font-size:1.5rem;text-align:center;">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Partner 2 Name 💙</label>
-            <input class="input-field" id="s-name2" placeholder="Their name">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Partner 2 Emoji</label>
-            <input class="input-field" id="s-emoji2" placeholder="💙" maxlength="4" style="font-size:1.5rem;text-align:center;">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Tagline 💬</label>
-            <input class="input-field" id="s-tagline" placeholder="A quote or saying that's yours">
-          </div>
+          <div class="form-group"><label class="form-label">Partner 1 Name 💗</label><input class="input-field" id="s-name1" placeholder="Your name"></div>
+          <div class="form-group"><label class="form-label">Partner 1 Emoji</label><input class="input-field" id="s-emoji1" placeholder="💗" maxlength="4" style="font-size:1.5rem;text-align:center;"></div>
+          <div class="form-group"><label class="form-label">Partner 2 Name 💙</label><input class="input-field" id="s-name2" placeholder="Their name"></div>
+          <div class="form-group"><label class="form-label">Partner 2 Emoji</label><input class="input-field" id="s-emoji2" placeholder="💙" maxlength="4" style="font-size:1.5rem;text-align:center;"></div>
+          <div class="form-group"><label class="form-label">Tagline 💬</label><input class="input-field" id="s-tagline" placeholder="A quote or saying that's yours"></div>
           <button class="btn btn-primary" onclick="saveSettings()">💾 Save Changes</button>
         </div>
       </div>
-
-      <!-- Anniversary -->
       <div class="glass settings-card">
         <div class="settings-card-title"><span class="color-emoji">💞</span> Anniversary</div>
         <div style="display:flex;flex-direction:column;gap:16px;">
-          <div class="form-group">
-            <label class="form-label">Anniversary Date</label>
-            <input class="input-field" type="date" id="s-anniversary">
-          </div>
+          <div class="form-group"><label class="form-label">Anniversary Date</label><input class="input-field" type="date" id="s-anniversary"></div>
           <button class="btn btn-primary" onclick="saveSettings()">💾 Save Anniversary</button>
         </div>
       </div>
-
-      <!-- Security -->
       <div class="glass settings-card">
         <div class="settings-card-title"><span class="color-emoji">🔐</span> Security</div>
         <div style="display:flex;flex-direction:column;gap:16px;">
-          <p style="font-size:0.85rem;color:var(--text-soft);">Change your main app PIN or individual diary PINs.</p>
-          <div class="form-group">
-            <label class="form-label">New App PIN (4 digits)</label>
-            <input class="input-field" type="password" maxlength="4" id="s-new-pin" placeholder="Enter new PIN" inputmode="numeric">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Confirm PIN</label>
-            <input class="input-field" type="password" maxlength="4" id="s-confirm-pin" placeholder="Confirm PIN" inputmode="numeric">
-          </div>
+          <p style="font-size:0.85rem;color:var(--text-soft);">Change your main app PIN or diary PINs.</p>
+          <div class="form-group"><label class="form-label">New App PIN (4 digits)</label><input class="input-field" type="password" maxlength="4" id="s-new-pin" placeholder="Enter new PIN" inputmode="numeric"></div>
+          <div class="form-group"><label class="form-label">Confirm PIN</label><input class="input-field" type="password" maxlength="4" id="s-confirm-pin" placeholder="Confirm PIN" inputmode="numeric"></div>
           <button class="btn btn-primary" onclick="changeAppPIN()">🔑 Update App PIN</button>
-          <hr style="border:none;border-top:1.5px dashed rgba(249,168,201,0.3);">
-          <div class="form-group">
-            <label class="form-label">Partner 1 Diary PIN (4 digits)</label>
-            <input class="input-field" type="password" maxlength="4" id="s-diary-pin1" placeholder="Set diary PIN" inputmode="numeric">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Partner 2 Diary PIN (4 digits)</label>
-            <input class="input-field" type="password" maxlength="4" id="s-diary-pin2" placeholder="Set diary PIN" inputmode="numeric">
-          </div>
+          <hr style="border:none;border-top:1.5px dashed var(--glass-border);">
+          <div class="form-group"><label class="form-label">Partner 1 Diary PIN</label><input class="input-field" type="password" maxlength="4" id="s-diary-pin1" placeholder="Set diary PIN" inputmode="numeric"></div>
+          <div class="form-group"><label class="form-label">Partner 2 Diary PIN</label><input class="input-field" type="password" maxlength="4" id="s-diary-pin2" placeholder="Set diary PIN" inputmode="numeric"></div>
           <button class="btn btn-gold" onclick="saveDiaryPINs()">💛 Save Diary PINs</button>
         </div>
       </div>
-
-      <!-- Music -->
+      <div class="glass settings-card">
+        <div class="settings-card-title"><span class="color-emoji">🎨</span> Appearance</div>
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <div class="toggle-row">
+            <span class="toggle-label">🌙 Dark Mode</span>
+            <button class="toggle-switch" id="toggle-darkmode" onclick="toggleTheme()"></button>
+          </div>
+          <div class="toggle-row">
+            <span class="toggle-label">Floating Hearts</span>
+            <button class="toggle-switch on" id="toggle-hearts" onclick="toggleSetting('hearts',this)"></button>
+          </div>
+          <div class="toggle-row">
+            <span class="toggle-label">Auto Lock on Idle (5 min)</span>
+            <button class="toggle-switch" id="toggle-autolock" onclick="toggleSetting('autolock',this)"></button>
+          </div>
+        </div>
+      </div>
       <div class="glass settings-card">
         <div class="settings-card-title"><span class="color-emoji">🎵</span> Background Music</div>
         <div style="display:flex;flex-direction:column;gap:16px;">
-          <p style="font-size:0.85rem;color:var(--text-soft);">Upload an MP3 from your device to play as background music.</p>
+          <p style="font-size:0.85rem;color:var(--text-soft);">Upload an MP3 to play as background music (stored locally).</p>
           <div class="upload-area" onclick="document.getElementById('music-file-input').click()">
             <div class="ua-icon">🎵</div>
             <p>Click to upload an MP3 file</p>
             <p style="font-size:0.75rem;margin-top:4px;" id="music-file-name">No file selected</p>
           </div>
           <input type="file" id="music-file-input" accept="audio/*" class="hidden" onchange="loadMusicFile(event)">
-          <div class="music-player">
+          <div style="display:flex;flex-direction:column;gap:10px;align-items:center;">
             <div class="music-progress"><div class="music-progress-fill" id="music-progress"></div></div>
             <div class="music-controls">
               <button class="btn btn-ghost btn-sm" onclick="playPauseMusic()" id="music-play-btn">▶ Play</button>
@@ -1494,49 +898,34 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
             </div>
             <div class="toggle-row" style="width:100%;">
               <span class="toggle-label">Auto-play on login</span>
-              <button class="toggle-switch" id="toggle-autoplay" onclick="toggleSetting('autoplay', this)"></button>
+              <button class="toggle-switch" id="toggle-autoplay" onclick="toggleSetting('autoplay',this)"></button>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- Appearance -->
       <div class="glass settings-card">
-        <div class="settings-card-title"><span class="color-emoji">🌸</span> Appearance</div>
-        <div style="display:flex;flex-direction:column;gap:4px;">
-          <div class="toggle-row">
-            <span class="toggle-label">Floating Hearts</span>
-            <button class="toggle-switch on" id="toggle-hearts" onclick="toggleSetting('hearts', this)"></button>
-          </div>
-          <div class="toggle-row">
-            <span class="toggle-label">Particle Effects</span>
-            <button class="toggle-switch on" id="toggle-particles" onclick="toggleSetting('particles', this)"></button>
-          </div>
-          <div class="toggle-row">
-            <span class="toggle-label">Auto Lock on Idle (5 min)</span>
-            <button class="toggle-switch" id="toggle-autolock" onclick="toggleSetting('autolock', this)"></button>
-          </div>
+        <div class="settings-card-title"><span class="color-emoji">⚙️</span> GitHub Config</div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <p style="font-size:0.85rem;color:var(--text-soft);">Update your GitHub connection.</p>
+          <div class="form-group"><label class="form-label">Username</label><input class="input-field" id="s-gh-username" placeholder="GitHub username"></div>
+          <div class="form-group"><label class="form-label">Repository</label><input class="input-field" id="s-gh-repo" placeholder="Repository name"></div>
+          <div class="form-group"><label class="form-label">Token</label><input class="input-field" type="password" id="s-gh-token" placeholder="ghp_..."></div>
+          <button class="btn btn-primary" onclick="updateGitHubConfig()">🔗 Update Connection</button>
         </div>
       </div>
-
-      <!-- Danger zone -->
       <div class="glass settings-card">
         <div class="settings-card-title"><span class="color-emoji">⚠️</span> Danger Zone</div>
         <div style="display:flex;flex-direction:column;gap:12px;">
-          <p style="font-size:0.85rem;color:var(--text-soft);">These actions are permanent and cannot be undone.</p>
+          <p style="font-size:0.85rem;color:var(--text-soft);">These actions are permanent.</p>
           <button class="btn btn-danger" onclick="confirmClearAll()">🗑 Clear All Data</button>
-          <button class="btn btn-ghost" onclick="exportData()">📥 Export Data (JSON)</button>
-          <button class="btn btn-ghost" onclick="importDataClick()">📤 Import Data</button>
-          <input type="file" id="import-file" accept=".json" class="hidden" onchange="importData(event)">
+          <button class="btn btn-ghost" onclick="disconnectGitHub()">🔌 Disconnect GitHub</button>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ============================================================
-     CAPSULE MODAL
-     ============================================================ -->
+<!-- CAPSULE MODAL -->
 <div class="modal-backdrop hidden" id="capsule-modal" onclick="closeCapsuleModalOnBg(event)">
   <div class="glass modal-box">
     <div class="modal-header">
@@ -1544,18 +933,9 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
       <button class="modal-close" onclick="closeCapsuleModal()">✕</button>
     </div>
     <div class="modal-form">
-      <div class="form-group">
-        <label class="form-label">Capsule Title ✨</label>
-        <input class="input-field" id="c-title" placeholder="e.g. Our First Year Together">
-      </div>
-      <div class="form-group">
-        <label class="form-label">From</label>
-        <select class="input-field" id="c-from"></select>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Your Love Note 💌</label>
-        <textarea class="input-field" id="c-message" placeholder="Write your heart out... What do you want your future self or partner to read?"></textarea>
-      </div>
+      <div class="form-group"><label class="form-label">Capsule Title ✨</label><input class="input-field" id="c-title" placeholder="e.g. Our First Year Together"></div>
+      <div class="form-group"><label class="form-label">From</label><select class="input-field" id="c-from"></select></div>
+      <div class="form-group"><label class="form-label">Your Love Note 💌</label><textarea class="input-field" id="c-message" placeholder="Write your heart out..."></textarea></div>
       <div class="form-group">
         <label class="form-label">📷 Add a Photo Memory</label>
         <div id="c-img-preview-wrap" class="hidden img-preview-wrap">
@@ -1568,10 +948,7 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
         </div>
         <input type="file" id="c-photo-input" accept="image/*" class="hidden" onchange="capPhotoSelected(event)">
       </div>
-      <div class="form-group">
-        <label class="form-label">🗓 Unlock Date</label>
-        <input class="input-field" type="date" id="c-unlock-date">
-      </div>
+      <div class="form-group"><label class="form-label">🗓 Unlock Date</label><input class="input-field" type="date" id="c-unlock-date"></div>
       <div class="modal-actions">
         <button class="btn btn-ghost" onclick="closeCapsuleModal()">Cancel</button>
         <button class="btn btn-primary" onclick="saveCapsule()">💾 Seal the Capsule</button>
@@ -1580,9 +957,7 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
   </div>
 </div>
 
-<!-- ============================================================
-     CAPSULE VIEW MODAL
-     ============================================================ -->
+<!-- CAPSULE VIEW MODAL -->
 <div class="modal-backdrop hidden" id="view-modal" onclick="closeViewModalOnBg(event)">
   <div class="glass modal-box">
     <div class="modal-header">
@@ -1597,394 +972,383 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
 
 <script>
 /* ============================================================
-   ENCRYPTION HELPERS (XOR + base64 — lightweight, no libs)
+   CONSTANTS & STATE
    ============================================================ */
-function xorEncrypt(text, key) {
-  let result = '';
-  for (let i = 0; i < text.length; i++) {
-    result += String.fromCharCode(text.charCodeAt(i) ^ key.charCodeAt(i % key.length));
-  }
-  return btoa(unescape(encodeURIComponent(result)));
+const LOCAL_GH_KEY  = 'tc_github_config';
+const LOCAL_SESS    = 'tc_session';
+const LOCAL_THEME   = 'tc_theme';
+const LOCAL_MUSIC   = 'tc_music';
+const LOCAL_PREFS   = 'tc_prefs'; // hearts, autolock, autoplay
+const EMERGENCY_PIN = '02518899320';
+
+let ghConfig = { username: '', repo: '', token: '' };
+let appData  = { settings: defaultSettings(), capsules: [] };
+let diaryData = { entries: { '0': [], '1': [] } };
+let sessionUnlocked = false;
+let diaryUnlocked = [false, false];
+let activeDiaryPerson = 0;
+let activeDiaryEntry  = null;
+let editingDiaryEntryId = null;
+let editingCapsuleId    = null;
+let capPhotoData        = null;
+let capsuleFilter       = 'all';
+let syncInterval        = null;
+let pinBuffer = '';
+let pinStep   = 0;
+let pinConfirmBuffer = '';
+let isSetup   = false;
+let localPrefs = { hearts: true, autolock: false, autoplay: false, darkMode: false };
+
+function defaultSettings() {
+  return {
+    name1:'Partner 1', name2:'Partner 2',
+    emoji1:'💗', emoji2:'💙',
+    tagline:'"Every moment with you is worth saving forever."',
+    anniversary:'',
+    pinHash: null,
+    diaryPin1Hash: null, diaryPin2Hash: null
+  };
 }
-function xorDecrypt(encoded, key) {
-  try {
-    const text = decodeURIComponent(escape(atob(encoded)));
-    let result = '';
-    for (let i = 0; i < text.length; i++) {
-      result += String.fromCharCode(text.charCodeAt(i) ^ key.charCodeAt(i % key.length));
-    }
-    return result;
-  } catch { return null; }
-}
+
+/* ============================================================
+   CRYPTO
+   ============================================================ */
 function hashPIN(pin) {
-  // Simple hash using charCode sums + salt
   let hash = 0;
-  const salted = 'lvc_' + pin + '_capsule';
-  for (let i = 0; i < salted.length; i++) {
-    hash = ((hash << 5) - hash) + salted.charCodeAt(i);
-    hash |= 0;
-  }
+  const s = 'lvc_' + pin + '_capsule';
+  for (let i = 0; i < s.length; i++) { hash = ((hash<<5)-hash)+s.charCodeAt(i); hash|=0; }
   return hash.toString(16);
 }
+function esc(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function uid()  { return Date.now().toString(36)+Math.random().toString(36).substr(2,6); }
 
 /* ============================================================
-   DATA STORAGE  (data.json simulated via localStorage)
-   diary entries go in diary.json simulated key
+   GITHUB API
    ============================================================ */
-const STORAGE_KEY  = 'tc_data';
-const DIARY_KEY    = 'tc_diary';
-const SETTINGS_KEY = 'tc_settings';
+const API = () => `https://api.github.com/repos/${ghConfig.username}/${ghConfig.repo}/contents`;
 
-let appState = {
-  pinHash:       null,   // main app pin hash
-  capsules:      [],
-  settings: {
-    name1:       'Partner 1',
-    name2:       'Partner 2',
-    emoji1:      '💗',
-    emoji2:      '💙',
-    tagline:     '"Every moment with you is worth saving forever."',
-    anniversary: '',
-    autoplay:    false,
-    hearts:      true,
-    particles:   true,
-    autolock:    false,
-    diaryPin1Hash: null,
-    diaryPin2Hash: null,
+async function ghGet(path) {
+  const url = `${API()}/${path}`;
+  const r   = await fetch(url, { headers: { Authorization: `token ${ghConfig.token}`, Accept: 'application/vnd.github.v3+json' } });
+  if (r.status === 404) return null;
+  if (!r.ok) throw new Error(`GitHub GET ${path}: ${r.status}`);
+  return r.json();
+}
+
+async function ghPut(path, content, sha) {
+  const url  = `${API()}/${path}`;
+  const body = { message: `update ${path}`, content: btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2)))) };
+  if (sha) body.sha = sha;
+  const r = await fetch(url, { method: 'PUT', headers: { Authorization: `token ${ghConfig.token}`, Accept: 'application/vnd.github.v3+json', 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  if (!r.ok) { const e = await r.json(); throw new Error(e.message || r.status); }
+  return r.json();
+}
+
+async function readJson(path) {
+  const data = await ghGet(path);
+  if (!data) return null;
+  try { return { content: JSON.parse(decodeURIComponent(escape(atob(data.content.replace(/\n/g,''))))) , sha: data.sha }; }
+  catch { return null; }
+}
+
+async function writeJson(path, content) {
+  setSyncState('syncing');
+  try {
+    const existing = await ghGet(path);
+    const sha      = existing ? existing.sha : undefined;
+    await ghPut(path, content, sha);
+    setSyncState('ok');
+  } catch(e) {
+    setSyncState('error');
+    toast('❌ Sync failed: ' + e.message, 'error');
+    throw e;
   }
-};
-
-let diaryState = {
-  entries: [[], []]  // entries[0]=partner1, entries[1]=partner2
-};
-
-// Derive encryption key from PIN (not stored)
-let SESSION_KEY = null;
-
-function loadData() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) appState = JSON.parse(raw);
-    if (!appState.settings) appState.settings = {};
-    ['name1','name2','emoji1','emoji2','tagline','anniversary',
-     'autoplay','hearts','particles','autolock','diaryPin1Hash','diaryPin2Hash']
-      .forEach(k => { if (appState.settings[k] === undefined) appState.settings[k] = {
-        name1:'Partner 1',name2:'Partner 2',emoji1:'💗',emoji2:'💙',
-        tagline:'"Every moment with you is worth saving forever."',
-        anniversary:'',autoplay:false,hearts:true,particles:true,autolock:false,
-        diaryPin1Hash:null,diaryPin2Hash:null
-      }[k]; });
-    if (!appState.capsules) appState.capsules = [];
-  } catch(e) { console.warn('loadData error',e); }
-}
-
-function saveData() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
-}
-
-function loadDiary(key) {
-  // Diary entries are encrypted with the diary PIN
-  try {
-    const raw = localStorage.getItem(DIARY_KEY + '_' + key);
-    if (!raw || !SESSION_KEY) return [];
-    const decrypted = xorDecrypt(raw, SESSION_KEY + '_diary_' + key);
-    return decrypted ? JSON.parse(decrypted) : [];
-  } catch { return []; }
-}
-
-function saveDiary(key, entries) {
-  if (!SESSION_KEY) return;
-  const json = JSON.stringify(entries);
-  const encrypted = xorEncrypt(json, SESSION_KEY + '_diary_' + key);
-  localStorage.setItem(DIARY_KEY + '_' + key, encrypted);
 }
 
 /* ============================================================
-   PIN / LOCK SCREEN
+   SYNC STATE INDICATOR
    ============================================================ */
-let pinBuffer = '';
-let pinStep   = 0; // 0=enter, 1=confirm(setup)
-let pinConfirmBuffer = '';
-let isSetup = false;
+function setSyncState(state) {
+  const dot  = document.getElementById('sync-dot');
+  const text = document.getElementById('sync-text');
+  dot.className = 'sync-dot' + (state==='syncing'?' syncing':state==='error'?' error':'');
+  text.textContent = state==='syncing'?'Syncing...':state==='error'?'Sync error':'Synced';
+}
 
-function initLockScreen() {
-  loadData();
-  isSetup = !appState.pinHash;
+/* ============================================================
+   SETUP SCREEN
+   ============================================================ */
+async function connectGitHub() {
+  const u = document.getElementById('gh-username').value.trim();
+  const r = document.getElementById('gh-repo').value.trim();
+  const t = document.getElementById('gh-token').value.trim();
+  if (!u || !r || !t) { toast('Fill in all GitHub fields', 'error'); return; }
+  ghConfig = { username: u, repo: r, token: t };
+  localStorage.setItem(LOCAL_GH_KEY, JSON.stringify(ghConfig));
+  toast('🔗 Connecting...', 'info');
+  try {
+    await initializeJsonFiles();
+    document.getElementById('setup-screen').classList.add('hidden');
+    document.getElementById('lock-screen').classList.remove('hidden');
+    await loadRemoteData();
+    initLockScreen();
+  } catch(e) {
+    toast('❌ Connection failed: ' + e.message, 'error');
+  }
+}
+
+async function initializeJsonFiles() {
+  // Create files if not exist
+  const capsules = await ghGet('capsules.json');
+  if (!capsules) await ghPut('capsules.json', [], undefined);
+
+  const diary = await ghGet('diary.json');
+  if (!diary) await ghPut('diary.json', { entries: { '0': [], '1': [] } }, undefined);
+
+  const settings = await ghGet('settings.json');
+  if (!settings) await ghPut('settings.json', defaultSettings(), undefined);
+}
+
+/* ============================================================
+   LOAD / SAVE REMOTE DATA
+   ============================================================ */
+async function loadRemoteData() {
+  setSyncState('syncing');
+  try {
+    const [capRes, diarRes, setRes] = await Promise.all([
+      readJson('capsules.json'),
+      readJson('diary.json'),
+      readJson('settings.json')
+    ]);
+    if (capRes)  appData.capsules  = capRes.content || [];
+    if (diarRes) diaryData = diarRes.content || { entries: { '0':[], '1':[] } };
+    if (setRes)  { appData.settings = { ...defaultSettings(), ...setRes.content }; }
+    setSyncState('ok');
+    if (sessionUnlocked) {
+      applySettings();
+      renderHome();
+      renderCapsules();
+      updateDiaryEntryList();
+    }
+  } catch(e) {
+    setSyncState('error');
+    console.warn('loadRemoteData:', e);
+  }
+}
+
+async function saveCapsules() {
+  await writeJson('capsules.json', appData.capsules);
+}
+async function saveDiaryRemote() {
+  await writeJson('diary.json', diaryData);
+}
+async function saveSettingsRemote() {
+  await writeJson('settings.json', appData.settings);
+}
+
+function startPolling() {
+  if (syncInterval) clearInterval(syncInterval);
+  syncInterval = setInterval(loadRemoteData, 30000); // every 30s
+}
+
+/* ============================================================
+   LOCK SCREEN
+   ============================================================ */
+async function initLockScreen() {
+  isSetup = !appData.settings.pinHash;
   if (isSetup) {
-    document.getElementById('lock-title').textContent   = 'Welcome! 💌';
-    document.getElementById('lock-subtitle').textContent = 'First time? Create your secret PIN';
-    document.getElementById('setup-hint').textContent   = 'Choose a 4-digit PIN for your capsule';
-    document.getElementById('lock-hint-text').textContent = 'This PIN protects your memories';
+    document.getElementById('lock-title').textContent    = 'Welcome! 💌';
+    document.getElementById('lock-subtitle').textContent = 'Create your secret PIN';
+    document.getElementById('setup-hint').textContent    = 'Choose a 4-digit PIN';
   } else {
-    document.getElementById('lock-title').textContent   = appState.settings.name1 + ' & ' + appState.settings.name2;
+    const s = appData.settings;
+    document.getElementById('lock-title').textContent    = (s.name1||'Us') + ' & ' + (s.name2||'Them');
     document.getElementById('lock-subtitle').textContent = 'Enter your PIN to open your memories 💝';
   }
   startHearts();
 }
 
-function keyPress(digit) {
+function keyPress(d) {
   if (pinBuffer.length >= 4) return;
-  pinBuffer += digit;
+  pinBuffer += d;
   updateDots();
-  if (pinBuffer.length === 4 && !isSetup) { setTimeout(keyEnter, 120); }
+  if (pinBuffer.length === 4 && !isSetup) setTimeout(keyEnter, 120);
 }
-
-function keyDel() {
-  pinBuffer = pinBuffer.slice(0, -1);
-  updateDots();
-}
-
+function keyDel() { pinBuffer = pinBuffer.slice(0,-1); updateDots(); }
 function updateDots() {
-  for (let i = 0; i < 4; i++) {
-    document.getElementById('dot-' + i).classList.toggle('filled', i < pinBuffer.length);
-  }
+  for (let i=0;i<4;i++) document.getElementById('dot-'+i).classList.toggle('filled', i<pinBuffer.length);
 }
-
 function keyEnter() {
   if (isSetup) {
-    if (pinStep === 0) {
-      if (pinBuffer.length < 4) { showPinError('Please enter 4 digits'); return; }
-      pinConfirmBuffer = pinBuffer;
-      pinBuffer = '';
-      updateDots();
-      pinStep = 1;
-      document.getElementById('setup-hint').textContent = 'Confirm your PIN';
-      document.getElementById('pin-error').textContent = '';
+    if (pinStep===0) {
+      if (pinBuffer.length<4) { showPinError('Please enter 4 digits'); return; }
+      pinConfirmBuffer=pinBuffer; pinBuffer=''; updateDots(); pinStep=1;
+      document.getElementById('setup-hint').textContent='Confirm your PIN';
+      document.getElementById('pin-error').textContent='';
       return;
     } else {
-      if (pinBuffer !== pinConfirmBuffer) {
-        showPinError('PINs do not match! Try again.');
-        pinBuffer = ''; pinConfirmBuffer = ''; pinStep = 0;
-        updateDots();
-        document.getElementById('setup-hint').textContent = 'Choose a 4-digit PIN';
-        return;
-      }
-      appState.pinHash = hashPIN(pinBuffer);
-      SESSION_KEY = pinBuffer;
-      saveData();
-      enterApp();
+      if (pinBuffer!==pinConfirmBuffer) { showPinError('PINs do not match!'); pinBuffer=''; pinConfirmBuffer=''; pinStep=0; updateDots(); document.getElementById('setup-hint').textContent='Choose a 4-digit PIN'; return; }
+      appData.settings.pinHash = hashPIN(pinBuffer);
+      saveSettingsRemote().then(()=>enterApp());
       return;
     }
   }
-  // Normal login
-  if (pinBuffer.length < 4) { showPinError('Enter all 4 digits'); return; }
-  if (hashPIN(pinBuffer) === appState.pinHash) {
-    SESSION_KEY = pinBuffer;
-    enterApp();
-  } else {
-    showPinError('Incorrect PIN 💔 Try again');
-    pinBuffer = ''; updateDots();
-  }
+  if (pinBuffer.length<4) { showPinError('Enter all 4 digits'); return; }
+  if (hashPIN(pinBuffer)===appData.settings.pinHash) { enterApp(); }
+  else { showPinError('Incorrect PIN 💔'); pinBuffer=''; updateDots(); }
 }
-
 function showPinError(msg) {
   const el = document.getElementById('pin-error');
-  el.textContent = msg;
-  el.style.animation = 'none';
-  requestAnimationFrame(() => { el.style.animation = 'shake 0.4s ease'; });
-  setTimeout(() => { el.textContent = ''; }, 2800);
+  el.textContent=msg; el.style.animation='none';
+  requestAnimationFrame(()=>{ el.style.animation='shake 0.4s ease'; });
+  setTimeout(()=>{ el.textContent=''; }, 2800);
 }
-
 function enterApp() {
-  document.getElementById('lock-screen').style.animation = 'fadeIn 0.3s ease reverse';
-  setTimeout(() => {
-    document.getElementById('lock-screen').style.display = 'none';
-    document.getElementById('app').style.display = 'block';
-    initApp();
-  }, 280);
-  if (appState.settings.autolock) startAutoLock();
+  document.getElementById('lock-screen').classList.add('hidden');
+  document.getElementById('app').style.display='block';
+  sessionUnlocked=true;
+  initApp();
+  startPolling();
 }
 
-/* Keyboard support for PIN */
 document.addEventListener('keydown', e => {
-  if (document.getElementById('lock-screen').style.display === 'none') return;
-  if (e.key >= '0' && e.key <= '9') keyPress(e.key);
-  else if (e.key === 'Backspace') keyDel();
-  else if (e.key === 'Enter') keyEnter();
+  if (!document.getElementById('lock-screen').classList.contains('hidden') && document.getElementById('setup-screen').classList.contains('hidden')) {
+    if (e.key>='0'&&e.key<='9') keyPress(e.key);
+    else if (e.key==='Backspace') keyDel();
+    else if (e.key==='Enter') keyEnter();
+  }
 });
-
-/* Auto lock */
-let autoLockTimer;
-function startAutoLock() {
-  clearTimeout(autoLockTimer);
-  autoLockTimer = setTimeout(() => {
-    document.getElementById('app').style.display = 'none';
-    document.getElementById('lock-screen').style.display = 'flex';
-    pinBuffer = ''; updateDots();
-  }, 5 * 60 * 1000);
-  document.addEventListener('click', resetAutoLock);
-  document.addEventListener('keydown', resetAutoLock);
-}
-function resetAutoLock() {
-  if (!appState.settings.autolock) return;
-  clearTimeout(autoLockTimer);
-  autoLockTimer = setTimeout(() => {
-    document.getElementById('app').style.display = 'none';
-    document.getElementById('lock-screen').style.display = 'flex';
-    pinBuffer = ''; updateDots();
-  }, 5 * 60 * 1000);
-}
 
 /* ============================================================
    APP INIT
    ============================================================ */
 function initApp() {
+  loadLocalPrefs();
   applySettings();
   renderHome();
   renderCapsules();
   renderDiaryPage();
   populateSettingsForm();
   startCountdownTick();
-  if (appState.settings.autoplay) setTimeout(autoPlayMusic, 800);
+  if (localPrefs.autoplay) setTimeout(autoPlayMusic, 800);
 }
 
+function loadLocalPrefs() {
+  try { const p=localStorage.getItem(LOCAL_PREFS); if(p) localPrefs={...localPrefs,...JSON.parse(p)}; } catch{}
+  // Apply dark mode
+  if (localPrefs.darkMode) {
+    document.documentElement.setAttribute('data-theme','dark');
+    const btn=document.getElementById('toggle-darkmode'); if(btn) btn.className='toggle-switch on';
+    const tb=document.getElementById('theme-toggle-btn'); if(tb) tb.textContent='☀️';
+  }
+}
+function saveLocalPrefs() { localStorage.setItem(LOCAL_PREFS, JSON.stringify(localPrefs)); }
+
 function applySettings() {
-  const s = appState.settings;
-  document.getElementById('hero-name1').textContent = s.name1 || 'Partner 1';
-  document.getElementById('hero-name2').textContent = s.name2 || 'Partner 2';
-  document.getElementById('hero-tagline').textContent = s.tagline || '';
-  document.getElementById('nav-brand-text').textContent = (s.name1 || 'Us').split(' ')[0] + ' & ' + (s.name2 || 'Us').split(' ')[0];
-  document.getElementById('diary-name-p1').textContent = s.name1 || 'Partner 1';
-  document.getElementById('diary-name-p2').textContent = s.name2 || 'Partner 2';
-  document.getElementById('diary-avatar-p1').textContent = s.emoji1 || '💗';
-  document.getElementById('diary-avatar-p2').textContent = s.emoji2 || '💙';
-
-  // Populate "from" selects in modal
-  ['c-from'].forEach(id => {
-    const sel = document.getElementById(id);
-    if (!sel) return;
-    sel.innerHTML = `<option value="${s.name1||'Partner 1'}">${s.emoji1||'💗'} ${s.name1||'Partner 1'}</option>
-                     <option value="${s.name2||'Partner 2'}">${s.emoji2||'💙'} ${s.name2||'Partner 2'}</option>`;
-  });
-
-  // Hearts toggle
-  if (!s.hearts) stopHearts(); else startHearts();
-
-  // Toggles UI
-  ['hearts','particles','autoplay','autolock'].forEach(k => {
-    const el = document.getElementById('toggle-' + k);
-    if (el) el.className = 'toggle-switch' + (s[k] ? ' on' : '');
-  });
+  const s = appData.settings;
+  const el = id => document.getElementById(id);
+  el('hero-name1').textContent = s.name1||'Partner 1';
+  el('hero-name2').textContent = s.name2||'Partner 2';
+  el('hero-tagline').textContent = s.tagline||'';
+  el('nav-brand-text').textContent = ((s.name1||'Us').split(' ')[0])+' & '+((s.name2||'Us').split(' ')[0]);
+  el('diary-name-p1').textContent  = s.name1||'Partner 1';
+  el('diary-name-p2').textContent  = s.name2||'Partner 2';
+  el('diary-avatar-p1').textContent = s.emoji1||'💗';
+  el('diary-avatar-p2').textContent = s.emoji2||'💙';
+  // from select
+  const sel=el('c-from');
+  if(sel) sel.innerHTML=`<option value="${esc(s.name1||'Partner 1')}">${esc(s.emoji1||'💗')} ${esc(s.name1||'Partner 1')}</option><option value="${esc(s.name2||'Partner 2')}">${esc(s.emoji2||'💙')} ${esc(s.name2||'Partner 2')}</option>`;
 }
 
 /* ============================================================
    NAVIGATION
    ============================================================ */
 function showPage(name) {
-  ['home','capsules','diary','settings'].forEach(p => {
-    document.getElementById('page-' + p).classList.toggle('hidden', p !== name);
+  ['home','capsules','diary','settings'].forEach(p=>{
+    document.getElementById('page-'+p).classList.toggle('hidden', p!==name);
   });
-  document.querySelectorAll('.nav-tab[data-page]').forEach(t => {
-    t.classList.toggle('active', t.dataset.page === name);
-  });
-  if (name === 'home') renderHome();
-  if (name === 'capsules') renderCapsules();
-  if (name === 'diary') renderDiaryPage();
+  document.querySelectorAll('.nav-tab[data-page]').forEach(t=>t.classList.toggle('active',t.dataset.page===name));
+  if(name==='home')     renderHome();
+  if(name==='capsules') renderCapsules();
+  if(name==='diary')    renderDiaryPage();
 }
-
 function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
 function closeMobileMenu()  { document.getElementById('mobile-menu').classList.remove('open'); }
 
 /* ============================================================
-   HOME PAGE
+   THEME TOGGLE
    ============================================================ */
-function renderHome() {
-  const caps = appState.capsules;
-  const locked   = caps.filter(c => !isUnlocked(c)).length;
-  const unlocked = caps.filter(c => isUnlocked(c)).length;
-  const diaryTotal = (loadDiary('0').length) + (loadDiary('1').length);
-
-  document.getElementById('stat-total').textContent    = caps.length;
-  document.getElementById('stat-locked').textContent   = locked;
-  document.getElementById('stat-unlocked').textContent = unlocked;
-  document.getElementById('stat-diary').textContent    = diaryTotal;
-
-  renderAnniversary();
-
-  // Recent 3 capsules
-  const recent = [...caps].reverse().slice(0,3);
-  const grid   = document.getElementById('home-capsules-grid');
-  grid.innerHTML = '';
-  if (recent.length === 0) {
-    grid.innerHTML = `<div class="glass empty-state" style="grid-column:1/-1;">
-      <div class="empty-icon">💌</div>
-      <div class="empty-title">No capsules yet</div>
-      <div class="empty-sub">Create your first time capsule and seal a memory.</div>
-      <button class="btn btn-primary" onclick="openCapsuleModal()">💌 Create First Capsule</button>
-    </div>`;
-  } else {
-    recent.forEach(c => grid.appendChild(buildCapsuleCard(c)));
-  }
-}
-
-function renderAnniversary() {
-  const s = appState.settings;
-  const annEl = document.getElementById('ann-date-label');
-  const timerEl = document.getElementById('ann-timer');
-  if (!s.anniversary) { annEl.textContent = 'Set your anniversary in Settings'; timerEl.innerHTML = ''; return; }
-  const annDate  = new Date(s.anniversary);
-  const now      = new Date();
-  const thisYear = new Date(now.getFullYear(), annDate.getMonth(), annDate.getDate());
-  const nextAnn  = thisYear < now ? new Date(now.getFullYear()+1, annDate.getMonth(), annDate.getDate()) : thisYear;
-  const diff     = nextAnn - now;
-  const years    = now.getFullYear() - annDate.getFullYear();
-  const days     = Math.floor(diff / 86400000);
-  const hours    = Math.floor((diff % 86400000) / 3600000);
-  const mins     = Math.floor((diff % 3600000) / 60000);
-
-  annEl.textContent = `${annDate.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})} — Together ${years} year${years!==1?'s':''}`;
-  if (days === 0 && hours === 0) {
-    timerEl.innerHTML = `<span style="font-family:'Playfair Display',serif;color:var(--pink-deep);font-size:1.2rem;">🎉 Happy Anniversary! 🎉</span>`;
-  } else {
-    timerEl.innerHTML = `
-      <div class="ann-unit"><span class="num">${days}</span><span class="lbl">Days</span></div>
-      <div class="ann-unit"><span class="num">${hours}</span><span class="lbl">Hours</span></div>
-      <div class="ann-unit"><span class="num">${mins}</span><span class="lbl">Mins</span></div>
-    `;
-  }
+function toggleTheme() {
+  localPrefs.darkMode = !localPrefs.darkMode;
+  document.documentElement.setAttribute('data-theme', localPrefs.darkMode?'dark':'light');
+  const btn=document.getElementById('toggle-darkmode');
+  if(btn) btn.className='toggle-switch'+(localPrefs.darkMode?' on':'');
+  const tb=document.getElementById('theme-toggle-btn');
+  if(tb) tb.textContent=localPrefs.darkMode?'☀️':'🌙';
+  saveLocalPrefs();
 }
 
 /* ============================================================
-   CAPSULE UTILITIES
+   HOME
    ============================================================ */
-function isUnlocked(c) {
-  return new Date() >= new Date(c.unlockDate);
+function renderHome() {
+  const caps=appData.capsules;
+  const locked  =caps.filter(c=>!isUnlocked(c)).length;
+  const unlocked=caps.filter(c=>isUnlocked(c)).length;
+  const d0 = (diaryData.entries||{})['0']?.length||0;
+  const d1 = (diaryData.entries||{})['1']?.length||0;
+  document.getElementById('stat-total').textContent   =caps.length;
+  document.getElementById('stat-locked').textContent  =locked;
+  document.getElementById('stat-unlocked').textContent=unlocked;
+  document.getElementById('stat-diary').textContent   =d0+d1;
+  renderAnniversary();
+  const recent=[...caps].reverse().slice(0,3);
+  const grid=document.getElementById('home-capsules-grid');
+  grid.innerHTML='';
+  if(!recent.length) {
+    grid.innerHTML=`<div class="glass empty-state" style="grid-column:1/-1;"><div class="empty-icon">💌</div><div class="empty-title">No capsules yet</div><div class="empty-sub">Create your first time capsule!</div><button class="btn btn-primary" onclick="openCapsuleModal()">💌 Create First Capsule</button></div>`;
+  } else { recent.forEach(c=>grid.appendChild(buildCapsuleCard(c))); }
 }
-function daysRemaining(c) {
-  return Math.ceil((new Date(c.unlockDate) - new Date()) / 86400000);
+
+function renderAnniversary() {
+  const s=appData.settings;
+  const annEl=document.getElementById('ann-date-label');
+  const timerEl=document.getElementById('ann-timer');
+  if(!s.anniversary) { annEl.textContent='Set your anniversary in Settings'; timerEl.innerHTML=''; return; }
+  const annDate=new Date(s.anniversary);
+  const now=new Date();
+  const thisYear=new Date(now.getFullYear(),annDate.getMonth(),annDate.getDate());
+  const nextAnn=thisYear<now?new Date(now.getFullYear()+1,annDate.getMonth(),annDate.getDate()):thisYear;
+  const diff=nextAnn-now;
+  const years=now.getFullYear()-annDate.getFullYear();
+  const days=Math.floor(diff/86400000);
+  const hours=Math.floor((diff%86400000)/3600000);
+  const mins=Math.floor((diff%3600000)/60000);
+  annEl.textContent=`${annDate.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})} — Together ${years} year${years!==1?'s':''}`;
+  if(days===0&&hours===0) { timerEl.innerHTML=`<span style="font-family:'Playfair Display',serif;color:var(--pink-deep);font-size:1.2rem;">🎉 Happy Anniversary! 🎉</span>`; }
+  else { timerEl.innerHTML=`<div class="ann-unit"><span class="num">${days}</span><span class="lbl">Days</span></div><div class="ann-unit"><span class="num">${hours}</span><span class="lbl">Hours</span></div><div class="ann-unit"><span class="num">${mins}</span><span class="lbl">Mins</span></div>`; }
 }
+
+/* ============================================================
+   CAPSULE UTILS
+   ============================================================ */
+function isUnlocked(c) { return new Date()>=new Date(c.unlockDate); }
+function daysRemaining(c) { return Math.ceil((new Date(c.unlockDate)-new Date())/86400000); }
 
 function buildCapsuleCard(c) {
-  const unlocked = isUnlocked(c);
-  const days     = daysRemaining(c);
-  const soon     = !unlocked && days <= 7;
-  const status   = unlocked ? 'unlocked' : (soon ? 'soon' : 'locked');
-  const iconLabel= unlocked ? '💌' : '🔒';
-  const s        = appState.settings;
-
-  const card = document.createElement('div');
-  card.className = 'capsule-card glass';
-  card.dataset.id = c.id;
-
-  let photoHTML = '';
-  if (c.photo) {
-    photoHTML = `<img class="card-photo" src="${c.photo}" alt="memory photo" onclick="expandPhoto('${c.photo}')" style="cursor:pointer;" loading="lazy">`;
-  }
-
-  let previewText = c.message || '';
-  let previewClass = 'card-preview' + (!unlocked ? ' blurred' : '');
-  if (!unlocked) previewText = previewText.replace(/./g, '•').substring(0,80) + '...';
-
-  let countdownHTML = '';
-  if (unlocked) {
-    countdownHTML = `<span class="countdown-text done">💌 Open now!</span>`;
-  } else if (soon) {
-    countdownHTML = `<span class="countdown-text">⏰ Opens in ${days} day${days!==1?'s':''}!</span>`;
-  } else {
-    countdownHTML = `<span class="countdown-text">🔒 ${days} day${days!==1?'s':''} remaining</span>`;
-  }
-
-  card.innerHTML = `
+  const unlocked=isUnlocked(c);
+  const days=daysRemaining(c);
+  const soon=!unlocked&&days<=7;
+  const status=unlocked?'unlocked':(soon?'soon':'locked');
+  const iconLabel=unlocked?'💌':'🔒';
+  const card=document.createElement('div');
+  card.className='capsule-card glass';
+  card.dataset.id=c.id;
+  const photoHTML=c.photo&&unlocked?`<img class="card-photo" src="${c.photo}" alt="memory" onclick="expandPhoto('${c.photo}')" style="cursor:pointer;" loading="lazy">`:'';
+  const previewText=unlocked?((c.message||'').substring(0,150)):((c.message||'').replace(/./g,'•').substring(0,80)+'...');
+  const previewClass='card-preview'+(unlocked?'':' blurred');
+  const countdownHTML=unlocked?`<span class="countdown-text done">💌 Open now!</span>`:soon?`<span class="countdown-text">⏰ Opens in ${days} day${days!==1?'s':''}!</span>`:`<span class="countdown-text">🔒 ${days} day${days!==1?'s':''} remaining</span>`;
+  card.innerHTML=`
     <div class="card-header">
       <div class="card-icon ${status}">${iconLabel}</div>
       <div class="card-meta">
@@ -1993,405 +1357,316 @@ function buildCapsuleCard(c) {
       </div>
       <div class="card-actions">
         <button class="btn btn-ghost btn-icon btn-sm" onclick="editCapsule('${c.id}')" title="Edit">✏️</button>
-        <button class="btn btn-ghost btn-icon btn-sm" onclick="deleteCapsule('${c.id}')" title="Delete">🗑</button>
+        <button class="btn btn-danger btn-icon btn-sm" onclick="deleteCapsule('${c.id}')" title="Delete">🗑</button>
       </div>
     </div>
-    <div class="card-body">
-      ${unlocked && photoHTML ? photoHTML : ''}
-      <div class="${previewClass}">${esc(previewText.substring(0,150))}${previewText.length>150?'...':''}</div>
-    </div>
+    <div class="card-body">${photoHTML}<div class="${previewClass}">${esc(previewText)}</div></div>
     <div class="card-footer">
       <span class="status-badge ${status}">${unlocked?'💌 Unlocked':soon?'⏰ Soon':'🔒 Locked'}</span>
       ${countdownHTML}
-    </div>
-  `;
-  card.querySelector('.card-header').style.cursor = 'pointer';
-  card.querySelector('.card-title').addEventListener('click', () => openCapsuleView(c.id));
-  card.querySelector('.card-icon').addEventListener('click', () => openCapsuleView(c.id));
+    </div>`;
+  card.querySelector('.card-title').addEventListener('click',()=>openCapsuleView(c.id));
+  card.querySelector('.card-icon').addEventListener('click',()=>openCapsuleView(c.id));
   return card;
 }
 
 /* ============================================================
    CAPSULES PAGE
    ============================================================ */
-let capsuleFilter = 'all';
-
 function renderCapsules() {
-  const grid = document.getElementById('capsules-grid');
-  grid.innerHTML = '';
-  let caps = [...appState.capsules].reverse();
-  if (capsuleFilter === 'locked')   caps = caps.filter(c => !isUnlocked(c) && daysRemaining(c) > 7);
-  if (capsuleFilter === 'unlocked') caps = caps.filter(c => isUnlocked(c));
-  if (capsuleFilter === 'soon')     caps = caps.filter(c => !isUnlocked(c) && daysRemaining(c) <= 7);
-
-  if (caps.length === 0) {
-    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1;">
-      <div class="empty-icon">${capsuleFilter==='unlocked'?'💌':'🔒'}</div>
-      <div class="empty-title">No capsules here</div>
-      <div class="empty-sub">${capsuleFilter==='unlocked'?'None of your capsules have unlocked yet.':'Create a new time capsule to get started!'}</div>
-      <button class="btn btn-primary" onclick="openCapsuleModal()">💌 Create Capsule</button>
-    </div>`;
+  const grid=document.getElementById('capsules-grid');
+  grid.innerHTML='';
+  let caps=[...appData.capsules].reverse();
+  if(capsuleFilter==='locked')   caps=caps.filter(c=>!isUnlocked(c)&&daysRemaining(c)>7);
+  if(capsuleFilter==='unlocked') caps=caps.filter(c=>isUnlocked(c));
+  if(capsuleFilter==='soon')     caps=caps.filter(c=>!isUnlocked(c)&&daysRemaining(c)<=7);
+  if(!caps.length) {
+    grid.innerHTML=`<div class="empty-state" style="grid-column:1/-1;"><div class="empty-icon">💌</div><div class="empty-title">No capsules here</div><div class="empty-sub">Create a new time capsule to get started!</div><button class="btn btn-primary" onclick="openCapsuleModal()">💌 Create Capsule</button></div>`;
     return;
   }
-  caps.forEach(c => grid.appendChild(buildCapsuleCard(c)));
+  caps.forEach(c=>grid.appendChild(buildCapsuleCard(c)));
 }
 
-function filterCapsules(filter, btn) {
-  capsuleFilter = filter;
-  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+function filterCapsules(f,btn) {
+  capsuleFilter=f;
+  document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
   btn.classList.add('active');
   renderCapsules();
 }
 
 /* ============================================================
-   CAPSULE MODAL (Create / Edit)
+   CAPSULE MODAL
    ============================================================ */
-let editingCapsuleId = null;
-let capPhotoData = null;
-
-function openCapsuleModal(id = null) {
-  editingCapsuleId = id;
-  capPhotoData = null;
-  const modal = document.getElementById('capsule-modal');
-  const title = document.getElementById('capsule-modal-title');
-
-  // Reset form
-  document.getElementById('c-title').value = '';
-  document.getElementById('c-message').value = '';
-  document.getElementById('c-unlock-date').value = '';
+function openCapsuleModal(id=null) {
+  editingCapsuleId=id; capPhotoData=null;
+  document.getElementById('c-title').value='';
+  document.getElementById('c-message').value='';
+  document.getElementById('c-unlock-date').value='';
   document.getElementById('c-img-preview-wrap').classList.add('hidden');
   document.getElementById('c-upload-area').classList.remove('hidden');
-
-  // Set min date to today
-  document.getElementById('c-unlock-date').min = new Date().toISOString().split('T')[0];
-
-  // Populate from select
-  const s = appState.settings;
-  const sel = document.getElementById('c-from');
-  sel.innerHTML = `<option value="${s.name1||'Partner 1'}">${s.emoji1||'💗'} ${s.name1||'Partner 1'}</option>
-                   <option value="${s.name2||'Partner 2'}">${s.emoji2||'💙'} ${s.name2||'Partner 2'}</option>`;
-
-  if (id) {
-    const c = appState.capsules.find(x => x.id === id);
-    if (c) {
-      title.textContent = '✏️ Edit Capsule';
-      document.getElementById('c-title').value = c.title;
-      document.getElementById('c-message').value = c.message;
-      document.getElementById('c-unlock-date').value = c.unlockDate;
-      sel.value = c.from;
-      if (c.photo) {
-        capPhotoData = c.photo;
-        document.getElementById('c-img-preview').src = c.photo;
-        document.getElementById('c-img-preview-wrap').classList.remove('hidden');
-        document.getElementById('c-upload-area').classList.add('hidden');
-      }
+  document.getElementById('c-unlock-date').min=new Date().toISOString().split('T')[0];
+  applySettings(); // refresh from select
+  if(id) {
+    const c=appData.capsules.find(x=>x.id===id);
+    if(c) {
+      document.getElementById('capsule-modal-title').textContent='✏️ Edit Capsule';
+      document.getElementById('c-title').value=c.title;
+      document.getElementById('c-message').value=c.message;
+      document.getElementById('c-unlock-date').value=c.unlockDate;
+      document.getElementById('c-from').value=c.from;
+      if(c.photo) { capPhotoData=c.photo; document.getElementById('c-img-preview').src=c.photo; document.getElementById('c-img-preview-wrap').classList.remove('hidden'); document.getElementById('c-upload-area').classList.add('hidden'); }
     }
   } else {
-    title.textContent = '💌 New Time Capsule';
+    document.getElementById('capsule-modal-title').textContent='💌 New Time Capsule';
   }
-
-  modal.classList.remove('hidden');
+  document.getElementById('capsule-modal').classList.remove('hidden');
 }
-
-function closeCapsuleModal() { document.getElementById('capsule-modal').classList.add('hidden'); }
-function closeCapsuleModalOnBg(e) { if (e.target.id === 'capsule-modal') closeCapsuleModal(); }
-
+function closeCapsuleModal()         { document.getElementById('capsule-modal').classList.add('hidden'); }
+function closeCapsuleModalOnBg(e)    { if(e.target.id==='capsule-modal') closeCapsuleModal(); }
 function capPhotoSelected(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = ev => {
-    capPhotoData = ev.target.result;
-    document.getElementById('c-img-preview').src = capPhotoData;
+  const f=e.target.files[0]; if(!f) return;
+  const r=new FileReader();
+  r.onload=ev=>{
+    capPhotoData=ev.target.result;
+    document.getElementById('c-img-preview').src=capPhotoData;
     document.getElementById('c-img-preview-wrap').classList.remove('hidden');
     document.getElementById('c-upload-area').classList.add('hidden');
   };
-  reader.readAsDataURL(file);
+  r.readAsDataURL(f);
 }
-
 function removeCapPhoto() {
-  capPhotoData = null;
+  capPhotoData=null;
   document.getElementById('c-img-preview-wrap').classList.add('hidden');
   document.getElementById('c-upload-area').classList.remove('hidden');
-  document.getElementById('c-photo-input').value = '';
+  document.getElementById('c-photo-input').value='';
 }
 
-function saveCapsule() {
-  const title   = document.getElementById('c-title').value.trim();
-  const message = document.getElementById('c-message').value.trim();
-  const date    = document.getElementById('c-unlock-date').value;
-  const from    = document.getElementById('c-from').value;
-
-  if (!title)   { toast('💬 Please add a title', 'error'); return; }
-  if (!message) { toast('💌 Write your love note!', 'error'); return; }
-  if (!date)    { toast('📅 Choose an unlock date', 'error'); return; }
-
-  if (editingCapsuleId) {
-    const idx = appState.capsules.findIndex(c => c.id === editingCapsuleId);
-    if (idx !== -1) {
-      appState.capsules[idx] = { ...appState.capsules[idx], title, message, unlockDate: date, from, photo: capPhotoData || appState.capsules[idx].photo };
-      toast('✨ Capsule updated!', 'success');
-    }
+async function saveCapsule() {
+  const title  =document.getElementById('c-title').value.trim();
+  const message=document.getElementById('c-message').value.trim();
+  const date   =document.getElementById('c-unlock-date').value;
+  const from   =document.getElementById('c-from').value;
+  if(!title)   { toast('💬 Please add a title','error'); return; }
+  if(!message) { toast('💌 Write your love note!','error'); return; }
+  if(!date)    { toast('📅 Choose an unlock date','error'); return; }
+  if(editingCapsuleId) {
+    const idx=appData.capsules.findIndex(c=>c.id===editingCapsuleId);
+    if(idx!==-1) { appData.capsules[idx]={...appData.capsules[idx],title,message,unlockDate:date,from,photo:capPhotoData||appData.capsules[idx].photo}; toast('✨ Capsule updated!','success'); }
   } else {
-    const capsule = { id: uid(), title, message, unlockDate: date, from, photo: capPhotoData || null, createdAt: new Date().toISOString() };
-    appState.capsules.push(capsule);
-    toast('💌 Capsule sealed! It opens on ' + new Date(date).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'}), 'success');
+    appData.capsules.push({id:uid(),title,message,unlockDate:date,from,photo:capPhotoData||null,createdAt:new Date().toISOString()});
+    toast('💌 Capsule sealed! Opens on '+new Date(date).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'}),'success');
     showOpenAnimation();
   }
-
-  saveData();
   closeCapsuleModal();
-  renderHome();
-  renderCapsules();
+  renderHome(); renderCapsules();
+  await saveCapsules();
 }
 
 function editCapsule(id) { openCapsuleModal(id); }
 
-function deleteCapsule(id) {
-  if (!confirm('Are you sure you want to delete this capsule? 💔')) return;
-  appState.capsules = appState.capsules.filter(c => c.id !== id);
-  saveData();
-  renderHome();
-  renderCapsules();
-  toast('🗑 Capsule removed', 'info');
+async function deleteCapsule(id) {
+  if(!confirm('Delete this capsule? 💔')) return;
+  appData.capsules=appData.capsules.filter(c=>c.id!==id);
+  renderHome(); renderCapsules();
+  toast('🗑 Capsule removed','info');
+  await saveCapsules();
 }
 
 /* ============================================================
-   CAPSULE VIEW MODAL
+   CAPSULE VIEW — with lock enforcement + emergency PIN
    ============================================================ */
 function openCapsuleView(id) {
-  const c = appState.capsules.find(x => x.id === id);
-  if (!c) return;
-  const unlocked = isUnlocked(c);
-
-  document.getElementById('view-modal-title').textContent = esc(c.title);
-  const body = document.getElementById('view-modal-body');
-  body.innerHTML = '';
-
-  if (!unlocked) {
-    const days = daysRemaining(c);
-    body.innerHTML = `
+  const c=appData.capsules.find(x=>x.id===id);
+  if(!c) return;
+  const unlocked=isUnlocked(c);
+  document.getElementById('view-modal-title').textContent=esc(c.title);
+  const body=document.getElementById('view-modal-body');
+  body.innerHTML='';
+  if(unlocked) {
+    // Show content directly
+    renderCapsuleContent(body, c);
+    showOpenAnimation();
+  } else {
+    const days=daysRemaining(c);
+    body.innerHTML=`
       <div style="text-align:center;padding:20px 0;">
         <div style="font-size:4rem;margin-bottom:16px;">🔒</div>
         <div style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--text-dark);margin-bottom:8px;">Still Sealed with Love</div>
-        <div style="font-size:0.9rem;color:var(--text-soft);margin-bottom:20px;">This capsule opens in <strong>${days}</strong> day${days!==1?'s':''} on ${new Date(c.unlockDate).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}</div>
-        <div style="font-size:0.85rem;color:var(--text-soft);font-style:italic;">Come back then to read ${esc(c.from)}'s message 💌</div>
+        <div style="font-size:0.9rem;color:var(--text-soft);margin-bottom:20px;">This capsule opens in <strong>${days}</strong> day${days!==1?'s':''} on <strong>${new Date(c.unlockDate).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}</strong></div>
+        <div style="font-size:0.85rem;color:var(--text-soft);font-style:italic;margin-bottom:20px;">Come back then to read ${esc(c.from)}'s message 💌</div>
       </div>
-    `;
-  } else {
-    let html = `<div style="font-size:0.8rem;color:var(--text-soft);margin-bottom:4px;">From <strong style="color:var(--pink-deep)">${esc(c.from)}</strong> · Sealed on ${new Date(c.createdAt).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</div>`;
-    if (c.photo) html += `<img src="${c.photo}" style="width:100%;max-height:260px;object-fit:cover;border-radius:12px;cursor:pointer;" onclick="expandPhoto('${c.photo}')" loading="lazy">`;
-    html += `<div style="font-family:'Lato',sans-serif;font-size:1rem;line-height:1.9;color:var(--text-mid);white-space:pre-wrap;word-break:break-word;">${esc(c.message)}</div>`;
-    body.innerHTML = html;
-    showOpenAnimation();
+      <div class="emergency-pin-area">
+        <label>🚨 Emergency access only — enter the emergency PIN to open early:</label>
+        <div class="emergency-row">
+          <input type="password" id="emg-pin-input" placeholder="Emergency PIN" style="font-size:0.95rem;">
+          <button class="btn btn-danger btn-sm" onclick="tryEmergencyPin('${c.id}')">Unlock</button>
+        </div>
+        <div id="emg-pin-error" style="color:var(--danger);font-size:0.78rem;margin-top:6px;min-height:18px;"></div>
+      </div>`;
   }
   document.getElementById('view-modal').classList.remove('hidden');
 }
 
-function closeViewModal() { document.getElementById('view-modal').classList.add('hidden'); }
-function closeViewModalOnBg(e) { if (e.target.id === 'view-modal') closeViewModal(); }
+function tryEmergencyPin(capsuleId) {
+  const entered=document.getElementById('emg-pin-input').value;
+  if(entered===EMERGENCY_PIN) {
+    const c=appData.capsules.find(x=>x.id===capsuleId);
+    if(!c) return;
+    const body=document.getElementById('view-modal-body');
+    body.innerHTML='';
+    const banner=document.createElement('div');
+    banner.style.cssText='background:rgba(244,114,182,0.1);border:1.5px dashed var(--pink);border-radius:12px;padding:10px 14px;font-size:0.78rem;color:var(--pink-deep);margin-bottom:12px;';
+    banner.textContent='🚨 Emergency Access — opened before unlock date';
+    body.appendChild(banner);
+    renderCapsuleContent(body, c);
+    showOpenAnimation();
+    toast('🚨 Emergency access granted','info');
+  } else {
+    document.getElementById('emg-pin-error').textContent='❌ Wrong emergency PIN';
+    setTimeout(()=>{ const el=document.getElementById('emg-pin-error'); if(el) el.textContent=''; },2500);
+  }
+}
 
+function renderCapsuleContent(container, c) {
+  const wrapper=document.createElement('div');
+  wrapper.style.cssText='display:flex;flex-direction:column;gap:14px;';
+  wrapper.innerHTML=`<div style="font-size:0.8rem;color:var(--text-soft);">From <strong style="color:var(--pink-deep)">${esc(c.from)}</strong> · Sealed on ${new Date(c.createdAt).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</div>`;
+  if(c.photo) {
+    const img=document.createElement('img');
+    img.src=c.photo; img.style.cssText='width:100%;max-height:260px;object-fit:cover;border-radius:12px;cursor:pointer;';
+    img.onclick=()=>expandPhoto(c.photo);
+    wrapper.appendChild(img);
+  }
+  const msg=document.createElement('div');
+  msg.style.cssText='font-size:1rem;line-height:1.9;color:var(--text-mid);white-space:pre-wrap;word-break:break-word;';
+  msg.textContent=c.message;
+  wrapper.appendChild(msg);
+  container.appendChild(wrapper);
+}
+
+function closeViewModal()         { document.getElementById('view-modal').classList.add('hidden'); }
+function closeViewModalOnBg(e)    { if(e.target.id==='view-modal') closeViewModal(); }
 function showOpenAnimation() {
-  const burst = document.createElement('div');
-  burst.className = 'capsule-open-animation';
-  burst.innerHTML = '<span class="capsule-open-burst">💌</span>';
-  document.body.appendChild(burst);
-  setTimeout(() => burst.remove(), 1300);
+  const b=document.createElement('div'); b.className='capsule-open-animation';
+  b.innerHTML='<span class="capsule-open-burst">💌</span>';
+  document.body.appendChild(b); setTimeout(()=>b.remove(),1300);
 }
 
 /* ============================================================
-   COUNTDOWN TICK — updates every minute
+   COUNTDOWN TICK
    ============================================================ */
 function startCountdownTick() {
-  setInterval(() => {
-    renderHome();
-    // Re-render capsule cards' countdowns in place (if on capsules page)
-    document.querySelectorAll('.capsule-card').forEach(card => {
-      const id = card.dataset.id;
-      if (!id) return;
-      const c = appState.capsules.find(x => x.id === id);
-      if (!c) return;
-      const unlocked = isUnlocked(c);
-      const days = daysRemaining(c);
-      const ctEl = card.querySelector('.countdown-text');
-      const sbEl = card.querySelector('.status-badge');
-      if (ctEl && sbEl) {
-        if (unlocked) {
-          ctEl.textContent = '💌 Open now!';
-          ctEl.className   = 'countdown-text done';
-          sbEl.textContent = '💌 Unlocked';
-          sbEl.className   = 'status-badge unlocked';
-        } else {
-          ctEl.textContent = `🔒 ${days} day${days!==1?'s':''} remaining`;
-        }
-      }
-    });
-  }, 60000);
+  setInterval(()=>{ renderHome(); }, 60000);
 }
 
 /* ============================================================
    DIARY PAGE
    ============================================================ */
-let activeDiaryPerson = 0; // 0 or 1
-let diaryUnlocked = [false, false];
-let diaryEntries  = [[], []]; // loaded after unlock
-let activeDiaryEntry = null;
-let editingDiaryEntryId = null;
-
 function selectDiary(person) {
-  activeDiaryPerson = person;
-  document.getElementById('diary-card-p1').classList.toggle('selected', person === 0);
-  document.getElementById('diary-card-p2').classList.toggle('selected', person === 1);
-
-  // Reset view
+  activeDiaryPerson=person;
+  document.getElementById('diary-card-p1').classList.toggle('selected',person===0);
+  document.getElementById('diary-card-p2').classList.toggle('selected',person===1);
   hideDiaryPanels();
   clearDiaryPinInputs();
-  document.getElementById('diary-pin-error').textContent = '';
-
-  if (diaryUnlocked[person]) {
-    showDiaryContent();
-  } else {
-    const s = appState.settings;
-    const pinHash = person === 0 ? s.diaryPin1Hash : s.diaryPin2Hash;
-    const name    = person === 0 ? s.name1 : s.name2;
-    document.getElementById('diary-lock-name').textContent = `Enter ${name || 'diary'} PIN to unlock`;
-    if (!pinHash) {
-      // No pin set — show info
-      document.getElementById('diary-lock-name').textContent = `No PIN set for ${name}. Set one in Settings → Security.`;
-    }
+  document.getElementById('diary-pin-error').textContent='';
+  if(diaryUnlocked[person]) { showDiaryContent(); }
+  else {
+    const s=appData.settings;
+    const pinHash=person===0?s.diaryPin1Hash:s.diaryPin2Hash;
+    const name=person===0?s.name1:s.name2;
+    document.getElementById('diary-lock-name').textContent=pinHash?`Enter ${name||'diary'} PIN to unlock`:`No PIN set for ${name||'this diary'}. Set one in Settings → Security.`;
     document.getElementById('diary-lock-overlay').classList.remove('hidden');
   }
-
   updateDiaryEntryList();
 }
 
 function renderDiaryPage() {
-  const s = appState.settings;
-  document.getElementById('diary-name-p1').textContent  = s.name1  || 'Partner 1';
-  document.getElementById('diary-name-p2').textContent  = s.name2  || 'Partner 2';
-  document.getElementById('diary-avatar-p1').textContent = s.emoji1 || '💗';
-  document.getElementById('diary-avatar-p2').textContent = s.emoji2 || '💙';
+  const s=appData.settings;
+  document.getElementById('diary-name-p1').textContent  =s.name1||'Partner 1';
+  document.getElementById('diary-name-p2').textContent  =s.name2||'Partner 2';
+  document.getElementById('diary-avatar-p1').textContent=s.emoji1||'💗';
+  document.getElementById('diary-avatar-p2').textContent=s.emoji2||'💙';
   updateDiaryEntryList();
   selectDiary(activeDiaryPerson);
 }
 
 function updateDiaryEntryList() {
-  const s = appState.settings;
-  [0,1].forEach(p => {
-    const entries = diaryUnlocked[p] ? diaryEntries[p] : [];
-    document.getElementById('diary-count-p' + (p+1)).textContent = entries.length + ' entr' + (entries.length===1?'y':'ies');
+  [0,1].forEach(p=>{
+    const entries=(diaryData.entries||{})[p.toString()]||[];
+    document.getElementById('diary-count-p'+(p+1)).textContent=entries.length+' entr'+(entries.length===1?'y':'ies');
   });
-
-  const list = document.getElementById('diary-entry-list');
-  list.innerHTML = '';
-  const entries = diaryUnlocked[activeDiaryPerson] ? diaryEntries[activeDiaryPerson] : [];
-  if (entries.length === 0) return;
-
-  [...entries].reverse().forEach(e => {
-    const item = document.createElement('div');
-    item.className = 'diary-entry-item' + (activeDiaryEntry && activeDiaryEntry.id === e.id ? ' active' : '');
-    item.innerHTML = `<div class="dei-title">${esc(e.title)}</div><div class="dei-date">${new Date(e.createdAt).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</div>`;
-    item.onclick = () => openDiaryEntry(e.id);
+  const list=document.getElementById('diary-entry-list');
+  list.innerHTML='';
+  if(!diaryUnlocked[activeDiaryPerson]) return;
+  const entries=(diaryData.entries||{})[activeDiaryPerson.toString()]||[];
+  [...entries].reverse().forEach(e=>{
+    const item=document.createElement('div');
+    item.className='diary-entry-item'+(activeDiaryEntry&&activeDiaryEntry.id===e.id?' active':'');
+    item.innerHTML=`<div class="dei-title">${esc(e.title)}</div><div class="dei-date">${new Date(e.createdAt).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</div>`;
+    item.onclick=()=>openDiaryEntry(e.id);
     list.appendChild(item);
   });
 }
 
 function unlockDiary() {
-  const inputs = document.querySelectorAll('#diary-pin-inputs input');
-  const entered = Array.from(inputs).map(i => i.value).join('');
-  if (entered.length < 4) { document.getElementById('diary-pin-error').textContent = 'Enter 4 digits'; return; }
-
-  const s = appState.settings;
-  const pinHash = activeDiaryPerson === 0 ? s.diaryPin1Hash : s.diaryPin2Hash;
-
-  if (!pinHash) {
-    // No PIN set — allow access (or block)
-    document.getElementById('diary-pin-error').textContent = 'No PIN set. Please set one in Settings.';
-    return;
-  }
-
-  if (hashPIN(entered) !== pinHash) {
-    document.getElementById('diary-pin-error').textContent = '❌ Wrong PIN';
-    clearDiaryPinInputs();
-    return;
-  }
-
-  // Unlock!
-  diaryUnlocked[activeDiaryPerson] = true;
-  // Load entries encrypted with diary-person-specific key
-  const storageKey = activeDiaryPerson.toString();
-  const rawEntries = loadDiary(storageKey);
-  diaryEntries[activeDiaryPerson] = rawEntries;
-  document.getElementById('diary-pin-error').textContent = '';
+  const inputs=document.querySelectorAll('#diary-pin-inputs input');
+  const entered=Array.from(inputs).map(i=>i.value).join('');
+  if(entered.length<4) { document.getElementById('diary-pin-error').textContent='Enter 4 digits'; return; }
+  const s=appData.settings;
+  const pinHash=activeDiaryPerson===0?s.diaryPin1Hash:s.diaryPin2Hash;
+  if(!pinHash) { document.getElementById('diary-pin-error').textContent='No PIN set. Set one in Settings.'; return; }
+  if(hashPIN(entered)!==pinHash) { document.getElementById('diary-pin-error').textContent='❌ Wrong PIN'; clearDiaryPinInputs(); return; }
+  diaryUnlocked[activeDiaryPerson]=true;
+  document.getElementById('diary-pin-error').textContent='';
   showDiaryContent();
   updateDiaryEntryList();
-  toast('📔 Diary unlocked!', 'success');
+  toast('📔 Diary unlocked!','success');
 }
 
-function clearDiaryPinInputs() {
-  document.querySelectorAll('#diary-pin-inputs input').forEach(i => i.value = '');
-  document.querySelectorAll('#diary-pin-inputs input')[0]?.focus();
+function clearDiaryPinInputs() { document.querySelectorAll('#diary-pin-inputs input').forEach(i=>i.value=''); document.querySelectorAll('#diary-pin-inputs input')[0]?.focus(); }
+function diaryPinMove(input,idx) {
+  if(input.value.length===1&&idx<3) document.querySelectorAll('#diary-pin-inputs input')[idx+1]?.focus();
+  const all=document.querySelectorAll('#diary-pin-inputs input');
+  if(Array.from(all).every(i=>i.value.length===1)) unlockDiary();
 }
-
-function diaryPinMove(input, idx) {
-  if (input.value.length === 1 && idx < 3) {
-    document.querySelectorAll('#diary-pin-inputs input')[idx+1]?.focus();
-  }
-  // Auto-submit at 4
-  const all = document.querySelectorAll('#diary-pin-inputs input');
-  if (Array.from(all).every(i => i.value.length === 1)) unlockDiary();
-}
-function diaryPinBack(e, idx) {
-  if (e.key === 'Backspace' && !e.target.value && idx > 0) {
-    document.querySelectorAll('#diary-pin-inputs input')[idx-1]?.focus();
-  }
-}
+function diaryPinBack(e,idx) { if(e.key==='Backspace'&&!e.target.value&&idx>0) document.querySelectorAll('#diary-pin-inputs input')[idx-1]?.focus(); }
 
 function hideDiaryPanels() {
-  document.getElementById('diary-lock-overlay').classList.add('hidden');
-  document.getElementById('diary-entry-view').classList.add('hidden');
-  document.getElementById('diary-editor-panel').classList.add('hidden');
-  document.getElementById('diary-empty-state').classList.add('hidden');
+  ['diary-lock-overlay','diary-entry-view','diary-editor-panel','diary-empty-state'].forEach(id=>document.getElementById(id).classList.add('hidden'));
 }
 
 function showDiaryContent() {
   hideDiaryPanels();
-  const entries = diaryEntries[activeDiaryPerson] || [];
-  if (entries.length === 0) {
-    document.getElementById('diary-empty-state').classList.remove('hidden');
-  } else {
-    openDiaryEntry(entries[entries.length-1].id);
-  }
+  const entries=(diaryData.entries||{})[activeDiaryPerson.toString()]||[];
+  if(!entries.length) { document.getElementById('diary-empty-state').classList.remove('hidden'); }
+  else { openDiaryEntry(entries[entries.length-1].id); }
 }
 
 function openDiaryEntry(id) {
-  const entries = diaryEntries[activeDiaryPerson] || [];
-  const entry   = entries.find(e => e.id === id);
-  if (!entry) return;
-  activeDiaryEntry = entry;
+  const entries=(diaryData.entries||{})[activeDiaryPerson.toString()]||[];
+  const entry=entries.find(e=>e.id===id);
+  if(!entry) return;
+  activeDiaryEntry=entry;
   hideDiaryPanels();
-  document.getElementById('diary-view-title').textContent   = entry.title;
-  document.getElementById('diary-view-date').textContent    = new Date(entry.createdAt).toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
-  document.getElementById('diary-view-content').textContent = entry.content;
+  document.getElementById('diary-view-title').textContent  =entry.title;
+  document.getElementById('diary-view-date').textContent   =new Date(entry.createdAt).toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+  document.getElementById('diary-view-content').textContent=entry.content;
   document.getElementById('diary-entry-view').classList.remove('hidden');
   updateDiaryEntryList();
 }
 
-function openDiaryEditor(entryId = null) {
-  if (!diaryUnlocked[activeDiaryPerson]) {
-    toast('🔐 Please unlock the diary first', 'error');
-    return;
-  }
-  editingDiaryEntryId = entryId;
+function openDiaryEditor(entryId=null) {
+  if(!diaryUnlocked[activeDiaryPerson]) { toast('🔐 Unlock the diary first','error'); return; }
+  editingDiaryEntryId=entryId;
   hideDiaryPanels();
-  document.getElementById('diary-editor-title-bar').textContent = entryId ? 'Edit Entry ✏️' : 'New Entry ✨';
-  if (entryId) {
-    const e = diaryEntries[activeDiaryPerson].find(x => x.id === entryId);
-    document.getElementById('diary-entry-title').value = e?.title || '';
-    document.getElementById('diary-entry-body').value  = e?.content || '';
+  document.getElementById('diary-editor-title-bar').textContent=entryId?'Edit Entry ✏️':'New Entry ✨';
+  if(entryId) {
+    const e=((diaryData.entries||{})[activeDiaryPerson.toString()]||[]).find(x=>x.id===entryId);
+    document.getElementById('diary-entry-title').value=e?.title||'';
+    document.getElementById('diary-entry-body').value =e?.content||'';
   } else {
-    document.getElementById('diary-entry-title').value = '';
-    document.getElementById('diary-entry-body').value  = '';
+    document.getElementById('diary-entry-title').value='';
+    document.getElementById('diary-entry-body').value ='';
   }
   document.getElementById('diary-editor-panel').classList.remove('hidden');
   document.getElementById('diary-entry-title').focus();
@@ -2399,58 +1674,54 @@ function openDiaryEditor(entryId = null) {
 
 function closeDiaryEditor() {
   hideDiaryPanels();
-  if (diaryEntries[activeDiaryPerson]?.length > 0) {
-    openDiaryEntry(diaryEntries[activeDiaryPerson][diaryEntries[activeDiaryPerson].length-1].id);
-  } else {
-    document.getElementById('diary-empty-state').classList.remove('hidden');
-  }
+  const entries=(diaryData.entries||{})[activeDiaryPerson.toString()]||[];
+  if(entries.length) openDiaryEntry(entries[entries.length-1].id);
+  else document.getElementById('diary-empty-state').classList.remove('hidden');
 }
 
 function closeDiaryEntry() {
   hideDiaryPanels();
   document.getElementById('diary-empty-state').classList.remove('hidden');
-  activeDiaryEntry = null;
+  activeDiaryEntry=null;
   updateDiaryEntryList();
 }
 
-function saveDiaryEntry() {
-  const title   = document.getElementById('diary-entry-title').value.trim();
-  const content = document.getElementById('diary-entry-body').value.trim();
-  if (!title)   { toast('📝 Add a title please', 'error'); return; }
-  if (!content) { toast('💬 Write something first', 'error'); return; }
-
-  const entries = diaryEntries[activeDiaryPerson];
-  if (editingDiaryEntryId) {
-    const idx = entries.findIndex(e => e.id === editingDiaryEntryId);
-    if (idx !== -1) { entries[idx] = { ...entries[idx], title, content, updatedAt: new Date().toISOString() }; activeDiaryEntry = entries[idx]; }
+async function saveDiaryEntry() {
+  const title  =document.getElementById('diary-entry-title').value.trim();
+  const content=document.getElementById('diary-entry-body').value.trim();
+  if(!title)   { toast('📝 Add a title please','error'); return; }
+  if(!content) { toast('💬 Write something first','error'); return; }
+  if(!diaryData.entries) diaryData.entries={};
+  const key=activeDiaryPerson.toString();
+  if(!diaryData.entries[key]) diaryData.entries[key]=[];
+  const entries=diaryData.entries[key];
+  if(editingDiaryEntryId) {
+    const idx=entries.findIndex(e=>e.id===editingDiaryEntryId);
+    if(idx!==-1) { entries[idx]={...entries[idx],title,content,updatedAt:new Date().toISOString()}; activeDiaryEntry=entries[idx]; }
   } else {
-    const entry = { id: uid(), title, content, createdAt: new Date().toISOString() };
-    entries.push(entry);
-    activeDiaryEntry = entry;
+    const entry={id:uid(),title,content,createdAt:new Date().toISOString()};
+    entries.push(entry); activeDiaryEntry=entry;
   }
-  diaryEntries[activeDiaryPerson] = entries;
-  saveDiary(activeDiaryPerson.toString(), entries);
-
-  // Update global diary count
-  const s = appState.settings;
-  renderHome();
-  toast('💾 Diary entry saved!', 'success');
+  diaryData.entries[key]=entries;
+  toast('💾 Saving...','info');
+  await saveDiaryRemote();
+  toast('💾 Diary entry saved!','success');
   hideDiaryPanels();
   openDiaryEntry(activeDiaryEntry.id);
   updateDiaryEntryList();
+  renderHome();
 }
 
-function editCurrentDiaryEntry() {
-  if (activeDiaryEntry) openDiaryEditor(activeDiaryEntry.id);
-}
+function editCurrentDiaryEntry() { if(activeDiaryEntry) openDiaryEditor(activeDiaryEntry.id); }
 
-function deleteCurrentDiaryEntry() {
-  if (!activeDiaryEntry) return;
-  if (!confirm('Delete this diary entry? 💔')) return;
-  diaryEntries[activeDiaryPerson] = diaryEntries[activeDiaryPerson].filter(e => e.id !== activeDiaryEntry.id);
-  saveDiary(activeDiaryPerson.toString(), diaryEntries[activeDiaryPerson]);
-  activeDiaryEntry = null;
-  toast('🗑 Entry deleted', 'info');
+async function deleteCurrentDiaryEntry() {
+  if(!activeDiaryEntry) return;
+  if(!confirm('Delete this diary entry? 💔')) return;
+  const key=activeDiaryPerson.toString();
+  diaryData.entries[key]=(diaryData.entries[key]||[]).filter(e=>e.id!==activeDiaryEntry.id);
+  activeDiaryEntry=null;
+  await saveDiaryRemote();
+  toast('🗑 Entry deleted','info');
   showDiaryContent();
   updateDiaryEntryList();
   renderHome();
@@ -2460,278 +1731,202 @@ function deleteCurrentDiaryEntry() {
    SETTINGS
    ============================================================ */
 function populateSettingsForm() {
-  const s = appState.settings;
-  document.getElementById('s-name1').value       = s.name1 || '';
-  document.getElementById('s-name2').value       = s.name2 || '';
-  document.getElementById('s-emoji1').value      = s.emoji1 || '💗';
-  document.getElementById('s-emoji2').value      = s.emoji2 || '💙';
-  document.getElementById('s-tagline').value     = s.tagline || '';
-  document.getElementById('s-anniversary').value = s.anniversary || '';
-  ['hearts','particles','autoplay','autolock'].forEach(k => {
-    const el = document.getElementById('toggle-' + k);
-    if (el) el.className = 'toggle-switch' + (s[k] ? ' on' : '');
-  });
+  const s=appData.settings;
+  const el=id=>document.getElementById(id);
+  el('s-name1').value      =s.name1||'';
+  el('s-name2').value      =s.name2||'';
+  el('s-emoji1').value     =s.emoji1||'💗';
+  el('s-emoji2').value     =s.emoji2||'💙';
+  el('s-tagline').value    =s.tagline||'';
+  el('s-anniversary').value=s.anniversary||'';
+  el('s-gh-username').value=ghConfig.username||'';
+  el('s-gh-repo').value    =ghConfig.repo||'';
+  // toggles
+  el('toggle-hearts').className   ='toggle-switch'+(localPrefs.hearts?' on':'');
+  el('toggle-autolock').className ='toggle-switch'+(localPrefs.autolock?' on':'');
+  el('toggle-autoplay').className ='toggle-switch'+(localPrefs.autoplay?' on':'');
+  el('toggle-darkmode').className ='toggle-switch'+(localPrefs.darkMode?' on':'');
 }
 
-function saveSettings() {
-  const s = appState.settings;
-  s.name1       = document.getElementById('s-name1').value.trim() || 'Partner 1';
-  s.name2       = document.getElementById('s-name2').value.trim() || 'Partner 2';
-  s.emoji1      = document.getElementById('s-emoji1').value.trim() || '💗';
-  s.emoji2      = document.getElementById('s-emoji2').value.trim() || '💙';
-  s.tagline     = document.getElementById('s-tagline').value.trim();
-  s.anniversary = document.getElementById('s-anniversary').value;
-  saveData();
-  applySettings();
-  renderHome();
-  renderDiaryPage();
-  toast('✨ Settings saved!', 'success');
+async function saveSettings() {
+  const s=appData.settings;
+  s.name1      =document.getElementById('s-name1').value.trim()||'Partner 1';
+  s.name2      =document.getElementById('s-name2').value.trim()||'Partner 2';
+  s.emoji1     =document.getElementById('s-emoji1').value.trim()||'💗';
+  s.emoji2     =document.getElementById('s-emoji2').value.trim()||'💙';
+  s.tagline    =document.getElementById('s-tagline').value.trim();
+  s.anniversary=document.getElementById('s-anniversary').value;
+  applySettings(); renderHome(); renderDiaryPage();
+  toast('✨ Saving settings...','info');
+  await saveSettingsRemote();
+  toast('✨ Settings saved!','success');
 }
 
-function changeAppPIN() {
-  const np = document.getElementById('s-new-pin').value;
-  const cp = document.getElementById('s-confirm-pin').value;
-  if (np.length !== 4 || !/^\d+$/.test(np)) { toast('Enter a 4-digit numeric PIN', 'error'); return; }
-  if (np !== cp) { toast('PINs do not match', 'error'); return; }
-  appState.pinHash = hashPIN(np);
-  SESSION_KEY = np;
-  saveData();
-  document.getElementById('s-new-pin').value = '';
-  document.getElementById('s-confirm-pin').value = '';
-  toast('🔑 App PIN updated!', 'success');
+async function changeAppPIN() {
+  const np=document.getElementById('s-new-pin').value;
+  const cp=document.getElementById('s-confirm-pin').value;
+  if(np.length!==4||!/^\d+$/.test(np)) { toast('Enter a 4-digit numeric PIN','error'); return; }
+  if(np!==cp) { toast('PINs do not match','error'); return; }
+  appData.settings.pinHash=hashPIN(np);
+  document.getElementById('s-new-pin').value='';
+  document.getElementById('s-confirm-pin').value='';
+  await saveSettingsRemote();
+  toast('🔑 App PIN updated!','success');
 }
 
-function saveDiaryPINs() {
-  const p1 = document.getElementById('s-diary-pin1').value;
-  const p2 = document.getElementById('s-diary-pin2').value;
-  let changed = false;
-  if (p1) {
-    if (p1.length !== 4 || !/^\d+$/.test(p1)) { toast('Partner 1 PIN must be 4 digits', 'error'); return; }
-    appState.settings.diaryPin1Hash = hashPIN(p1);
-    changed = true;
-  }
-  if (p2) {
-    if (p2.length !== 4 || !/^\d+$/.test(p2)) { toast('Partner 2 PIN must be 4 digits', 'error'); return; }
-    appState.settings.diaryPin2Hash = hashPIN(p2);
-    changed = true;
-  }
-  if (!changed) { toast('Enter at least one PIN', 'error'); return; }
-  saveData();
-  document.getElementById('s-diary-pin1').value = '';
-  document.getElementById('s-diary-pin2').value = '';
-  // Re-lock diaries after PIN change
-  diaryUnlocked = [false, false];
-  toast('🔐 Diary PINs saved!', 'success');
+async function saveDiaryPINs() {
+  const p1=document.getElementById('s-diary-pin1').value;
+  const p2=document.getElementById('s-diary-pin2').value;
+  let changed=false;
+  if(p1) { if(p1.length!==4||!/^\d+$/.test(p1)) { toast('Partner 1 PIN must be 4 digits','error'); return; } appData.settings.diaryPin1Hash=hashPIN(p1); changed=true; }
+  if(p2) { if(p2.length!==4||!/^\d+$/.test(p2)) { toast('Partner 2 PIN must be 4 digits','error'); return; } appData.settings.diaryPin2Hash=hashPIN(p2); changed=true; }
+  if(!changed) { toast('Enter at least one PIN','error'); return; }
+  document.getElementById('s-diary-pin1').value='';
+  document.getElementById('s-diary-pin2').value='';
+  diaryUnlocked=[false,false];
+  await saveSettingsRemote();
+  toast('🔐 Diary PINs saved!','success');
 }
 
-function toggleSetting(key, btn) {
-  appState.settings[key] = !appState.settings[key];
-  btn.className = 'toggle-switch' + (appState.settings[key] ? ' on' : '');
-  saveData();
-  if (key === 'hearts') {
-    if (appState.settings.hearts) startHearts(); else stopHearts();
-  }
-  if (key === 'autolock') {
-    if (appState.settings.autolock) startAutoLock(); else clearTimeout(autoLockTimer);
-  }
+function toggleSetting(key,btn) {
+  localPrefs[key]=!localPrefs[key];
+  btn.className='toggle-switch'+(localPrefs[key]?' on':'');
+  saveLocalPrefs();
+  if(key==='hearts') { localPrefs.hearts?startHearts():stopHearts(); }
+  if(key==='autolock') { localPrefs.autolock?startAutoLock():clearTimeout(autoLockTimer); }
 }
 
-function confirmClearAll() {
-  if (!confirm('⚠️ This will delete ALL capsules, diary entries, and settings. Are you absolutely sure?')) return;
-  localStorage.clear();
+async function updateGitHubConfig() {
+  ghConfig.username=document.getElementById('s-gh-username').value.trim();
+  ghConfig.repo    =document.getElementById('s-gh-repo').value.trim();
+  const t=document.getElementById('s-gh-token').value.trim();
+  if(t) ghConfig.token=t;
+  localStorage.setItem(LOCAL_GH_KEY,JSON.stringify(ghConfig));
+  toast('🔗 GitHub config updated!','success');
+}
+
+function disconnectGitHub() {
+  if(!confirm('Disconnect from GitHub? You will need to reconnect to sync.')) return;
+  localStorage.removeItem(LOCAL_GH_KEY);
   location.reload();
 }
 
-function exportData() {
-  const data = {
-    appData:   appState,
-    diary0:    localStorage.getItem(DIARY_KEY + '_0') || null,
-    diary1:    localStorage.getItem(DIARY_KEY + '_1') || null,
-    exportedAt: new Date().toISOString()
-  };
-  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-  const url  = URL.createObjectURL(blob);
-  const a    = document.createElement('a');
-  a.href = url; a.download = 'our-capsule-backup.json';
-  a.click();
-  URL.revokeObjectURL(url);
-  toast('📥 Data exported!', 'success');
+function confirmClearAll() {
+  if(!confirm('⚠️ Delete ALL remote data? This cannot be undone.')) return;
+  appData.capsules=[];
+  diaryData={entries:{'0':[],'1':[]}};
+  Promise.all([saveCapsules(),saveDiaryRemote()]).then(()=>{ toast('🗑 All data cleared','info'); renderHome(); renderCapsules(); });
 }
 
-function importDataClick() { document.getElementById('import-file').click(); }
-
-function importData(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = ev => {
-    try {
-      const data = JSON.parse(ev.target.result);
-      if (data.appData) localStorage.setItem(STORAGE_KEY, JSON.stringify(data.appData));
-      if (data.diary0) localStorage.setItem(DIARY_KEY + '_0', data.diary0);
-      if (data.diary1) localStorage.setItem(DIARY_KEY + '_1', data.diary1);
-      toast('📤 Data imported! Reloading...', 'success');
-      setTimeout(() => location.reload(), 1200);
-    } catch { toast('❌ Invalid file', 'error'); }
-  };
-  reader.readAsText(file);
+/* ============================================================
+   AUTO LOCK
+   ============================================================ */
+let autoLockTimer;
+function startAutoLock() {
+  clearTimeout(autoLockTimer);
+  autoLockTimer=setTimeout(()=>{
+    document.getElementById('app').style.display='none';
+    document.getElementById('lock-screen').classList.remove('hidden');
+    pinBuffer=''; updateDots(); sessionUnlocked=false;
+  },5*60*1000);
 }
+['click','keydown'].forEach(ev=>document.addEventListener(ev,()=>{ if(localPrefs.autolock) { clearTimeout(autoLockTimer); startAutoLock(); } }));
 
 /* ============================================================
    MUSIC
    ============================================================ */
-let musicLoaded = false;
-const audioEl   = document.getElementById('bg-music');
+let musicLoaded=false;
+const audioEl=document.getElementById('bg-music');
 
 function loadMusicFile(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-  const url = URL.createObjectURL(file);
-  audioEl.src = url;
-  musicLoaded = true;
-  document.getElementById('music-file-name').textContent = file.name;
-  // Store reference
-  appState.settings._musicFileName = file.name;
-  saveData();
-  toast('🎵 Music loaded! Press Play.', 'success');
-  audioEl.addEventListener('timeupdate', updateMusicProgress);
+  const f=e.target.files[0]; if(!f) return;
+  audioEl.src=URL.createObjectURL(f);
+  musicLoaded=true;
+  document.getElementById('music-file-name').textContent=f.name;
+  audioEl.addEventListener('timeupdate',updateMusicProgress);
+  toast('🎵 Music loaded! Press Play.','success');
 }
-
 function playPauseMusic() {
-  if (!musicLoaded) { toast('Load an MP3 first 🎵', 'info'); return; }
-  if (audioEl.paused) {
-    audioEl.play();
-    document.getElementById('music-play-btn').textContent = '⏸ Pause';
-  } else {
-    audioEl.pause();
-    document.getElementById('music-play-btn').textContent = '▶ Play';
-  }
+  if(!musicLoaded) { toast('Load an MP3 first 🎵','info'); return; }
+  if(audioEl.paused) { audioEl.play(); document.getElementById('music-play-btn').textContent='⏸ Pause'; }
+  else { audioEl.pause(); document.getElementById('music-play-btn').textContent='▶ Play'; }
 }
-
-function stopMusic() {
-  audioEl.pause();
-  audioEl.currentTime = 0;
-  document.getElementById('music-play-btn').textContent = '▶ Play';
-  document.getElementById('music-progress').style.width = '0%';
-}
-
-function updateMusicProgress() {
-  if (!audioEl.duration) return;
-  const pct = (audioEl.currentTime / audioEl.duration) * 100;
-  document.getElementById('music-progress').style.width = pct + '%';
-}
-
-function autoPlayMusic() {
-  if (musicLoaded) audioEl.play().catch(()=>{});
-}
+function stopMusic() { audioEl.pause(); audioEl.currentTime=0; document.getElementById('music-play-btn').textContent='▶ Play'; document.getElementById('music-progress').style.width='0%'; }
+function updateMusicProgress() { if(!audioEl.duration) return; document.getElementById('music-progress').style.width=((audioEl.currentTime/audioEl.duration)*100)+'%'; }
+function autoPlayMusic() { if(musicLoaded) audioEl.play().catch(()=>{}); }
 
 /* ============================================================
-   FLOATING HEARTS (Canvas)
+   FLOATING HEARTS
    ============================================================ */
-const canvas = document.getElementById('hearts-canvas');
-const ctx    = canvas.getContext('2d');
-let hearts   = [];
-let heartsRunning = true;
-let animFrame;
+const canvas=document.getElementById('hearts-canvas');
+const ctx=canvas.getContext('2d');
+let hearts=[],heartsRunning=true,animFrame;
+const EMOJIS=['❤️','💕','💗','💓','💞','💝','🌸','✨','🌷','💌'];
 
-const EMOJIS = ['❤️','💕','💗','💓','💞','💝','🌸','✨','🌷','💌'];
+function resizeCanvas() { canvas.width=window.innerWidth; canvas.height=window.innerHeight; }
+window.addEventListener('resize',resizeCanvas); resizeCanvas();
 
-function resizeCanvas() {
-  canvas.width  = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
-
-function createHeart() {
-  return {
-    x:    Math.random() * canvas.width,
-    y:    canvas.height + 40,
-    size: 14 + Math.random() * 22,
-    speed: 0.4 + Math.random() * 0.9,
-    drift: (Math.random() - 0.5) * 0.6,
-    opacity: 0.5 + Math.random() * 0.5,
-    emoji:   EMOJIS[Math.floor(Math.random() * EMOJIS.length)],
-    wobble: Math.random() * Math.PI * 2,
-    wobbleSpeed: 0.02 + Math.random() * 0.03,
-  };
-}
-
-function drawHeart(h) {
-  ctx.save();
-  ctx.globalAlpha = h.opacity;
-  ctx.font = h.size + 'px serif';
-  ctx.textAlign = 'center';
-  ctx.fillText(h.emoji, h.x, h.y);
-  ctx.restore();
-}
-
+function createHeart() { return { x:Math.random()*canvas.width, y:canvas.height+40, size:14+Math.random()*22, speed:0.4+Math.random()*0.9, drift:(Math.random()-0.5)*0.6, opacity:0.5+Math.random()*0.5, emoji:EMOJIS[Math.floor(Math.random()*EMOJIS.length)], wobble:Math.random()*Math.PI*2, wobbleSpeed:0.02+Math.random()*0.03 }; }
+function drawHeart(h) { ctx.save(); ctx.globalAlpha=h.opacity; ctx.font=h.size+'px serif'; ctx.textAlign='center'; ctx.fillText(h.emoji,h.x,h.y); ctx.restore(); }
 function heartLoop() {
-  if (!heartsRunning) return;
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  if (hearts.length < 18 && Math.random() < 0.04) hearts.push(createHeart());
-  hearts = hearts.filter(h => h.y > -50 && h.opacity > 0.05);
-  hearts.forEach(h => {
-    h.y       -= h.speed;
-    h.x       += h.drift + Math.sin(h.wobble) * 0.4;
-    h.wobble  += h.wobbleSpeed;
-    h.opacity -= 0.0008;
-    drawHeart(h);
-  });
-  animFrame = requestAnimationFrame(heartLoop);
+  if(!heartsRunning) return;
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  if(hearts.length<18&&Math.random()<0.04) hearts.push(createHeart());
+  hearts=hearts.filter(h=>h.y>-50&&h.opacity>0.05);
+  hearts.forEach(h=>{ h.y-=h.speed; h.x+=h.drift+Math.sin(h.wobble)*0.4; h.wobble+=h.wobbleSpeed; h.opacity-=0.0008; drawHeart(h); });
+  animFrame=requestAnimationFrame(heartLoop);
 }
-
-function startHearts() {
-  if (heartsRunning && animFrame) return;
-  heartsRunning = true;
-  heartLoop();
-}
-
-function stopHearts() {
-  heartsRunning = false;
-  cancelAnimationFrame(animFrame);
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-}
+function startHearts() { if(heartsRunning&&animFrame) return; heartsRunning=true; heartLoop(); }
+function stopHearts()  { heartsRunning=false; cancelAnimationFrame(animFrame); ctx.clearRect(0,0,canvas.width,canvas.height); }
 
 /* ============================================================
    PHOTO EXPAND
    ============================================================ */
 function expandPhoto(src) {
-  const bd = document.createElement('div');
-  bd.className = 'photo-expand-backdrop';
-  bd.innerHTML = `<img src="${src}" alt="memory photo">`;
-  bd.onclick   = () => bd.remove();
-  document.body.appendChild(bd);
+  const bd=document.createElement('div'); bd.className='photo-expand-backdrop';
+  bd.innerHTML=`<img src="${src}" alt="memory">`; bd.onclick=()=>bd.remove(); document.body.appendChild(bd);
 }
 
 /* ============================================================
-   TOAST NOTIFICATIONS
+   TOAST
    ============================================================ */
-function toast(msg, type = 'info', duration = 3000) {
-  const icons = { success: '✅', error: '💔', info: '💌' };
-  const tc = document.getElementById('toast-container');
-  const t  = document.createElement('div');
-  t.className = `toast ${type}`;
-  t.innerHTML = `<span class="toast-icon">${icons[type] || '💌'}</span><span>${msg}</span>`;
+function toast(msg,type='info',dur=3200) {
+  const icons={success:'✅',error:'💔',info:'💌'};
+  const tc=document.getElementById('toast-container');
+  const t=document.createElement('div'); t.className=`toast ${type}`;
+  t.innerHTML=`<span class="toast-icon">${icons[type]||'💌'}</span><span>${msg}</span>`;
   tc.appendChild(t);
-  setTimeout(() => {
-    t.style.animation = 'toastIn 0.3s ease reverse';
-    setTimeout(() => t.remove(), 280);
-  }, duration);
+  setTimeout(()=>{ t.style.animation='toastIn 0.3s ease reverse'; setTimeout(()=>t.remove(),280); },dur);
 }
 
 /* ============================================================
-   UTILITY
+   BOOT
    ============================================================ */
-function uid() { return Date.now().toString(36) + Math.random().toString(36).substr(2,6); }
-function esc(str) {
-  return (str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
+(async function boot() {
+  // Load local prefs first (for theme)
+  try { const p=localStorage.getItem(LOCAL_PREFS); if(p) localPrefs={...localPrefs,...JSON.parse(p)}; } catch{}
+  if(localPrefs.darkMode) { document.documentElement.setAttribute('data-theme','dark'); }
 
-/* ============================================================
-   INIT
-   ============================================================ */
-initLockScreen();
+  // Load GitHub config from localStorage
+  const saved=localStorage.getItem(LOCAL_GH_KEY);
+  if(!saved) { return; } // show setup screen (already visible by default)
+
+  try { ghConfig=JSON.parse(saved); } catch { return; }
+  if(!ghConfig.username||!ghConfig.repo||!ghConfig.token) { return; }
+
+  // Config exists — hide setup, show lock
+  document.getElementById('setup-screen').classList.add('hidden');
+  document.getElementById('lock-screen').classList.remove('hidden');
+
+  // Load remote data
+  try {
+    await loadRemoteData();
+  } catch(e) {
+    toast('⚠️ Could not load data from GitHub: '+e.message,'error');
+  }
+  initLockScreen();
+  startHearts();
+})();
 </script>
 </body>
 </html>
