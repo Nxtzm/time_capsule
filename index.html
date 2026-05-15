@@ -1,283 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Highway Lunch & Beer Bar — Menu Editor</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Love Time Capsule ❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="hearts"></div>
 
-<style id="base-style">
-:root {
-  --pw: 794px;
-  --ph: 1123px;
-  --pm: 45px;
-}
+  <header>
+    <h1>❤️ Our Love Time Capsule ❤️</h1>
+    <p>Write memories today. Unlock them in the future.</p>
+  </header>
 
-/* ===================== BASE LAYOUT ===================== */
-* { box-sizing: border-box; margin:0; padding:0; }
+  <main>
+    <section class="lock-screen" id="lockScreen">
+      <h2>Enter Your Secret PIN</h2>
+      <input type="password" id="pinInput" placeholder="Enter PIN">
+      <button onclick="unlockCapsule()">Unlock</button>
+    </section>
 
-body {
-  background: #1c1c1a;
-  font-family: 'EB Garamond', serif;
-  color: #eee8de;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 70px 20px 100px;
-  gap: 25px;
-}
-
-.page {
-  width: var(--pw);
-  min-height: var(--ph);
-  background: var(--page-bg, #1f1f1d);
-  position: relative;
-  box-shadow: 0 12px 70px rgba(0,0,0,0.8);
-  overflow: hidden;
-  padding: var(--pm);
-  display: flex;
-  flex-direction: column;
-}
-
-/* COLUMN CONTROL - STRICT 1 or 2 columns */
-.cols-dynamic {
-  display: grid;
-  gap: 35px;
-  grid-template-columns: repeat(var(--col-count, 2), 1fr);
-  flex: 1;
-}
-
-/* TEXT FITTING FIX */
-.rn, .cat-title, .sub-title, .section-label, .cover-name {
-  overflow-wrap: break-word;
-  hyphens: auto;
-  word-break: break-word;
-  max-width: 100%;
-}
-
-/* Toolbar */
-#toolbar {
-  position: fixed; top:0; left:0; right:0; z-index: 1000;
-  background: #111; padding: 12px 20px; display: flex; align-items: center; gap: 12px;
-  border-bottom: 1px solid #333;
-}
-
-.tb-btn {
-  padding: 8px 14px; background:#222; color:#ddd; border:1px solid #555;
-  font-family: 'Cinzel', serif; font-size: 9pt; cursor:pointer; border-radius:4px;
-}
-.tb-btn:hover { background:#333; color:var(--gold,#c8a44a); }
-.gold { background:#c8a44a; color:#111; font-weight:bold; }
-</style>
-
-<!-- Theme Styles will be injected here -->
-<link id="theme-stylesheet" rel="stylesheet" href="#">
-
-<body data-theme="default">
-
-<div id="toolbar">
-  <span style="color:#c8a44a;font-family:'Cinzel',serif;font-size:15pt;letter-spacing:1px;">HIGHWAY MENU EDITOR</span>
-  
-  <select id="theme-selector" class="tb-btn" onchange="switchTheme(this.value)">
-    <option value="default">Default Gold</option>
-    <option value="bordeaux">Bordeaux Dark</option>
-    <option value="blackgold">Black & Gold</option>
-    <option value="warm">Warm Brown</option>
-    <option value="minimal">Modern Minimal</option>
-  </select>
-
-  <button class="tb-btn" onclick="addPage()">+ Page</button>
-  <button class="tb-btn" onclick="window.print()">🖨 Print</button>
-  <button class="tb-btn gold" onclick="saveProject()">💾 Save</button>
-</div>
-
-<div id="pages-container"></div>
-<button onclick="addPage()" style="padding:15px 40px; background:none; border:2px dashed #c8a44a; color:#c8a44a; font-family:'Cinzel',serif; cursor:pointer; margin-top:30px;">+ Add New Page</button>
-
-<script>
-// ==================== LOAD CONFIG.JSON ====================
-let menuConfig = null;
-let S = { pages: [] };
-
-async function loadConfig() {
-  try {
-    const response = await fetch('config.json');
-    menuConfig = await response.json();
-    console.log("✅ Config loaded successfully");
-    initDefaultPages();
-  } catch(e) {
-    console.error("Config.json not found. Using embedded data.");
-    menuConfig = { /* fallback data if needed */ };
-  }
-  renderAll();
-}
-
-// ==================== THEMES (Exact match to images) ====================
-const themes = {
-  "default": {
-    name: "Default Gold",
-    css: `:root {
-      --page-bg: #1f1f1d;
-      --gold: #c8a44a;
-      --gold-lt: #e0bc72;
-      --gold-dim: #7c6030;
-      --text: #eee8de;
-      --text-sub: #b8b09f;
-      --text-muted: #857d6e;
-      --price: #d2a85a;
-      --div: #2c2b26;
-    }`
-  },
-  "bordeaux": {
-    name: "Bordeaux Dark",
-    css: `:root {
-      --page-bg: #2c1f1f;
-      --gold: #d4af37;
-      --gold-lt: #e8c670;
-      --gold-dim: #8c5f2e;
-      --text: #f5e8d3;
-      --text-sub: #d4c3a8;
-      --text-muted: #a38b6b;
-      --price: #e8c670;
-      --div: #4a3636;
-    }`
-  },
-  "blackgold": {
-    name: "Black & Gold Luxe",
-    css: `:root {
-      --page-bg: #1a140f;
-      --gold: #e8b923;
-      --gold-lt: #f0d090;
-      --gold-dim: #9c7a2a;
-      --text: #f8f1e3;
-      --text-sub: #d4c5a8;
-      --text-muted: #8c7a5f;
-      --price: #f0d090;
-      --div: #2a2218;
-    }`
-  },
-  "warm": {
-    name: "Warm Brown",
-    css: `:root {
-      --page-bg: #4a3a35;
-      --gold: #c19a6b;
-      --gold-lt: #e8c9a0;
-      --gold-dim: #8c6642;
-      --text: #e8d5b8;
-      --text-sub: #c8b89a;
-      --text-muted: #9c7f5f;
-      --price: #e8c9a0;
-      --div: #5c4a42;
-    }`
-  },
-  "minimal": {
-    name: "Modern Minimal",
-    css: `:root {
-      --page-bg: #1a1a1a;
-      --gold: #aaaaaa;
-      --gold-lt: #cccccc;
-      --gold-dim: #666666;
-      --text: #eeeeee;
-      --text-sub: #bbbbbb;
-      --text-muted: #888888;
-      --price: #ffffff;
-      --div: #333333;
-    }`
-  }
-};
-
-function switchTheme(themeKey) {
-  const link = document.getElementById('theme-stylesheet');
-  const style = document.createElement('style');
-  style.id = 'theme-stylesheet';
-  style.textContent = themes[themeKey].css;
-  if (link) link.replaceWith(style);
-  else document.head.appendChild(style);
-  document.body.setAttribute('data-theme', themeKey);
-}
-
-// ==================== RENDERING ====================
-function initDefaultPages() {
-  S.pages = [{
-    id: "p1",
-    colMode: 2,
-    content: "food"
-  }];
-}
-
-function renderAll() {
-  const container = document.getElementById('pages-container');
-  container.innerHTML = '';
-
-  S.pages.forEach(page => {
-    const pageEl = document.createElement('div');
-    pageEl.className = 'page';
-    pageEl.style.setProperty('--col-count', page.colMode || 2);
-
-    let html = `
-      <div style="text-align:center; margin-bottom:25px;">
-        <div class="cover-name" style="font-family:'Cinzel',serif; font-size:28pt; color:var(--gold-lt);">
-          ${menuConfig?.restaurant?.name || "Highway Lunch & Beer Bar"}
-        </div>
-        <div style="color:var(--text-muted); font-size:10pt; letter-spacing:1px;">
-          ${menuConfig?.restaurant?.location || "Birtamode Municipality-1, Jhapa"}
-        </div>
+    <section class="capsule hidden" id="capsuleSection">
+      <div class="create-note">
+        <h2>Create a New Capsule</h2>
+        <input type="text" id="title" placeholder="Memory title...">
+        <textarea id="message" placeholder="Write your love note..."></textarea>
+        <input type="date" id="unlockDate">
+        <button onclick="saveCapsule()">Lock Memory ❤️</button>
       </div>
-    `;
 
-    // Food Menu
-    html += `<div class="section-label" style="color:var(--gold-dim);">FOOD MENU</div>`;
-    html += `<div class="cols-dynamic">`;
+      <div class="capsules-list">
+        <h2>Our Locked Memories</h2>
+        <div id="capsulesContainer"></div>
+      </div>
+    </section>
+  </main>
 
-    // Example: Render first few categories (you can extend this)
-    const foodCats = Object.keys(menuConfig?.menu?.food_menu || {}).slice(0, 6);
-    const half = Math.ceil(foodCats.length / 2);
-
-    for(let col=0; col<page.colMode; col++) {
-      html += `<div>`;
-      const cats = foodCats.slice(col*half, (col+1)*half);
-      cats.forEach(catName => {
-        const items = menuConfig.menu.food_menu[catName] || [];
-        html += `<div style="margin:18px 0 8px; text-align:center; font-family:'Cinzel',serif; color:var(--gold); letter-spacing:2px; font-size:11pt;">${catName.toUpperCase()}</div>`;
-        
-        items.forEach(item => {
-          html += `
-            <div class="row" style="display:flex; justify-content:space-between; padding:5px 0; border-bottom:1px dotted var(--div);">
-              <div class="rn" style="color:var(--text);">${item.name}</div>
-              <div class="rp" style="color:var(--price);">Rs. ${item.price || ''}</div>
-            </div>
-          `;
-        });
-      });
-      html += `</div>`;
-    }
-    html += `</div>`;
-
-    pageEl.innerHTML = html;
-    container.appendChild(pageEl);
-  });
-}
-
-function addPage() {
-  S.pages.push({ id: "p"+(S.pages.length+1), colMode: 2 });
-  renderAll();
-}
-
-function saveProject() {
-  const data = JSON.stringify({menuConfig, S}, null, 2);
-  const blob = new Blob([data], {type: "application/json"});
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = "highway-menu-project.json";
-  a.click();
-}
-
-// ==================== INIT ====================
-document.addEventListener('DOMContentLoaded', () => {
-  loadConfig().then(() => {
-    renderAll();
-  });
-});
-</script>
+  <script src="script.js"></script>
 </body>
 </html>
