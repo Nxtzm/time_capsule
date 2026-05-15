@@ -2,11 +2,26 @@
 <html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Our Time Capsule 💌</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
+/* ============================================================
+   MOBILE — NO BLUE HIGHLIGHT, NO CALLOUT, REAL APP FEEL
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box; margin: 0; padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+button, a, input, select, textarea, [onclick], [tabindex] {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  touch-action: manipulation;
+}
+button:focus, a:focus, [onclick]:focus { outline: none; }
+
 /* ============================================================
    ROOT VARIABLES — LIGHT THEME
    ============================================================ */
@@ -48,7 +63,7 @@
 }
 
 /* ============================================================
-   DARK THEME VARIABLES
+   DARK THEME
    ============================================================ */
 [data-theme="dark"] {
   --pink:        #f472b6;
@@ -84,9 +99,88 @@
 }
 
 /* ============================================================
+   VOID THEME — Pure Black & White
+   ============================================================ */
+[data-theme="void"] {
+  --pink:        #888888;
+  --pink-deep:   #ffffff;
+  --pink-light:  #111111;
+  --lavender:    #aaaaaa;
+  --lav-light:   #0d0d0d;
+  --rose:        #cccccc;
+  --cream:       #000000;
+  --white:       #0a0a0a;
+  --text-dark:   #ffffff;
+  --text-mid:    #bbbbbb;
+  --text-soft:   #555555;
+  --gold:        #ffffff;
+  --mint:        #cccccc;
+  --danger:      #dddddd;
+  --glass-bg:    rgba(18,18,18,0.88);
+  --glass-border:rgba(255,255,255,0.12);
+  --shadow:      0 8px 40px rgba(0,0,0,0.90);
+  --shadow-lg:   0 20px 60px rgba(0,0,0,0.95);
+  --body-bg1:    #000000;
+  --body-bg2:    #060606;
+  --body-bg3:    #030303;
+  --orb1:        rgba(255,255,255,0.04);
+  --orb2:        rgba(180,180,180,0.03);
+  --nav-bg:      rgba(0,0,0,0.96);
+  --nav-border:  rgba(255,255,255,0.08);
+  --input-bg:    rgba(14,14,14,0.95);
+  --input-border:rgba(255,255,255,0.18);
+  --upload-bg:   rgba(8,8,8,0.9);
+  --scrollbar:   #ffffff;
+  --modal-bg:    rgba(0,0,0,0.92);
+}
+
+/* Void theme — override gradient text to plain white */
+[data-theme="void"] .stat-card .stat-num {
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background-clip: unset !important;
+  color: #ffffff !important;
+}
+[data-theme="void"] .btn-primary {
+  background: #ffffff !important;
+  color: #000000 !important;
+  box-shadow: 0 4px 20px rgba(255,255,255,0.10) !important;
+}
+[data-theme="void"] .nav-tab.active {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+[data-theme="void"] .filter-tab.active {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+[data-theme="void"] .status-badge.locked   { background: rgba(255,255,255,0.08); color: #aaa; }
+[data-theme="void"] .status-badge.unlocked { background: rgba(255,255,255,0.12); color: #fff; }
+[data-theme="void"] .status-badge.soon     { background: rgba(255,255,255,0.10); color: #ccc; }
+[data-theme="void"] .card-icon.locked   { background: linear-gradient(135deg,#333,#555); }
+[data-theme="void"] .card-icon.unlocked { background: linear-gradient(135deg,#444,#666); }
+[data-theme="void"] .card-icon.soon     { background: linear-gradient(135deg,#333,#555); }
+[data-theme="void"] .btn-gold  { background: #ffffff !important; color: #000 !important; }
+[data-theme="void"] .btn-mint  { background: #aaa !important; color: #000 !important; }
+[data-theme="void"] .btn-danger{ background: #444 !important; color: #fff !important; }
+[data-theme="void"] .lock-title,
+[data-theme="void"] .setup-title { color: #ffffff !important; }
+[data-theme="void"] .nav-brand  { color: #ffffff !important; }
+[data-theme="void"] .hero-couple span { color: #ffffff !important; }
+[data-theme="void"] .section-title span { color: #aaaaaa !important; }
+[data-theme="void"] .pin-key.enter { background: #ffffff !important; color: #000 !important; }
+[data-theme="void"] .pin-dot.filled { background: #ffffff !important; }
+[data-theme="void"] .toggle-switch.on { background: #ffffff !important; }
+[data-theme="void"] .toggle-switch.on::after { background: #000 !important; }
+[data-theme="void"] .diary-person-card.selected { border-color: #ffffff; }
+[data-theme="void"] .diary-entry-item.active { background: rgba(255,255,255,0.08); border-color: #fff; }
+[data-theme="void"] .card-by span { color: #aaa !important; }
+[data-theme="void"] .ann-unit .num { color: #ffffff !important; }
+
+/* ============================================================
    RESET & BASE
    ============================================================ */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 16px; scroll-behavior: smooth; }
 
 body {
@@ -98,6 +192,8 @@ body {
   overflow-x: hidden;
   position: relative;
   transition: background 0.5s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body::before, body::after {
@@ -153,7 +249,7 @@ body::after {
 }
 
 /* ============================================================
-   SETUP SCREEN (GitHub config)
+   SETUP SCREEN
    ============================================================ */
 #setup-screen {
   position: fixed;
@@ -244,6 +340,7 @@ body::after {
   border: 2px solid var(--glass-border);
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   display: flex; align-items: center; justify-content: center;
+  -webkit-user-select: none; user-select: none;
 }
 .pin-key:hover  { background: var(--pink-light); transform: scale(1.08); }
 .pin-key:active { transform: scale(0.96); }
@@ -287,6 +384,7 @@ body::after {
   overflow: hidden;
   text-decoration: none;
   white-space: nowrap;
+  -webkit-user-select: none; user-select: none;
 }
 .btn::after { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.15); opacity: 0; transition: opacity 0.2s; }
 .btn:hover::after  { opacity: 1; }
@@ -316,6 +414,8 @@ body::after {
   color: var(--text-dark);
   transition: var(--transition);
   outline: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
 .input-field:focus { border-color: var(--pink-deep); background: var(--white); box-shadow: 0 0 0 4px rgba(232,112,154,0.12); }
 .input-field::placeholder { color: var(--text-soft); }
@@ -344,13 +444,13 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
 }
 .nav-brand { font-family: 'Dancing Script', cursive; font-size: 1.6rem; color: var(--pink-deep); display: flex; align-items: center; gap: 8px; text-decoration: none; cursor: default; }
 .nav-tabs { display: flex; gap: 4px; background: var(--glass-bg); padding: 5px; border-radius: 50px; border: 1.5px solid var(--glass-border); }
-.nav-tab { padding: 8px 18px; border: none; border-radius: 50px; background: transparent; cursor: pointer; font-family: 'Lato', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--text-soft); transition: var(--transition); display: flex; align-items: center; gap: 6px; }
+.nav-tab { padding: 8px 18px; border: none; border-radius: 50px; background: transparent; cursor: pointer; font-family: 'Lato', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--text-soft); transition: var(--transition); display: flex; align-items: center; gap: 6px; -webkit-user-select: none; user-select: none; }
 .nav-tab:hover  { color: var(--text-mid); }
 .nav-tab.active { background: linear-gradient(135deg, var(--pink-deep), var(--lavender)); color: #fff; box-shadow: 0 4px 16px rgba(232,112,154,0.30); }
 .nav-actions { display: flex; align-items: center; gap: 10px; }
 .nav-avatar { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--pink), var(--lavender)); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; box-shadow: 0 4px 12px rgba(180,100,140,0.20); cursor: pointer; border: 2px solid var(--white); }
 
-/* Theme toggle */
+/* Theme toggle — 3-way cycle */
 .theme-toggle-btn {
   width: 38px; height: 38px; border-radius: 50%;
   background: var(--glass-bg);
@@ -359,10 +459,11 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
   display: flex; align-items: center; justify-content: center;
   font-size: 1.1rem;
   transition: var(--transition);
+  -webkit-user-select: none; user-select: none;
 }
 .theme-toggle-btn:hover { background: var(--pink-light); }
 
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; background: none; border: none; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; background: none; border: none; -webkit-user-select: none; user-select: none; }
 .hamburger span { width: 22px; height: 2.5px; background: var(--text-mid); border-radius: 4px; transition: var(--transition); }
 
 .mobile-menu {
@@ -413,7 +514,7 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
 .section-title span { color: var(--pink-deep); }
 
 .filter-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
-.filter-tab { padding: 7px 16px; border: 2px solid var(--input-border); border-radius: 50px; background: var(--glass-bg); color: var(--text-soft); font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: var(--transition); }
+.filter-tab { padding: 7px 16px; border: 2px solid var(--input-border); border-radius: 50px; background: var(--glass-bg); color: var(--text-soft); font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: var(--transition); -webkit-user-select: none; user-select: none; }
 .filter-tab:hover  { border-color: var(--pink); color: var(--pink-deep); }
 .filter-tab.active { background: linear-gradient(135deg,var(--pink-deep),var(--lavender)); border-color: transparent; color:#fff; }
 
@@ -423,7 +524,7 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
 .capsule-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
 
 .capsule-card .card-header { padding: 20px 22px 14px; display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; border-bottom: 1.5px solid var(--glass-border); }
-.capsule-card .card-icon { width: 46px; height: 46px; min-width: 46px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+.capsule-card .card-icon { width: 46px; height: 46px; min-width: 46px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; box-shadow: 0 4px 12px rgba(0,0,0,0.12); cursor: pointer; }
 .card-icon.locked   { background: linear-gradient(135deg,var(--pink),var(--lavender)); }
 .card-icon.unlocked { background: linear-gradient(135deg,var(--mint),#6bcfb4); }
 .card-icon.soon     { background: linear-gradient(135deg,var(--gold),#e8a020); }
@@ -488,7 +589,7 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
 .diary-lock-overlay .dl-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--text-dark); margin-bottom: 8px; }
 .diary-lock-overlay .dl-sub   { font-size: 0.9rem; color: var(--text-soft); margin-bottom: 24px; }
 .diary-pin-input { display: flex; gap: 10px; justify-content: center; margin-bottom: 14px; }
-.diary-pin-input input { width: 50px; height: 50px; text-align: center; font-size: 1.4rem; font-weight: 700; border: 2px solid var(--input-border); border-radius: 12px; background: var(--input-bg); color: var(--text-dark); outline: none; transition: var(--transition); }
+.diary-pin-input input { width: 50px; height: 50px; text-align: center; font-size: 1.4rem; font-weight: 700; border: 2px solid var(--input-border); border-radius: 12px; background: var(--input-bg); color: var(--text-dark); outline: none; transition: var(--transition); -webkit-appearance: none; }
 .diary-pin-input input:focus { border-color: var(--pink-deep); box-shadow: 0 0 0 3px rgba(232,112,154,0.15); }
 
 /* ============================================================
@@ -502,7 +603,7 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
 .toggle-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--glass-border); }
 .toggle-row:last-child { border-bottom: none; }
 .toggle-label { font-size: 0.9rem; color: var(--text-mid); }
-.toggle-switch { width: 44px; height: 24px; background: var(--input-border); border-radius: 50px; position: relative; cursor: pointer; transition: var(--transition); border: none; }
+.toggle-switch { width: 44px; height: 24px; background: var(--input-border); border-radius: 50px; position: relative; cursor: pointer; transition: var(--transition); border: none; -webkit-user-select: none; user-select: none; }
 .toggle-switch::after { content: ''; position: absolute; width: 18px; height: 18px; background: #fff; border-radius: 50%; top: 3px; left: 3px; transition: var(--transition); box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
 .toggle-switch.on { background: linear-gradient(135deg, var(--pink-deep), var(--lavender)); }
 .toggle-switch.on::after { left: 23px; }
@@ -530,12 +631,25 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
 .upload-area .ua-icon { font-size: 2rem; margin-bottom: 8px; }
 .upload-area p { font-size: 0.85rem; color: var(--text-soft); }
 
-/* Emergency PIN area inside view modal */
+/* Emergency PIN area */
 .emergency-pin-area { margin-top: 16px; padding: 16px; border-radius: var(--radius-sm); background: rgba(244,114,182,0.07); border: 1.5px dashed var(--glass-border); }
 .emergency-pin-area label { font-size: 0.78rem; color: var(--text-soft); display: block; margin-bottom: 8px; font-style: italic; }
 .emergency-row { display: flex; gap: 8px; }
 .emergency-row input { flex: 1; padding: 10px 14px; border: 2px solid var(--input-border); border-radius: var(--radius-sm); background: var(--input-bg); color: var(--text-dark); font-size: 0.9rem; outline: none; transition: var(--transition); }
 .emergency-row input:focus { border-color: var(--pink-deep); }
+
+/* ============================================================
+   EDIT PIN MODAL — special compact modal
+   ============================================================ */
+#edit-pin-modal .modal-box { max-width: 380px; }
+.edit-pin-body { text-align: center; padding: 10px 0 6px; }
+.edit-pin-body .ep-icon  { font-size: 3rem; margin-bottom: 12px; }
+.edit-pin-body .ep-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--text-dark); margin-bottom: 6px; }
+.edit-pin-body .ep-sub   { font-size: 0.82rem; color: var(--text-soft); margin-bottom: 20px; }
+.edit-pin-body .ep-row   { display: flex; gap: 10px; margin-bottom: 10px; }
+.edit-pin-body .ep-row input { flex: 1; padding: 12px 16px; border: 2px solid var(--input-border); border-radius: var(--radius-sm); background: var(--input-bg); color: var(--text-dark); font-size: 1rem; outline: none; transition: var(--transition); -webkit-appearance: none; }
+.edit-pin-body .ep-row input:focus { border-color: var(--pink-deep); }
+.edit-pin-body .ep-error { color: var(--danger); font-size: 0.8rem; min-height: 18px; margin-bottom: 10px; }
 
 /* ============================================================
    TOAST
@@ -598,6 +712,15 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
   .settings-grid { grid-template-columns: 1fr; }
   .stats-row { grid-template-columns: repeat(2, 1fr); }
   .pin-keypad { max-width: 220px; }
+  .topnav { padding: 0 16px; }
+  .modal-box { padding: 20px 16px; }
+}
+
+/* Safe area for notched phones */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .topnav { padding-top: env(safe-area-inset-top); height: calc(64px + env(safe-area-inset-top)); }
+  .mobile-menu { top: calc(64px + env(safe-area-inset-top)); }
+  #toast-container { bottom: calc(28px + env(safe-area-inset-bottom)); }
 }
 
 .spinner { width: 28px; height: 28px; border: 3px solid var(--input-border); border-top-color: var(--pink-deep); border-radius: 50%; animation: spin 0.7s linear infinite; margin: 0 auto; }
@@ -690,7 +813,7 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
       <button class="nav-tab" onclick="showPage('settings')" data-page="settings">⚙️ Settings</button>
     </div>
     <div class="nav-actions">
-      <button class="theme-toggle-btn" id="theme-toggle-btn" onclick="toggleTheme()" title="Toggle dark/light mode">🌙</button>
+      <button class="theme-toggle-btn" id="theme-toggle-btn" onclick="cycleTheme()" title="Toggle theme">🌙</button>
       <div class="nav-avatar" onclick="showPage('settings')" title="Settings">⚙️</div>
       <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
         <span></span><span></span><span></span>
@@ -868,7 +991,11 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
         <div style="display:flex;flex-direction:column;gap:4px;">
           <div class="toggle-row">
             <span class="toggle-label">🌙 Dark Mode</span>
-            <button class="toggle-switch" id="toggle-darkmode" onclick="toggleTheme()"></button>
+            <button class="toggle-switch" id="toggle-darkmode" onclick="setThemeFromToggle('dark',this)"></button>
+          </div>
+          <div class="toggle-row">
+            <span class="toggle-label">⬛ Void Mode (B&W)</span>
+            <button class="toggle-switch" id="toggle-voidmode" onclick="setThemeFromToggle('void',this)"></button>
           </div>
           <div class="toggle-row">
             <span class="toggle-label">Floating Hearts</span>
@@ -968,6 +1095,26 @@ textarea.input-field { resize: vertical; min-height: 120px; line-height: 1.7; }
   </div>
 </div>
 
+<!-- EDIT PIN MODAL — requires emergency PIN to edit a capsule -->
+<div class="modal-backdrop hidden" id="edit-pin-modal" onclick="closeEditPinModalOnBg(event)">
+  <div class="glass modal-box" style="max-width:380px;">
+    <div class="modal-header">
+      <h3 class="modal-title">🔒 Edit Protected</h3>
+      <button class="modal-close" onclick="closeEditPinModal()">✕</button>
+    </div>
+    <div class="edit-pin-body">
+      <div class="ep-icon">🛡️</div>
+      <div class="ep-title">Emergency PIN Required</div>
+      <div class="ep-sub">Capsules are edit-protected. Enter the emergency PIN to make changes.</div>
+      <div class="ep-row">
+        <input type="password" id="edit-pin-input" placeholder="Enter emergency PIN" autocomplete="off">
+        <button class="btn btn-primary btn-sm" onclick="confirmEditPin()">Unlock ✓</button>
+      </div>
+      <div class="ep-error" id="edit-pin-error"></div>
+    </div>
+  </div>
+</div>
+
 <audio id="bg-music" loop></audio>
 
 <script>
@@ -978,8 +1125,13 @@ const LOCAL_GH_KEY  = 'tc_github_config';
 const LOCAL_SESS    = 'tc_session';
 const LOCAL_THEME   = 'tc_theme';
 const LOCAL_MUSIC   = 'tc_music';
-const LOCAL_PREFS   = 'tc_prefs'; // hearts, autolock, autoplay
+const LOCAL_PREFS   = 'tc_prefs';
 const EMERGENCY_PIN = '02518899320';
+
+// Themes: light → dark → void
+const THEME_CYCLE = ['light','dark','void'];
+const THEME_ICONS = { light:'🌙', dark:'☀️', void:'⬛' };
+const THEME_NEXT  = { light:'dark', dark:'void', void:'light' };
 
 let ghConfig = { username: '', repo: '', token: '' };
 let appData  = { settings: defaultSettings(), capsules: [] };
@@ -990,6 +1142,7 @@ let activeDiaryPerson = 0;
 let activeDiaryEntry  = null;
 let editingDiaryEntryId = null;
 let editingCapsuleId    = null;
+let pendingEditCapsuleId = null; // capsule waiting for edit PIN
 let capPhotoData        = null;
 let capsuleFilter       = 'all';
 let syncInterval        = null;
@@ -997,7 +1150,7 @@ let pinBuffer = '';
 let pinStep   = 0;
 let pinConfirmBuffer = '';
 let isSetup   = false;
-let localPrefs = { hearts: true, autolock: false, autoplay: false, darkMode: false };
+let localPrefs = { hearts: true, autolock: false, autoplay: false, theme: 'light' };
 
 function defaultSettings() {
   return {
@@ -1098,13 +1251,10 @@ async function connectGitHub() {
 }
 
 async function initializeJsonFiles() {
-  // Create files if not exist
   const capsules = await ghGet('capsules.json');
   if (!capsules) await ghPut('capsules.json', [], undefined);
-
   const diary = await ghGet('diary.json');
   if (!diary) await ghPut('diary.json', { entries: { '0': [], '1': [] } }, undefined);
-
   const settings = await ghGet('settings.json');
   if (!settings) await ghPut('settings.json', defaultSettings(), undefined);
 }
@@ -1136,19 +1286,13 @@ async function loadRemoteData() {
   }
 }
 
-async function saveCapsules() {
-  await writeJson('capsules.json', appData.capsules);
-}
-async function saveDiaryRemote() {
-  await writeJson('diary.json', diaryData);
-}
-async function saveSettingsRemote() {
-  await writeJson('settings.json', appData.settings);
-}
+async function saveCapsules()        { await writeJson('capsules.json', appData.capsules); }
+async function saveDiaryRemote()     { await writeJson('diary.json', diaryData); }
+async function saveSettingsRemote()  { await writeJson('settings.json', appData.settings); }
 
 function startPolling() {
   if (syncInterval) clearInterval(syncInterval);
-  syncInterval = setInterval(loadRemoteData, 30000); // every 30s
+  syncInterval = setInterval(loadRemoteData, 30000);
 }
 
 /* ============================================================
@@ -1235,14 +1379,50 @@ function initApp() {
 
 function loadLocalPrefs() {
   try { const p=localStorage.getItem(LOCAL_PREFS); if(p) localPrefs={...localPrefs,...JSON.parse(p)}; } catch{}
-  // Apply dark mode
-  if (localPrefs.darkMode) {
-    document.documentElement.setAttribute('data-theme','dark');
-    const btn=document.getElementById('toggle-darkmode'); if(btn) btn.className='toggle-switch on';
-    const tb=document.getElementById('theme-toggle-btn'); if(tb) tb.textContent='☀️';
-  }
+  applyTheme(localPrefs.theme||'light');
 }
 function saveLocalPrefs() { localStorage.setItem(LOCAL_PREFS, JSON.stringify(localPrefs)); }
+
+/* ============================================================
+   THEME SYSTEM — 3-WAY: light / dark / void
+   ============================================================ */
+function applyTheme(theme) {
+  localPrefs.theme = theme;
+  document.documentElement.setAttribute('data-theme', theme);
+
+  // Nav button icon
+  const tb = document.getElementById('theme-toggle-btn');
+  if (tb) tb.textContent = THEME_ICONS[THEME_NEXT[theme]] || '🌙';
+
+  // Settings toggles
+  const dm = document.getElementById('toggle-darkmode');
+  const vm = document.getElementById('toggle-voidmode');
+  if (dm) dm.className = 'toggle-switch' + (theme==='dark'?' on':'');
+  if (vm) vm.className = 'toggle-switch' + (theme==='void'?' on':'');
+
+  // Hearts canvas: dim in dark/void
+  const canvas = document.getElementById('hearts-canvas');
+  if (canvas) canvas.style.opacity = theme==='light'?'1':theme==='dark'?'0.6':'0.3';
+
+  saveLocalPrefs();
+}
+
+function cycleTheme() {
+  const cur  = localPrefs.theme || 'light';
+  const next = THEME_NEXT[cur] || 'dark';
+  applyTheme(next);
+}
+
+function setThemeFromToggle(theme, btn) {
+  // If already active theme, toggle back to light
+  const cur = localPrefs.theme || 'light';
+  if (cur === theme) {
+    applyTheme('light');
+  } else {
+    applyTheme(theme);
+  }
+  populateSettingsForm(); // refresh toggles
+}
 
 function applySettings() {
   const s = appData.settings;
@@ -1255,7 +1435,6 @@ function applySettings() {
   el('diary-name-p2').textContent  = s.name2||'Partner 2';
   el('diary-avatar-p1').textContent = s.emoji1||'💗';
   el('diary-avatar-p2').textContent = s.emoji2||'💙';
-  // from select
   const sel=el('c-from');
   if(sel) sel.innerHTML=`<option value="${esc(s.name1||'Partner 1')}">${esc(s.emoji1||'💗')} ${esc(s.name1||'Partner 1')}</option><option value="${esc(s.name2||'Partner 2')}">${esc(s.emoji2||'💙')} ${esc(s.name2||'Partner 2')}</option>`;
 }
@@ -1274,19 +1453,6 @@ function showPage(name) {
 }
 function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
 function closeMobileMenu()  { document.getElementById('mobile-menu').classList.remove('open'); }
-
-/* ============================================================
-   THEME TOGGLE
-   ============================================================ */
-function toggleTheme() {
-  localPrefs.darkMode = !localPrefs.darkMode;
-  document.documentElement.setAttribute('data-theme', localPrefs.darkMode?'dark':'light');
-  const btn=document.getElementById('toggle-darkmode');
-  if(btn) btn.className='toggle-switch'+(localPrefs.darkMode?' on':'');
-  const tb=document.getElementById('theme-toggle-btn');
-  if(tb) tb.textContent=localPrefs.darkMode?'☀️':'🌙';
-  saveLocalPrefs();
-}
 
 /* ============================================================
    HOME
@@ -1395,6 +1561,55 @@ function filterCapsules(f,btn) {
 }
 
 /* ============================================================
+   EDIT PIN PROTECTION
+   ============================================================ */
+function editCapsule(id) {
+  // Always require emergency PIN to edit
+  pendingEditCapsuleId = id;
+  document.getElementById('edit-pin-input').value = '';
+  document.getElementById('edit-pin-error').textContent = '';
+  document.getElementById('edit-pin-modal').classList.remove('hidden');
+  setTimeout(()=>document.getElementById('edit-pin-input').focus(), 150);
+}
+
+function confirmEditPin() {
+  const entered = document.getElementById('edit-pin-input').value;
+  if (entered === EMERGENCY_PIN) {
+    closeEditPinModal();
+    openCapsuleModal(pendingEditCapsuleId);
+    pendingEditCapsuleId = null;
+  } else {
+    document.getElementById('edit-pin-error').textContent = '❌ Incorrect emergency PIN';
+    document.getElementById('edit-pin-input').value = '';
+    document.getElementById('edit-pin-input').focus();
+    setTimeout(()=>{
+      const el = document.getElementById('edit-pin-error');
+      if (el) el.textContent = '';
+    }, 2500);
+  }
+}
+
+function closeEditPinModal() {
+  document.getElementById('edit-pin-modal').classList.add('hidden');
+  document.getElementById('edit-pin-input').value = '';
+  document.getElementById('edit-pin-error').textContent = '';
+}
+
+function closeEditPinModalOnBg(e) {
+  if (e.target.id === 'edit-pin-modal') closeEditPinModal();
+}
+
+// Allow Enter key in edit pin input
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('edit-pin-modal').classList.contains('hidden') && e.key === 'Enter') {
+    confirmEditPin();
+  }
+  if (!document.getElementById('edit-pin-modal').classList.contains('hidden') && e.key === 'Escape') {
+    closeEditPinModal();
+  }
+});
+
+/* ============================================================
    CAPSULE MODAL
    ============================================================ */
 function openCapsuleModal(id=null) {
@@ -1405,7 +1620,7 @@ function openCapsuleModal(id=null) {
   document.getElementById('c-img-preview-wrap').classList.add('hidden');
   document.getElementById('c-upload-area').classList.remove('hidden');
   document.getElementById('c-unlock-date').min=new Date().toISOString().split('T')[0];
-  applySettings(); // refresh from select
+  applySettings();
   if(id) {
     const c=appData.capsules.find(x=>x.id===id);
     if(c) {
@@ -1462,8 +1677,6 @@ async function saveCapsule() {
   await saveCapsules();
 }
 
-function editCapsule(id) { openCapsuleModal(id); }
-
 async function deleteCapsule(id) {
   if(!confirm('Delete this capsule? 💔')) return;
   appData.capsules=appData.capsules.filter(c=>c.id!==id);
@@ -1483,7 +1696,6 @@ function openCapsuleView(id) {
   const body=document.getElementById('view-modal-body');
   body.innerHTML='';
   if(unlocked) {
-    // Show content directly
     renderCapsuleContent(body, c);
     showOpenAnimation();
   } else {
@@ -1741,11 +1953,12 @@ function populateSettingsForm() {
   el('s-anniversary').value=s.anniversary||'';
   el('s-gh-username').value=ghConfig.username||'';
   el('s-gh-repo').value    =ghConfig.repo||'';
-  // toggles
-  el('toggle-hearts').className   ='toggle-switch'+(localPrefs.hearts?' on':'');
-  el('toggle-autolock').className ='toggle-switch'+(localPrefs.autolock?' on':'');
-  el('toggle-autoplay').className ='toggle-switch'+(localPrefs.autoplay?' on':'');
-  el('toggle-darkmode').className ='toggle-switch'+(localPrefs.darkMode?' on':'');
+  const theme = localPrefs.theme||'light';
+  el('toggle-darkmode').className  ='toggle-switch'+(theme==='dark'?' on':'');
+  el('toggle-voidmode').className  ='toggle-switch'+(theme==='void'?' on':'');
+  el('toggle-hearts').className    ='toggle-switch'+(localPrefs.hearts?' on':'');
+  el('toggle-autolock').className  ='toggle-switch'+(localPrefs.autolock?' on':'');
+  el('toggle-autoplay').className  ='toggle-switch'+(localPrefs.autoplay?' on':'');
 }
 
 async function saveSettings() {
@@ -1830,7 +2043,7 @@ function startAutoLock() {
     pinBuffer=''; updateDots(); sessionUnlocked=false;
   },5*60*1000);
 }
-['click','keydown'].forEach(ev=>document.addEventListener(ev,()=>{ if(localPrefs.autolock) { clearTimeout(autoLockTimer); startAutoLock(); } }));
+['click','keydown','touchstart'].forEach(ev=>document.addEventListener(ev,()=>{ if(localPrefs.autolock) { clearTimeout(autoLockTimer); startAutoLock(); } },{ passive: true }));
 
 /* ============================================================
    MUSIC
@@ -1905,20 +2118,17 @@ function toast(msg,type='info',dur=3200) {
 (async function boot() {
   // Load local prefs first (for theme)
   try { const p=localStorage.getItem(LOCAL_PREFS); if(p) localPrefs={...localPrefs,...JSON.parse(p)}; } catch{}
-  if(localPrefs.darkMode) { document.documentElement.setAttribute('data-theme','dark'); }
+  applyTheme(localPrefs.theme||'light');
 
-  // Load GitHub config from localStorage
   const saved=localStorage.getItem(LOCAL_GH_KEY);
-  if(!saved) { return; } // show setup screen (already visible by default)
+  if(!saved) { return; }
 
   try { ghConfig=JSON.parse(saved); } catch { return; }
   if(!ghConfig.username||!ghConfig.repo||!ghConfig.token) { return; }
 
-  // Config exists — hide setup, show lock
   document.getElementById('setup-screen').classList.add('hidden');
   document.getElementById('lock-screen').classList.remove('hidden');
 
-  // Load remote data
   try {
     await loadRemoteData();
   } catch(e) {
