@@ -17,7 +17,6 @@ button, a, input, select, textarea, [onclick], [tabindex] {
 }
 button:focus, a:focus, [onclick]:focus { outline: none; }
 
-/* ============================================================ ROOT VARIABLES — LIGHT ============================================================ */
 :root {
   --pink:#f9a8c9; --pink-deep:#e8709a; --pink-light:#fde8f1;
   --lavender:#c9b8f0; --lav-light:#ede8fb; --rose:#f7c5d5;
@@ -36,7 +35,6 @@ button:focus, a:focus, [onclick]:focus { outline: none; }
   --msg-mine:linear-gradient(135deg,var(--pink-deep),var(--lavender));
   --msg-theirs:var(--glass-bg);
 }
-/* DARK */
 [data-theme="dark"] {
   --pink:#f472b6; --pink-deep:#ec4899; --pink-light:#2d1a24;
   --lavender:#a78bfa; --lav-light:#1e1a2e; --rose:#f9a8d4;
@@ -54,7 +52,6 @@ button:focus, a:focus, [onclick]:focus { outline: none; }
   --msg-mine:linear-gradient(135deg,#ec4899,#a78bfa);
   --msg-theirs:rgba(30,18,40,0.85);
 }
-/* VOID */
 [data-theme="void"] {
   --pink:#888888; --pink-deep:#ffffff; --pink-light:#111111;
   --lavender:#aaaaaa; --lav-light:#0d0d0d; --rose:#cccccc;
@@ -76,21 +73,14 @@ button:focus, a:focus, [onclick]:focus { outline: none; }
 [data-theme="void"] .btn-primary { background:#ffffff!important; color:#000000!important; }
 [data-theme="void"] .nav-tab.active { background:#ffffff!important; color:#000000!important; }
 [data-theme="void"] .filter-tab.active { background:#ffffff!important; color:#000000!important; }
-[data-theme="void"] .status-badge.locked { background:rgba(255,255,255,0.08); color:#aaa; }
-[data-theme="void"] .status-badge.unlocked { background:rgba(255,255,255,0.12); color:#fff; }
-[data-theme="void"] .status-badge.soon { background:rgba(255,255,255,0.10); color:#ccc; }
-[data-theme="void"] .card-icon.locked { background:linear-gradient(135deg,#333,#555); }
-[data-theme="void"] .card-icon.unlocked { background:linear-gradient(135deg,#444,#666); }
-[data-theme="void"] .card-icon.soon { background:linear-gradient(135deg,#333,#555); }
 [data-theme="void"] .btn-gold { background:#ffffff!important; color:#000!important; }
 [data-theme="void"] .btn-mint { background:#aaa!important; color:#000!important; }
 [data-theme="void"] .btn-danger { background:#444!important; color:#fff!important; }
-[data-theme="void"] .lock-title, [data-theme="void"] .setup-title { color:#ffffff!important; }
+[data-theme="void"] .lock-title { color:#ffffff!important; }
 [data-theme="void"] .nav-brand { color:#ffffff!important; }
 [data-theme="void"] .pin-key.enter { background:#ffffff!important; color:#000!important; }
 [data-theme="void"] .pin-dot.filled { background:#ffffff!important; }
 [data-theme="void"] .ann-unit .num { color:#ffffff!important; }
-[data-theme="void"] .bday-num { color:#ffffff!important; }
 
 html { font-size:16px; scroll-behavior:smooth; }
 body {
@@ -111,7 +101,6 @@ body::after  { width:400px; height:400px; bottom:-100px; right:-100px; backgroun
 ::-webkit-scrollbar{width:6px;} ::-webkit-scrollbar-track{background:transparent;} ::-webkit-scrollbar-thumb{background:var(--scrollbar);border-radius:10px;}
 .hidden{display:none!important;} .page{position:relative;z-index:2;min-height:100vh;}
 
-/* GLASS */
 .glass {
   background:var(--glass-bg); backdrop-filter:blur(18px) saturate(180%);
   -webkit-backdrop-filter:blur(18px) saturate(180%);
@@ -128,30 +117,22 @@ body::after  { width:400px; height:400px; bottom:-100px; right:-100px; backgroun
 .setup-steps { display:flex;flex-direction:column;gap:14px;text-align:left;margin-bottom:24px; }
 .setup-step-label { font-family:'Playfair Display',serif;font-size:0.85rem;color:var(--text-mid);margin-bottom:5px;font-weight:600; }
 
-/* LOCK SCREEN */
+/* LOCK SCREEN — minimal */
 #lock-screen { position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--body-bg1),var(--body-bg2),var(--body-bg1));padding:16px; }
-.lock-card { max-width:420px;width:100%;padding:48px 40px;text-align:center;animation:fadeInUp 0.7s ease both; }
-.lock-logo { font-size:4rem;margin-bottom:8px;animation:heartBeat 1.5s ease-in-out infinite;display:block; }
+.lock-card { max-width:340px;width:100%;padding:48px 36px;text-align:center;animation:fadeInUp 0.7s ease both; }
+.lock-logo { font-size:4rem;margin-bottom:16px;animation:heartBeat 1.5s ease-in-out infinite;display:block; }
 @keyframes heartBeat { 0%,100%{transform:scale(1);} 14%{transform:scale(1.15);} 28%{transform:scale(1);} 42%{transform:scale(1.08);} 56%{transform:scale(1);} }
-.lock-title  { font-family:'Dancing Script',cursive;font-size:2.2rem;color:var(--pink-deep);margin-bottom:4px; }
-.lock-subtitle { font-size:0.88rem;color:var(--text-soft);margin-bottom:16px;font-style:italic; }
-.setup-hint { font-size:0.8rem;color:var(--text-soft);margin-bottom:16px;min-height:18px; }
-/* WHO IS LOGGING IN */
-.login-who { display:flex;gap:12px;justify-content:center;margin-bottom:20px; }
-.login-who-btn { flex:1;max-width:130px;padding:12px 10px;border-radius:var(--radius-sm);border:2px solid var(--input-border);background:var(--glass-bg);cursor:pointer;text-align:center;transition:var(--transition);font-family:'Lato',sans-serif; }
-.login-who-btn:hover,.login-who-btn.selected { border-color:var(--pink-deep);background:var(--pink-light); }
-.login-who-btn .lwb-emoji { font-size:1.8rem;display:block;margin-bottom:4px; }
-.login-who-btn .lwb-name  { font-size:0.8rem;font-weight:700;color:var(--text-mid); }
+.lock-hint { font-size:0.82rem;color:var(--text-soft);margin-bottom:20px;font-style:italic;letter-spacing:0.3px; }
 .pin-dots { display:flex;justify-content:center;gap:14px;margin-bottom:24px; }
 .pin-dot { width:18px;height:18px;border-radius:50%;border:2.5px solid var(--pink);background:transparent;transition:var(--transition); }
 .pin-dot.filled { background:linear-gradient(135deg,var(--pink-deep),var(--lavender));border-color:transparent;transform:scale(1.1); }
-.pin-keypad { display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:260px;margin:0 auto 24px; }
+.pin-keypad { display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:260px;margin:0 auto 20px; }
 .pin-key { aspect-ratio:1;border-radius:50%;background:var(--glass-bg);font-family:'Lato',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-dark);cursor:pointer;transition:var(--transition);border:2px solid var(--glass-border);box-shadow:0 4px 12px rgba(0,0,0,0.08);display:flex;align-items:center;justify-content:center;-webkit-user-select:none;user-select:none; }
 .pin-key:hover { background:var(--pink-light);transform:scale(1.08); }
 .pin-key:active { transform:scale(0.96); }
 .pin-key.del { font-size:1rem;color:var(--text-mid); }
 .pin-key.enter { background:linear-gradient(135deg,var(--pink-deep),var(--lavender));color:#fff;border-color:transparent;font-size:1rem; }
-.pin-error { color:var(--danger);font-size:0.85rem;margin-top:-12px;margin-bottom:12px;min-height:20px;font-weight:600;animation:shake 0.4s ease; }
+.pin-error { color:var(--danger);font-size:0.85rem;margin-bottom:8px;min-height:20px;font-weight:600;animation:shake 0.4s ease; }
 @keyframes shake { 0%,100%{transform:translateX(0);} 20%{transform:translateX(-8px);} 40%{transform:translateX(8px);} 60%{transform:translateX(-6px);} 80%{transform:translateX(6px);} }
 
 /* BUTTONS */
@@ -218,11 +199,6 @@ select.input-field { cursor:pointer; }
 .ann-unit .num { font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--pink-deep);line-height:1;display:block; }
 .ann-unit .lbl { font-size:0.7rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-soft);font-weight:700; }
 .bday-banner { padding:20px 28px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap; }
-.bday-num { font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--pink-deep); }
-.bday-info { display:flex;flex-direction:column;gap:2px; }
-.bday-name { font-family:'Playfair Display',serif;font-size:1rem;color:var(--text-dark); }
-.bday-date { font-size:0.8rem;color:var(--text-soft); }
-.bday-days { font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--pink-deep); }
 
 /* SECTION */
 .section-header { display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:14px; }
@@ -293,16 +269,10 @@ select.input-field { cursor:pointer; }
 .diary-pin-input input { width:50px;height:50px;text-align:center;font-size:1.4rem;font-weight:700;border:2px solid var(--input-border);border-radius:12px;background:var(--input-bg);color:var(--text-dark);outline:none;transition:var(--transition);-webkit-appearance:none; }
 .diary-pin-input input:focus { border-color:var(--pink-deep);box-shadow:0 0 0 3px rgba(232,112,154,0.15); }
 
-/* ============================================================
-   MESSAGES
-   ============================================================ */
-.messages-layout { display:flex;flex-direction:column;height:calc(100vh - 200px);min-height:500px; }
-.msg-disabled-notice { padding:24px;text-align:center; }
-.msg-disabled-notice .mdn-icon { font-size:3rem;margin-bottom:12px; }
-.msg-disabled-notice .mdn-title { font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--text-dark);margin-bottom:8px; }
-.msg-disabled-notice .mdn-sub { font-size:0.85rem;color:var(--text-soft); }
+/* MESSAGES */
+.messages-layout { display:flex;flex-direction:column;height:calc(100vh - 200px);min-height:500px;position:relative; }
 .messages-area { flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:12px; }
-.msg-bubble-wrap { display:flex;flex-direction:column;max-width:72%; }
+.msg-bubble-wrap { display:flex;flex-direction:column;max-width:72%;position:relative; }
 .msg-bubble-wrap.mine  { align-self:flex-end;align-items:flex-end; }
 .msg-bubble-wrap.theirs { align-self:flex-start;align-items:flex-start; }
 .msg-sender { font-size:0.72rem;color:var(--text-soft);margin-bottom:3px;font-weight:700; }
@@ -310,6 +280,11 @@ select.input-field { cursor:pointer; }
 .msg-bubble-wrap.mine .msg-bubble { background:var(--msg-mine);color:#fff;border-bottom-right-radius:4px; }
 .msg-bubble-wrap.theirs .msg-bubble { background:var(--msg-theirs);color:var(--text-dark);border:1.5px solid var(--glass-border);border-bottom-left-radius:4px; }
 .msg-time { font-size:0.68rem;color:var(--text-soft);margin-top:3px; }
+.msg-actions { display:none;position:absolute;top:-32px;right:0;background:var(--glass-bg);border:1.5px solid var(--glass-border);border-radius:8px;padding:4px;gap:4px;backdrop-filter:blur(12px);z-index:10; }
+.msg-bubble-wrap:hover .msg-actions { display:flex; }
+.msg-bubble-wrap.theirs .msg-actions { right:auto;left:0; }
+.msg-action-btn { background:none;border:none;cursor:pointer;font-size:0.8rem;padding:4px 7px;border-radius:6px;color:var(--text-mid);transition:var(--transition); }
+.msg-action-btn:hover { background:var(--pink-light);color:var(--pink-deep); }
 .msg-voice { display:flex;align-items:center;gap:10px;padding:8px 0; }
 .msg-voice-btn { width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.3);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem; }
 .msg-voice-wave { flex:1;height:28px;background:rgba(255,255,255,0.2);border-radius:10px;display:flex;align-items:center;padding:0 8px;gap:2px; }
@@ -337,6 +312,8 @@ select.input-field { cursor:pointer; }
 .recording-indicator { display:flex;align-items:center;gap:8px;padding:8px 14px;background:rgba(240,128,128,0.15);border:1.5px solid var(--danger);border-radius:24px;font-size:0.82rem;color:var(--danger);font-weight:700;animation:recordPulse 1s ease-in-out infinite; }
 @keyframes recordPulse { 0%,100%{opacity:1;} 50%{opacity:0.6;} }
 .rec-dot { width:8px;height:8px;border-radius:50%;background:var(--danger); }
+.guest-readonly-bar { text-align:center;padding:12px;font-size:0.82rem;color:var(--text-soft);font-style:italic;border-top:1.5px solid var(--glass-border);background:var(--glass-bg); }
+.msg-edit-input { flex:1;padding:8px 12px;border:2px solid var(--pink-deep);border-radius:12px;background:var(--input-bg);color:var(--text-dark);font-size:0.9rem;outline:none;font-family:'Lato',sans-serif; }
 
 /* SETTINGS */
 .settings-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px; }
@@ -369,14 +346,8 @@ select.input-field { cursor:pointer; }
 .upload-area:hover { border-color:var(--pink-deep);background:var(--pink-light); }
 .upload-area .ua-icon { font-size:2rem;margin-bottom:8px; }
 .upload-area p { font-size:0.85rem;color:var(--text-soft); }
-/* Emergency PIN */
-.emergency-pin-area { margin-top:16px;padding:16px;border-radius:var(--radius-sm);background:rgba(244,114,182,0.07);border:1.5px dashed var(--glass-border); }
-.emergency-pin-area label { font-size:0.78rem;color:var(--text-soft);display:block;margin-bottom:8px;font-style:italic; }
-.emergency-row { display:flex;gap:8px; }
-.emergency-row input { flex:1;padding:10px 14px;border:2px solid var(--input-border);border-radius:var(--radius-sm);background:var(--input-bg);color:var(--text-dark);font-size:0.9rem;outline:none;transition:var(--transition); }
-.emergency-row input:focus { border-color:var(--pink-deep); }
 
-/* GENERIC PIN GATE MODAL */
+/* PIN GATE MODAL */
 .pin-gate-body { text-align:center;padding:10px 0 6px; }
 .pin-gate-body .pg-icon  { font-size:3rem;margin-bottom:12px; }
 .pin-gate-body .pg-title { font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--text-dark);margin-bottom:6px; }
@@ -417,12 +388,10 @@ select.input-field { cursor:pointer; }
 .music-progress-fill { height:100%;background:linear-gradient(90deg,var(--pink-deep),var(--lavender));border-radius:10px;transition:width 1s linear;width:0%; }
 .music-controls { display:flex;gap:10px;align-items:center; }
 
-/* WHO IS USING badge */
+/* USER BADGE */
 .user-badge { display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:50px;background:var(--pink-light);border:1.5px solid var(--pink);font-size:0.78rem;font-weight:700;color:var(--pink-deep); }
 
 /* DATE DISPLAY */
-.date-both { display:flex;flex-direction:column;gap:2px; }
-.date-en { font-size:0.85rem;color:var(--text-mid); }
 .date-np { font-size:0.75rem;color:var(--text-soft);font-style:italic; }
 
 /* RESPONSIVE */
@@ -432,7 +401,7 @@ select.input-field { cursor:pointer; }
   .diary-sidebar{flex-direction:row;overflow-x:auto;}
   .diary-person-card{min-width:160px;}
   .diary-entry-list{display:none;}
-  .lock-card{padding:36px 24px;} .modal-box{padding:24px 20px;}
+  .modal-box{padding:24px 20px;}
   .content-wrap{padding:20px 14px 60px;}
   .anniversary-banner{flex-direction:column;}
 }
@@ -480,27 +449,11 @@ select.input-field { cursor:pointer; }
   </div>
 </div>
 
-<!-- LOCK SCREEN -->
+<!-- LOCK SCREEN — minimal, PIN only -->
 <div id="lock-screen" class="hidden">
   <div class="glass lock-card">
     <span class="lock-logo">💝</span>
-    <h1 class="lock-title" id="lock-title">Swapnil & Sophiya</h1>
-    <p class="lock-subtitle">Who is entering? 💕</p>
-    <div class="login-who">
-      <div class="login-who-btn" id="lwb-swapnil" onclick="selectLoginUser('swapnil')">
-        <span class="lwb-emoji">🌙</span>
-        <span class="lwb-name">Swapnil</span>
-      </div>
-      <div class="login-who-btn" id="lwb-sophiya" onclick="selectLoginUser('sophiya')">
-        <span class="lwb-emoji">🌸</span>
-        <span class="lwb-name">Sophiya</span>
-      </div>
-      <div class="login-who-btn" id="lwb-guest" onclick="selectLoginUser('guest')">
-        <span class="lwb-emoji">👁️</span>
-        <span class="lwb-name">Guest</span>
-      </div>
-    </div>
-    <p class="setup-hint" id="setup-hint"></p>
+    <p class="lock-hint">Enter your PIN to continue 💕</p>
     <div class="pin-dots" id="pin-dots">
       <div class="pin-dot" id="dot-0"></div><div class="pin-dot" id="dot-1"></div>
       <div class="pin-dot" id="dot-2"></div><div class="pin-dot" id="dot-3"></div>
@@ -614,6 +567,7 @@ select.input-field { cursor:pointer; }
     <p style="font-size:0.85rem;color:var(--text-soft);margin-bottom:24px;font-style:italic;">Each diary is private and PIN-protected. 🔐</p>
     <div class="diary-layout">
       <div class="diary-sidebar">
+        <!-- person cards dynamically built -->
         <div class="glass diary-person-card selected" id="diary-card-p1" onclick="selectDiary(0)">
           <div class="diary-person-avatar" id="diary-avatar-p1" style="background:linear-gradient(135deg,var(--pink),var(--lavender));">🌙</div>
           <div class="diary-person-name" id="diary-name-p1">Swapnil</div>
@@ -632,10 +586,10 @@ select.input-field { cursor:pointer; }
           <div class="dl-title">Private Diary</div>
           <div class="dl-sub" id="diary-lock-name">Enter PIN to unlock</div>
           <div class="diary-pin-input" id="diary-pin-inputs">
-            <input type="password" maxlength="1" oninput="diaryPinMove(this,0)" onkeydown="diaryPinBack(event,0)">
-            <input type="password" maxlength="1" oninput="diaryPinMove(this,1)" onkeydown="diaryPinBack(event,1)">
-            <input type="password" maxlength="1" oninput="diaryPinMove(this,2)" onkeydown="diaryPinBack(event,2)">
-            <input type="password" maxlength="1" oninput="diaryPinMove(this,3)" onkeydown="diaryPinBack(event,3)">
+            <input type="password" maxlength="1" inputmode="numeric" oninput="diaryPinMove(this,0)" onkeydown="diaryPinBack(event,0)">
+            <input type="password" maxlength="1" inputmode="numeric" oninput="diaryPinMove(this,1)" onkeydown="diaryPinBack(event,1)">
+            <input type="password" maxlength="1" inputmode="numeric" oninput="diaryPinMove(this,2)" onkeydown="diaryPinBack(event,2)">
+            <input type="password" maxlength="1" inputmode="numeric" oninput="diaryPinMove(this,3)" onkeydown="diaryPinBack(event,3)">
           </div>
           <div style="color:var(--danger);font-size:0.82rem;min-height:20px;margin-bottom:10px;" id="diary-pin-error"></div>
           <button class="btn btn-primary" onclick="unlockDiary()">🔓 Unlock Diary</button>
@@ -684,7 +638,7 @@ select.input-field { cursor:pointer; }
       <div class="messages-area" id="messages-area">
         <div style="text-align:center;color:var(--text-soft);font-size:0.85rem;font-style:italic;padding:20px;">Loading messages...</div>
       </div>
-      <div class="msg-input-area" id="msg-input-area">
+      <div id="msg-input-area" class="msg-input-area">
         <div class="msg-toolbar" id="msg-toolbar">
           <div class="emoji-picker-wrap">
             <button class="msg-tool-btn" onclick="toggleEmojiPicker()" title="Emoji">😊</button>
@@ -703,12 +657,7 @@ select.input-field { cursor:pointer; }
           <button class="msg-send-btn" onclick="sendMessage()">➤</button>
         </div>
       </div>
-      <!-- Disabled overlay for guest -->
-      <div class="glass msg-disabled-notice hidden" id="msg-disabled-notice" style="position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:var(--radius);">
-        <div class="mdn-icon">🔇</div>
-        <div class="mdn-title">Messaging Unavailable</div>
-        <div class="mdn-sub">Messages are only available for Swapnil & Sophiya. 💕</div>
-      </div>
+      <div class="guest-readonly-bar hidden" id="guest-readonly-bar">👁️ Read-only mode — messages visible but sending is disabled for guests</div>
     </div>
     <input type="file" id="msg-file-input" class="hidden" onchange="handleMsgFile(event)">
     <input type="file" id="msg-photo-input" accept="image/*,video/*" class="hidden" onchange="handleMsgMedia(event)">
@@ -730,37 +679,36 @@ select.input-field { cursor:pointer; }
           <button class="btn btn-primary" onclick="saveSettings()">💾 Save Changes</button>
         </div>
       </div>
-      <!-- Anniversary & Birthdays -->
+      <!-- Anniversary & Birthdays — store in Nepali BS, show Nepali -->
       <div class="glass settings-card">
         <div class="settings-card-title"><span class="color-emoji">💞</span> Anniversary & Birthdays</div>
         <div style="display:flex;flex-direction:column;gap:16px;">
           <div class="form-group">
-            <label class="form-label">Anniversary Date (English)</label>
-            <input class="input-field" type="date" id="s-anniversary" oninput="showNepaliPreview('s-anniversary','ann-np-preview')">
-            <div id="ann-np-preview" class="date-np" style="margin-top:4px;"></div>
+            <label class="form-label">Anniversary Date (Nepali BS)</label>
+            <input class="input-field" type="date" id="s-anniversary" placeholder="English date for anniversary">
+            <div style="font-size:0.72rem;color:var(--text-soft);margin-top:4px;">Enter the English calendar date — Nepali (BS) date shown on home screen.</div>
           </div>
           <hr style="border:none;border-top:1.5px dashed var(--glass-border);">
           <div class="form-group">
-            <label class="form-label">🌙 Swapnil's Birthday (English)</label>
-            <input class="input-field" type="date" id="s-bday1" oninput="showNepaliPreview('s-bday1','bday1-np-preview')">
-            <div id="bday1-np-preview" class="date-np" style="margin-top:4px;"></div>
+            <!-- FIXED: explicitly labelled per person, index 0 = Swapnil, index 1 = Sophiya -->
+            <label class="form-label">🌙 Swapnil's Birthday (English date)</label>
+            <input class="input-field" type="date" id="s-bday1">
+            <div style="font-size:0.72rem;color:var(--text-soft);margin-top:4px;">Swapnil's birth date in English calendar</div>
           </div>
           <div class="form-group">
-            <label class="form-label">🌸 Sophiya's Birthday (English)</label>
-            <input class="input-field" type="date" id="s-bday2" oninput="showNepaliPreview('s-bday2','bday2-np-preview')">
-            <div id="bday2-np-preview" class="date-np" style="margin-top:4px;"></div>
+            <label class="form-label">🌸 Sophiya's Birthday (English date)</label>
+            <input class="input-field" type="date" id="s-bday2">
+            <div style="font-size:0.72rem;color:var(--text-soft);margin-top:4px;">Sophiya's birth date in English calendar</div>
           </div>
           <button class="btn btn-primary" onclick="saveSettings()">💾 Save Dates</button>
         </div>
       </div>
-      <!-- Security -->
+      <!-- Security — Account PINs (same PIN used for login AND diary) -->
       <div class="glass settings-card">
-        <div class="settings-card-title"><span class="color-emoji">🔐</span> Security</div>
+        <div class="settings-card-title"><span class="color-emoji">🔐</span> Account PINs</div>
         <div style="display:flex;flex-direction:column;gap:16px;">
-          <p style="font-size:0.85rem;color:var(--text-soft);">Change diary PINs.</p>
-          <div class="form-group"><label class="form-label">🌙 Swapnil Diary PIN</label><input class="input-field" type="password" maxlength="4" id="s-diary-pin1" placeholder="Set diary PIN" inputmode="numeric"></div>
-          <div class="form-group"><label class="form-label">🌸 Sophiya Diary PIN</label><input class="input-field" type="password" maxlength="4" id="s-diary-pin2" placeholder="Set diary PIN" inputmode="numeric"></div>
-          <button class="btn btn-gold" onclick="saveDiaryPINs()">💛 Save Diary PINs</button>
+          <p style="font-size:0.85rem;color:var(--text-soft);">These PINs are used for both login and diary unlock. Swapnil: 1330, Sophiya: 1440, Guest: 1314 (read-only).</p>
+          <p style="font-size:0.8rem;color:var(--text-soft);font-style:italic;">PIN changes require re-deployment of the app. Contact your developer to update PINs.</p>
         </div>
       </div>
       <!-- Appearance -->
@@ -809,8 +757,8 @@ select.input-field { cursor:pointer; }
           </div>
         </div>
       </div>
-      <!-- GitHub Config — password protected -->
-      <div class="glass settings-card">
+      <!-- GitHub Config — Swapnil only -->
+      <div class="glass settings-card" id="github-settings-card" style="display:none;">
         <div class="settings-card-title"><span class="color-emoji">⚙️</span> GitHub Config 🔒</div>
         <div style="display:flex;flex-direction:column;gap:12px;">
           <p style="font-size:0.85rem;color:var(--text-soft);">Protected section — requires special password.</p>
@@ -823,8 +771,8 @@ select.input-field { cursor:pointer; }
           </div>
         </div>
       </div>
-      <!-- Danger Zone — password protected -->
-      <div class="glass settings-card">
+      <!-- Danger Zone — Swapnil only -->
+      <div class="glass settings-card" id="danger-settings-card" style="display:none;">
         <div class="settings-card-title"><span class="color-emoji">⚠️</span> Danger Zone 🔒</div>
         <div style="display:flex;flex-direction:column;gap:12px;">
           <p style="font-size:0.85rem;color:var(--text-soft);">Protected — requires special password.</p>
@@ -862,8 +810,8 @@ select.input-field { cursor:pointer; }
         <input type="file" id="c-photo-input" accept="image/*" class="hidden" onchange="capPhotoSelected(event)">
       </div>
       <div class="form-group">
-        <label class="form-label">🗓 Unlock Date (English)</label>
-        <input class="input-field" type="date" id="c-unlock-date" oninput="showNepaliPreview('c-unlock-date','c-np-preview')">
+        <label class="form-label">🗓 Unlock Date</label>
+        <input class="input-field" type="date" id="c-unlock-date">
         <div id="c-np-preview" class="date-np" style="margin-top:4px;"></div>
       </div>
       <div class="modal-actions">
@@ -913,31 +861,36 @@ select.input-field { cursor:pointer; }
    ============================================================ */
 const LOCAL_GH_KEY   = 'tc_github_config';
 const LOCAL_PREFS    = 'tc_prefs';
-const EMERGENCY_PIN  = '02518899320'; // for editing/deleting/opening locked capsules
-const SETTINGS_PIN   = '2580';        // for GitHub config & danger zone
+const EMERGENCY_PIN  = '02518899320';
+const SETTINGS_PIN   = '2580';
 
-// Fixed login PINs
-const LOGIN_PINS = { swapnil:'1330', sophiya:'1440', guest:'1314' };
-// Diary PINs default same as login
-const DEFAULT_DIARY_PINS = { 0:'1330', 1:'1440' };
+// PIN → user mapping (PIN determines user, no user selection)
+// index 0 = swapnil, index 1 = sophiya
+const PIN_TO_USER = { '1330': 'swapnil', '1440': 'sophiya', '1314': 'guest' };
+// User → diary index: swapnil → 0, sophiya → 1
+const USER_DIARY_INDEX = { swapnil: 0, sophiya: 1 };
+
+// *** ENCRYPTION KEY — change to anything secret ***
+const ENCRYPTION_KEY = 'swapnil_sophiya_2024_tc';
 
 let ghConfig = { username:'', repo:'', token:'' };
-let appData  = { settings:defaultSettings(), capsules:[] };
-let diaryData = { entries:{'0':[],'1':[]} };
-let messagesData = { messages:[] };
+let appData  = { settings: defaultSettings(), capsules: [] };
+let diaryData = { entries: { '0': [], '1': [] } };
+let messagesData = { messages: [] };
 let sessionUnlocked = false;
 let currentUser = null; // 'swapnil' | 'sophiya' | 'guest'
-let diaryUnlocked = [false,false];
+// diaryUnlocked[0] = swapnil's diary, diaryUnlocked[1] = sophiya's diary
+let diaryUnlocked = [false, false];
 let activeDiaryPerson  = 0;
 let activeDiaryEntry   = null;
 let editingDiaryEntryId = null;
 let editingCapsuleId    = null;
-let pendingPinAction    = null; // { type, id, callback }
+let pendingPinAction    = null;
 let capPhotoData        = null;
 let capsuleFilter       = 'all';
 let syncInterval        = null;
 let pinBuffer = '';
-let localPrefs = { hearts:true, autolock:false, autoplay:false, theme:'light' };
+let localPrefs = { hearts: true, autolock: false, autoplay: false, theme: 'light' };
 
 // Messaging
 let mediaRecorder     = null;
@@ -946,6 +899,7 @@ let isRecording       = false;
 let recTimerInterval  = null;
 let recSeconds        = 0;
 let emojiPickerOpen   = false;
+let editingMsgId      = null;
 
 const EMOJIS_LIST = ['❤️','💕','💗','💓','💞','💝','🌸','✨','🌷','💌','😊','😍','🥰','😘','💋','🌙','⭐','🎵','🎶','🌈','🦋','🌹','💐','🎁','🍓','☕','🌟','💫','🔥','🥺','😂','🤗','💯','🙏','✌️','💪','👑','🌺','🍀','🌻'];
 
@@ -955,574 +909,580 @@ function defaultSettings() {
     emoji1:'🌙', emoji2:'🌸',
     tagline:'"Every moment with you is worth saving forever."',
     anniversary:'',
-    bday1:'', bday2:'',
-    diaryPin1Hash:null, diaryPin2Hash:null
+    bday1:'',  // Swapnil's birthday (English date)
+    bday2:'',  // Sophiya's birthday (English date)
   };
 }
 
 /* ============================================================
-   CRYPTO
+   SIMPLE XOR ENCRYPTION for messages
    ============================================================ */
-function hashPIN(pin) {
-  let hash=0;
-  const s='lvc_'+pin+'_capsule';
-  for(let i=0;i<s.length;i++){hash=((hash<<5)-hash)+s.charCodeAt(i);hash|=0;}
-  return hash.toString(16);
+function xorEncrypt(str, key) {
+  let result = '';
+  for (let i = 0; i < str.length; i++) {
+    result += String.fromCharCode(str.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+  }
+  return btoa(unescape(encodeURIComponent(result)));
 }
+function xorDecrypt(encoded, key) {
+  try {
+    const str = decodeURIComponent(escape(atob(encoded)));
+    let result = '';
+    for (let i = 0; i < str.length; i++) {
+      result += String.fromCharCode(str.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+    }
+    return result;
+  } catch(e) { return encoded; } // fallback if not encrypted
+}
+function encryptMsg(msg) {
+  const m = { ...msg };
+  if (m.content) m.content = xorEncrypt(m.content, ENCRYPTION_KEY);
+  return m;
+}
+function decryptMsg(msg) {
+  const m = { ...msg };
+  if (m.content) m.content = xorDecrypt(m.content, ENCRYPTION_KEY);
+  return m;
+}
+
 function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 function uid(){ return Date.now().toString(36)+Math.random().toString(36).substr(2,6); }
 
 /* ============================================================
-   NEPALI DATE CONVERSION (BS)
-   Gregorian → Nepali Bikram Sambat
+   NEPALI DATE CONVERSION (BS) — BS displayed on home
    ============================================================ */
-const BS_DATA = [
-  // [total days in year, [days in each month Jan-Dec]]
-  // BS 2000 starts April 13, 1943 AD
-  // We use a simplified lookup table approach
-  // Reference: 2000 BS = April 13/14 1943 AD
-];
-// Simplified BS conversion
 function englishToNepali(dateStr) {
-  if(!dateStr) return '';
+  if (!dateStr) return '';
   try {
-    const d = new Date(dateStr);
-    if(isNaN(d)) return '';
-    // AD to BS offset: BS = AD + 56.7 years roughly
-    // More accurate: use reference point
-    // Reference: 1 Baisakh 2081 BS = April 14, 2024 AD
-    // Each BS year ~365.25 days
-    const refAD = new Date('2024-04-13'); // ~1 Baisakh 2081
-    const refBS = { year:2081, month:1, day:1 };
-    // BS months approx day counts (varies per year, this is approximate)
-    const bsMonthDays = [31,31,32,32,31,30,30,29,30,29,30,30];
+    const d = new Date(dateStr + 'T00:00:00');
+    if (isNaN(d)) return '';
+    // Reference: April 13, 2024 AD = 1 Baisakh 2081 BS
+    const refAD = new Date('2024-04-13T00:00:00');
+    const bsMonthDays = [31,31,32,32,31,30,30,29,30,29,30,30]; // approx
     const bsMonthNames = ['Baisakh','Jestha','Ashadh','Shrawan','Bhadra','Ashwin','Kartik','Mangsir','Poush','Magh','Falgun','Chaitra'];
-    
-    const diffMs = d - refAD;
-    const diffDays = Math.round(diffMs / 86400000);
-    
-    let year = refBS.year;
-    let month = refBS.month - 1; // 0-indexed
-    let day = refBS.day;
-    
+    let refYear = 2081, refMonth = 0, refDay = 1; // 0-indexed month
+
+    const diffDays = Math.round((d - refAD) / 86400000);
+    let year = refYear, month = refMonth, day = refDay;
     let remaining = diffDays;
-    
-    if(remaining >= 0) {
-      while(remaining >= bsMonthDays[month]) {
+
+    if (remaining >= 0) {
+      while (remaining >= bsMonthDays[month]) {
         remaining -= bsMonthDays[month];
         month++;
-        if(month >= 12){ month=0; year++; }
+        if (month >= 12) { month = 0; year++; }
       }
       day = 1 + remaining;
     } else {
       remaining = -remaining;
-      day = 1;
-      // go backwards
-      while(remaining > 0) {
+      while (remaining > 0) {
         month--;
-        if(month < 0){ month=11; year--; }
+        if (month < 0) { month = 11; year--; }
         remaining -= bsMonthDays[month];
       }
       day = bsMonthDays[month] + remaining + 1;
     }
-    
     return `${day} ${bsMonthNames[month]} ${year} BS`;
   } catch(e) { return ''; }
-}
-
-function showNepaliPreview(inputId, previewId) {
-  const val = document.getElementById(inputId)?.value;
-  const el  = document.getElementById(previewId);
-  if(!el) return;
-  const np = englishToNepali(val);
-  el.textContent = np ? '🇳🇵 ' + np : '';
 }
 
 /* ============================================================
    GITHUB API
    ============================================================ */
 const API = () => `https://api.github.com/repos/${ghConfig.username}/${ghConfig.repo}/contents`;
-async function ghGet(path){
-  const r=await fetch(`${API()}/${path}`,{headers:{Authorization:`token ${ghConfig.token}`,Accept:'application/vnd.github.v3+json'}});
-  if(r.status===404) return null;
-  if(!r.ok) throw new Error(`GitHub GET ${path}: ${r.status}`);
+async function ghGet(path) {
+  const r = await fetch(`${API()}/${path}`, { headers: { Authorization:`token ${ghConfig.token}`, Accept:'application/vnd.github.v3+json' } });
+  if (r.status === 404) return null;
+  if (!r.ok) throw new Error(`GitHub GET ${path}: ${r.status}`);
   return r.json();
 }
-async function ghPut(path,content,sha){
-  const url=`${API()}/${path}`;
-  const body={message:`update ${path}`,content:btoa(unescape(encodeURIComponent(JSON.stringify(content,null,2))))};
-  if(sha) body.sha=sha;
-  const r=await fetch(url,{method:'PUT',headers:{Authorization:`token ${ghConfig.token}`,Accept:'application/vnd.github.v3+json','Content-Type':'application/json'},body:JSON.stringify(body)});
-  if(!r.ok){const e=await r.json();throw new Error(e.message||r.status);}
+async function ghPut(path, content, sha) {
+  const url = `${API()}/${path}`;
+  const body = { message:`update ${path}`, content: btoa(unescape(encodeURIComponent(JSON.stringify(content,null,2)))) };
+  if (sha) body.sha = sha;
+  const r = await fetch(url, { method:'PUT', headers:{ Authorization:`token ${ghConfig.token}`, Accept:'application/vnd.github.v3+json', 'Content-Type':'application/json' }, body:JSON.stringify(body) });
+  if (!r.ok) { const e = await r.json(); throw new Error(e.message || r.status); }
   return r.json();
 }
-async function readJson(path){
-  const data=await ghGet(path);
-  if(!data) return null;
-  try{return{content:JSON.parse(decodeURIComponent(escape(atob(data.content.replace(/\n/g,''))))),sha:data.sha};}
-  catch{return null;}
+async function readJson(path) {
+  const data = await ghGet(path);
+  if (!data) return null;
+  try { return { content: JSON.parse(decodeURIComponent(escape(atob(data.content.replace(/\n/g,''))))), sha: data.sha }; }
+  catch { return null; }
 }
-async function writeJson(path,content){
+async function writeJson(path, content) {
   setSyncState('syncing');
-  try{
-    const existing=await ghGet(path);
-    await ghPut(path,content,existing?existing.sha:undefined);
+  try {
+    const existing = await ghGet(path);
+    await ghPut(path, content, existing ? existing.sha : undefined);
     setSyncState('ok');
-  }catch(e){setSyncState('error');toast('❌ Sync failed: '+e.message,'error');throw e;}
+  } catch(e) { setSyncState('error'); toast('❌ Sync failed: '+e.message,'error'); throw e; }
 }
-
-function setSyncState(state){
-  const dot=document.getElementById('sync-dot'),text=document.getElementById('sync-text');
-  dot.className='sync-dot'+(state==='syncing'?' syncing':state==='error'?' error':'');
-  text.textContent=state==='syncing'?'Syncing...':state==='error'?'Sync error':'Synced';
+function setSyncState(state) {
+  const dot = document.getElementById('sync-dot'), text = document.getElementById('sync-text');
+  dot.className = 'sync-dot' + (state==='syncing'?' syncing':state==='error'?' error':'');
+  text.textContent = state==='syncing'?'Syncing...':state==='error'?'Sync error':'Synced';
 }
 
 /* ============================================================
    SETUP
    ============================================================ */
-async function connectGitHub(){
-  const u=document.getElementById('gh-username').value.trim();
-  const r=document.getElementById('gh-repo').value.trim();
-  const t=document.getElementById('gh-token').value.trim();
-  if(!u||!r||!t){toast('Fill in all GitHub fields','error');return;}
-  ghConfig={username:u,repo:r,token:t};
-  localStorage.setItem(LOCAL_GH_KEY,JSON.stringify(ghConfig));
+async function connectGitHub() {
+  const u = document.getElementById('gh-username').value.trim();
+  const r = document.getElementById('gh-repo').value.trim();
+  const t = document.getElementById('gh-token').value.trim();
+  if (!u||!r||!t) { toast('Fill in all GitHub fields','error'); return; }
+  ghConfig = { username:u, repo:r, token:t };
+  localStorage.setItem(LOCAL_GH_KEY, JSON.stringify(ghConfig));
   toast('🔗 Connecting...','info');
-  try{
+  try {
     await initializeJsonFiles();
     document.getElementById('setup-screen').classList.add('hidden');
     document.getElementById('lock-screen').classList.remove('hidden');
     await loadRemoteData();
     startHearts();
-  }catch(e){toast('❌ Connection failed: '+e.message,'error');}
+  } catch(e) { toast('❌ Connection failed: '+e.message,'error'); }
 }
-async function initializeJsonFiles(){
-  if(!await ghGet('capsules.json'))  await ghPut('capsules.json',[],undefined);
-  if(!await ghGet('diary.json'))     await ghPut('diary.json',{entries:{'0':[],'1':[]}},undefined);
-  if(!await ghGet('settings.json'))  await ghPut('settings.json',defaultSettings(),undefined);
-  if(!await ghGet('messages.json'))  await ghPut('messages.json',{messages:[]},undefined);
+async function initializeJsonFiles() {
+  if (!await ghGet('capsules.json'))  await ghPut('capsules.json', [], undefined);
+  if (!await ghGet('diary.json'))     await ghPut('diary.json', { entries:{'0':[],'1':[]} }, undefined);
+  if (!await ghGet('settings.json'))  await ghPut('settings.json', defaultSettings(), undefined);
+  if (!await ghGet('messages.json'))  await ghPut('messages.json', { messages:[] }, undefined);
 }
 
 /* ============================================================
    LOAD REMOTE DATA
    ============================================================ */
-async function loadRemoteData(){
+async function loadRemoteData() {
   setSyncState('syncing');
-  try{
-    const [capRes,diarRes,setRes,msgRes]=await Promise.all([
-      readJson('capsules.json'),readJson('diary.json'),
-      readJson('settings.json'),readJson('messages.json')
+  try {
+    const [capRes, diarRes, setRes, msgRes] = await Promise.all([
+      readJson('capsules.json'), readJson('diary.json'),
+      readJson('settings.json'), readJson('messages.json')
     ]);
-    if(capRes)  appData.capsules=capRes.content||[];
-    if(diarRes) diaryData=diarRes.content||{entries:{'0':[],'1':[]}};
-    if(setRes)  appData.settings={...defaultSettings(),...setRes.content};
-    if(msgRes)  messagesData=msgRes.content||{messages:[]};
+    if (capRes)  appData.capsules = capRes.content || [];
+    if (diarRes) diaryData = diarRes.content || { entries:{'0':[],'1':[]} };
+    if (setRes)  appData.settings = { ...defaultSettings(), ...setRes.content };
+    if (msgRes)  messagesData = msgRes.content || { messages:[] };
     setSyncState('ok');
-    if(sessionUnlocked){applySettings();renderHome();renderCapsules();updateDiaryEntryList();renderMessages();}
-  }catch(e){setSyncState('error');console.warn('loadRemoteData:',e);}
+    if (sessionUnlocked) { applySettings(); renderHome(); renderCapsules(); updateDiaryEntryList(); renderMessages(); }
+  } catch(e) { setSyncState('error'); console.warn('loadRemoteData:', e); }
 }
-async function saveCapsules()       {await writeJson('capsules.json',appData.capsules);}
-async function saveDiaryRemote()    {await writeJson('diary.json',diaryData);}
-async function saveSettingsRemote() {await writeJson('settings.json',appData.settings);}
-async function saveMessagesRemote() {await writeJson('messages.json',messagesData);}
-function startPolling(){
-  if(syncInterval) clearInterval(syncInterval);
-  syncInterval=setInterval(()=>{
-    loadRemoteData();
-    if(document.getElementById('page-messages')&&!document.getElementById('page-messages').classList.contains('hidden')){
+async function saveCapsules()       { await writeJson('capsules.json', appData.capsules); }
+async function saveDiaryRemote()    { await writeJson('diary.json', diaryData); }
+async function saveSettingsRemote() { await writeJson('settings.json', appData.settings); }
+async function saveMessagesRemote() {
+  // Encrypt messages before saving
+  const encrypted = {
+    messages: (messagesData.messages || []).map(encryptMsg)
+  };
+  await writeJson('messages.json', encrypted);
+}
+
+function startPolling() {
+  if (syncInterval) clearInterval(syncInterval);
+  syncInterval = setInterval(async () => {
+    await loadRemoteData();
+    if (document.getElementById('page-messages') && !document.getElementById('page-messages').classList.contains('hidden')) {
       renderMessages();
     }
-  },15000); // poll every 15s for messages
+  }, 15000);
 }
 
 /* ============================================================
-   LOCK SCREEN / LOGIN
+   LOCK SCREEN — PIN determines user, no user selection
    ============================================================ */
-let selectedLoginUser = null;
-function selectLoginUser(user){
-  selectedLoginUser=user;
-  ['swapnil','sophiya','guest'].forEach(u=>{
-    document.getElementById('lwb-'+u).classList.toggle('selected',u===user);
-  });
-  document.getElementById('setup-hint').textContent='Enter your PIN 🔑';
-  pinBuffer='';
+function keyPress(d) {
+  if (pinBuffer.length >= 4) return;
+  pinBuffer += d;
   updateDots();
+  if (pinBuffer.length === 4) setTimeout(keyEnter, 120);
 }
-function keyPress(d){
-  if(!selectedLoginUser){toast('Select who you are first 💕','info');return;}
-  if(pinBuffer.length>=4) return;
-  pinBuffer+=d; updateDots();
-  if(pinBuffer.length===4) setTimeout(keyEnter,120);
+function keyDel() { pinBuffer = pinBuffer.slice(0,-1); updateDots(); }
+function updateDots() {
+  for (let i = 0; i < 4; i++)
+    document.getElementById('dot-'+i).classList.toggle('filled', i < pinBuffer.length);
 }
-function keyDel(){ pinBuffer=pinBuffer.slice(0,-1); updateDots(); }
-function updateDots(){
-  for(let i=0;i<4;i++) document.getElementById('dot-'+i).classList.toggle('filled',i<pinBuffer.length);
-}
-function keyEnter(){
-  if(!selectedLoginUser){toast('Choose who you are first','error');return;}
-  if(pinBuffer.length<4){showPinError('Enter all 4 digits');return;}
-  const expected=LOGIN_PINS[selectedLoginUser];
-  if(pinBuffer===expected){
-    currentUser=selectedLoginUser;
+function keyEnter() {
+  if (pinBuffer.length < 4) { showPinError('Enter all 4 digits'); return; }
+  const user = PIN_TO_USER[pinBuffer];
+  if (user) {
+    currentUser = user;
     enterApp();
-  }else{
+  } else {
     showPinError('Wrong PIN 💔');
-    pinBuffer=''; updateDots();
+    pinBuffer = ''; updateDots();
   }
 }
-function showPinError(msg){
-  const el=document.getElementById('pin-error');
-  el.textContent=msg;el.style.animation='none';
-  requestAnimationFrame(()=>{el.style.animation='shake 0.4s ease';});
-  setTimeout(()=>{el.textContent='';},2800);
+function showPinError(msg) {
+  const el = document.getElementById('pin-error');
+  el.textContent = msg; el.style.animation = 'none';
+  requestAnimationFrame(() => { el.style.animation = 'shake 0.4s ease'; });
+  setTimeout(() => { el.textContent = ''; }, 2800);
 }
-function enterApp(){
+function enterApp() {
   document.getElementById('lock-screen').classList.add('hidden');
-  document.getElementById('app').style.display='block';
-  sessionUnlocked=true;
-  // Auto-unlock diary for respective user
-  if(currentUser==='swapnil') diaryUnlocked[0]=true;
-  if(currentUser==='sophiya') diaryUnlocked[1]=true;
+  document.getElementById('app').style.display = 'block';
+  sessionUnlocked = true;
+  // Auto-unlock the current user's own diary
+  if (currentUser === 'swapnil') diaryUnlocked[0] = true;
+  if (currentUser === 'sophiya') diaryUnlocked[1] = true;
   initApp();
   startPolling();
   requestNotifPermission();
 }
-function lockApp(){
-  if(!confirm('Lock the app?')) return;
-  document.getElementById('app').style.display='none';
+function lockApp() {
+  if (!confirm('Lock the app?')) return;
+  document.getElementById('app').style.display = 'none';
   document.getElementById('lock-screen').classList.remove('hidden');
-  sessionUnlocked=false;currentUser=null;selectedLoginUser=null;
-  diaryUnlocked=[false,false];pinBuffer='';updateDots();
-  ['swapnil','sophiya','guest'].forEach(u=>document.getElementById('lwb-'+u).classList.remove('selected'));
-  document.getElementById('setup-hint').textContent='';
+  sessionUnlocked = false; currentUser = null;
+  diaryUnlocked = [false, false];
+  pinBuffer = ''; updateDots();
+  document.getElementById('pin-error').textContent = '';
 }
-document.addEventListener('keydown',e=>{
-  if(!document.getElementById('lock-screen').classList.contains('hidden')&&document.getElementById('setup-screen').classList.contains('hidden')){
-    if(e.key>='0'&&e.key<='9') keyPress(e.key);
-    else if(e.key==='Backspace') keyDel();
-    else if(e.key==='Enter') keyEnter();
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lock-screen').classList.contains('hidden') &&
+      document.getElementById('setup-screen').classList.contains('hidden')) {
+    if (e.key >= '0' && e.key <= '9') keyPress(e.key);
+    else if (e.key === 'Backspace') keyDel();
+    else if (e.key === 'Enter') keyEnter();
   }
 });
 
 /* ============================================================
    APP INIT
    ============================================================ */
-function initApp(){
-  loadLocalPrefs();applySettings();
-  // Set user badge
-  const names={swapnil:'🌙 Swapnil',sophiya:'🌸 Sophiya',guest:'👁️ Guest'};
-  document.getElementById('current-user-name').textContent=(currentUser?names[currentUser].replace(/[^\w\s]/g,'').trim():'')+' ';
-  document.getElementById('current-user-badge').innerHTML=(currentUser?names[currentUser]:'💗 Us')+' <small style="opacity:0.6">(lock)</small>';
-  renderHome();renderCapsules();renderDiaryPage();populateSettingsForm();startCountdownTick();
+function initApp() {
+  loadLocalPrefs(); applySettings();
+  // Set user badge with correct name
+  const userDisplayNames = {
+    swapnil: appData.settings.emoji1 + ' ' + appData.settings.name1,
+    sophiya: appData.settings.emoji2 + ' ' + appData.settings.name2,
+    guest: '👁️ Guest'
+  };
+  const displayName = userDisplayNames[currentUser] || '💗 Us';
+  document.getElementById('current-user-badge').innerHTML = displayName + ' <small style="opacity:0.6">(lock)</small>';
+  document.getElementById('current-user-name').textContent = '';
+
+  // Show GitHub/danger settings only for Swapnil
+  const ghCard = document.getElementById('github-settings-card');
+  const dnCard = document.getElementById('danger-settings-card');
+  if (currentUser === 'swapnil') {
+    ghCard.style.display = ''; dnCard.style.display = '';
+  } else {
+    ghCard.style.display = 'none'; dnCard.style.display = 'none';
+  }
+
+  renderHome(); renderCapsules(); renderDiaryPage(); populateSettingsForm(); startCountdownTick();
   renderMessages();
-  if(localPrefs.autoplay) setTimeout(autoPlayMusic,800);
+  if (localPrefs.autoplay) setTimeout(autoPlayMusic, 800);
   scheduleNotifications();
   buildEmojiGrid();
 }
-function loadLocalPrefs(){
-  try{const p=localStorage.getItem(LOCAL_PREFS);if(p)localPrefs={...localPrefs,...JSON.parse(p)};}catch{}
-  applyTheme(localPrefs.theme||'light');
+function loadLocalPrefs() {
+  try { const p = localStorage.getItem(LOCAL_PREFS); if (p) localPrefs = { ...localPrefs, ...JSON.parse(p) }; } catch {}
+  applyTheme(localPrefs.theme || 'light');
 }
-function saveLocalPrefs(){localStorage.setItem(LOCAL_PREFS,JSON.stringify(localPrefs));}
+function saveLocalPrefs() { localStorage.setItem(LOCAL_PREFS, JSON.stringify(localPrefs)); }
 
 /* ============================================================
    THEME
    ============================================================ */
-function applyTheme(theme){
-  localPrefs.theme=theme;
-  document.documentElement.setAttribute('data-theme',theme);
-  const ts=document.getElementById('theme-select');
-  const sts=document.getElementById('s-theme-select');
-  if(ts) ts.value=theme;
-  if(sts) sts.value=theme;
-  const canvas=document.getElementById('hearts-canvas');
-  if(canvas) canvas.style.opacity=theme==='light'?'1':theme==='dark'?'0.6':'0.3';
+function applyTheme(theme) {
+  localPrefs.theme = theme;
+  document.documentElement.setAttribute('data-theme', theme);
+  const ts = document.getElementById('theme-select');
+  const sts = document.getElementById('s-theme-select');
+  if (ts) ts.value = theme;
+  if (sts) sts.value = theme;
   saveLocalPrefs();
 }
 
 /* ============================================================
    SETTINGS
    ============================================================ */
-function applySettings(){
-  const s=appData.settings;
-  const el=id=>document.getElementById(id);
-  el('hero-name1').textContent=s.name1||'Swapnil';
-  el('hero-name2').textContent=s.name2||'Sophiya';
-  el('hero-tagline').textContent=s.tagline||'';
-  el('nav-brand-text').textContent=((s.name1||'Us').split(' ')[0])+' & '+((s.name2||'Them').split(' ')[0]);
-  el('diary-name-p1').textContent=s.name1||'Swapnil';
-  el('diary-name-p2').textContent=s.name2||'Sophiya';
-  el('diary-avatar-p1').textContent=s.emoji1||'🌙';
-  el('diary-avatar-p2').textContent=s.emoji2||'🌸';
-  const sel=el('c-from');
-  if(sel) sel.innerHTML=`<option value="${esc(s.name1||'Swapnil')}">${esc(s.emoji1||'🌙')} ${esc(s.name1||'Swapnil')}</option><option value="${esc(s.name2||'Sophiya')}">${esc(s.emoji2||'🌸')} ${esc(s.name2||'Sophiya')}</option>`;
+function applySettings() {
+  const s = appData.settings;
+  const el = id => document.getElementById(id);
+  el('hero-name1').textContent = s.name1 || 'Swapnil';
+  el('hero-name2').textContent = s.name2 || 'Sophiya';
+  el('hero-tagline').textContent = s.tagline || '';
+  el('nav-brand-text').textContent = ((s.name1||'Us').split(' ')[0]) + ' & ' + ((s.name2||'Them').split(' ')[0]);
+  el('diary-name-p1').textContent = s.name1 || 'Swapnil';   // p1 = swapnil (index 0)
+  el('diary-name-p2').textContent = s.name2 || 'Sophiya';   // p2 = sophiya (index 1)
+  el('diary-avatar-p1').textContent = s.emoji1 || '🌙';
+  el('diary-avatar-p2').textContent = s.emoji2 || '🌸';
+  // Update user badge if app is running
+  if (sessionUnlocked && currentUser) {
+    const userDisplayNames = {
+      swapnil: (s.emoji1||'🌙') + ' ' + (s.name1||'Swapnil'),
+      sophiya: (s.emoji2||'🌸') + ' ' + (s.name2||'Sophiya'),
+      guest: '👁️ Guest'
+    };
+    el('current-user-badge').innerHTML = userDisplayNames[currentUser] + ' <small style="opacity:0.6">(lock)</small>';
+  }
+  const sel = el('c-from');
+  if (sel) sel.innerHTML = `<option value="${esc(s.name1||'Swapnil')}">${esc(s.emoji1||'🌙')} ${esc(s.name1||'Swapnil')}</option><option value="${esc(s.name2||'Sophiya')}">${esc(s.emoji2||'🌸')} ${esc(s.name2||'Sophiya')}</option>`;
 }
-function populateSettingsForm(){
-  const s=appData.settings;
-  const el=id=>document.getElementById(id);
-  el('s-name1').value=s.name1||''; el('s-name2').value=s.name2||'';
-  el('s-emoji1').value=s.emoji1||'🌙'; el('s-emoji2').value=s.emoji2||'🌸';
-  el('s-tagline').value=s.tagline||'';
-  el('s-anniversary').value=s.anniversary||'';
-  el('s-bday1').value=s.bday1||''; el('s-bday2').value=s.bday2||'';
-  if(s.anniversary) showNepaliPreview('s-anniversary','ann-np-preview');
-  if(s.bday1) showNepaliPreview('s-bday1','bday1-np-preview');
-  if(s.bday2) showNepaliPreview('s-bday2','bday2-np-preview');
-  el('toggle-hearts').className='toggle-switch'+(localPrefs.hearts?' on':'');
-  el('toggle-autolock').className='toggle-switch'+(localPrefs.autolock?' on':'');
-  el('toggle-autoplay').className='toggle-switch'+(localPrefs.autoplay?' on':'');
-  const sts=el('s-theme-select'); if(sts) sts.value=localPrefs.theme||'light';
+function populateSettingsForm() {
+  const s = appData.settings;
+  const el = id => document.getElementById(id);
+  el('s-name1').value = s.name1 || '';
+  el('s-name2').value = s.name2 || '';
+  el('s-emoji1').value = s.emoji1 || '🌙';
+  el('s-emoji2').value = s.emoji2 || '🌸';
+  el('s-tagline').value = s.tagline || '';
+  el('s-anniversary').value = s.anniversary || '';
+  el('s-bday1').value = s.bday1 || '';  // Swapnil's bday
+  el('s-bday2').value = s.bday2 || '';  // Sophiya's bday
+  el('toggle-hearts').className = 'toggle-switch' + (localPrefs.hearts ? ' on' : '');
+  el('toggle-autolock').className = 'toggle-switch' + (localPrefs.autolock ? ' on' : '');
+  el('toggle-autoplay').className = 'toggle-switch' + (localPrefs.autoplay ? ' on' : '');
+  const sts = el('s-theme-select'); if (sts) sts.value = localPrefs.theme || 'light';
 }
-async function saveSettings(){
-  const s=appData.settings;
-  s.name1=document.getElementById('s-name1').value.trim()||'Swapnil';
-  s.name2=document.getElementById('s-name2').value.trim()||'Sophiya';
-  s.emoji1=document.getElementById('s-emoji1').value.trim()||'🌙';
-  s.emoji2=document.getElementById('s-emoji2').value.trim()||'🌸';
-  s.tagline=document.getElementById('s-tagline').value.trim();
-  s.anniversary=document.getElementById('s-anniversary').value;
-  s.bday1=document.getElementById('s-bday1').value;
-  s.bday2=document.getElementById('s-bday2').value;
-  applySettings();renderHome();renderDiaryPage();
+async function saveSettings() {
+  const s = appData.settings;
+  s.name1 = document.getElementById('s-name1').value.trim() || 'Swapnil';
+  s.name2 = document.getElementById('s-name2').value.trim() || 'Sophiya';
+  s.emoji1 = document.getElementById('s-emoji1').value.trim() || '🌙';
+  s.emoji2 = document.getElementById('s-emoji2').value.trim() || '🌸';
+  s.tagline = document.getElementById('s-tagline').value.trim();
+  s.anniversary = document.getElementById('s-anniversary').value;
+  s.bday1 = document.getElementById('s-bday1').value;  // Swapnil's bday — FIXED: correct index
+  s.bday2 = document.getElementById('s-bday2').value;  // Sophiya's bday — FIXED: correct index
+  applySettings(); renderHome(); renderDiaryPage();
   toast('✨ Saving...','info');
   await saveSettingsRemote();
   toast('✨ Settings saved!','success');
 }
-async function saveDiaryPINs(){
-  const p1=document.getElementById('s-diary-pin1').value;
-  const p2=document.getElementById('s-diary-pin2').value;
-  let changed=false;
-  if(p1){if(p1.length!==4||!/^\d+$/.test(p1)){toast('Diary PIN 1 must be 4 digits','error');return;}appData.settings.diaryPin1Hash=hashPIN(p1);changed=true;}
-  if(p2){if(p2.length!==4||!/^\d+$/.test(p2)){toast('Diary PIN 2 must be 4 digits','error');return;}appData.settings.diaryPin2Hash=hashPIN(p2);changed=true;}
-  if(!changed){toast('Enter at least one PIN','error');return;}
-  document.getElementById('s-diary-pin1').value='';
-  document.getElementById('s-diary-pin2').value='';
-  diaryUnlocked=[false,false];
-  await saveSettingsRemote();
-  toast('🔐 Diary PINs saved!','success');
-}
-function toggleSetting(key,btn){
-  localPrefs[key]=!localPrefs[key];
-  btn.className='toggle-switch'+(localPrefs[key]?' on':'');
+function toggleSetting(key, btn) {
+  localPrefs[key] = !localPrefs[key];
+  btn.className = 'toggle-switch' + (localPrefs[key] ? ' on' : '');
   saveLocalPrefs();
-  if(key==='hearts'){localPrefs.hearts?startHearts():stopHearts();}
-  if(key==='autolock'){localPrefs.autolock?startAutoLock():clearTimeout(autoLockTimer);}
+  if (key === 'hearts') { localPrefs.hearts ? startHearts() : stopHearts(); }
+  if (key === 'autolock') { localPrefs.autolock ? startAutoLock() : clearTimeout(autoLockTimer); }
 }
-async function updateGitHubConfig(){
-  ghConfig.username=document.getElementById('s-gh-username').value.trim();
-  ghConfig.repo=document.getElementById('s-gh-repo').value.trim();
-  const t=document.getElementById('s-gh-token').value.trim();
-  if(t) ghConfig.token=t;
-  localStorage.setItem(LOCAL_GH_KEY,JSON.stringify(ghConfig));
+async function updateGitHubConfig() {
+  ghConfig.username = document.getElementById('s-gh-username').value.trim();
+  ghConfig.repo = document.getElementById('s-gh-repo').value.trim();
+  const t = document.getElementById('s-gh-token').value.trim();
+  if (t) ghConfig.token = t;
+  localStorage.setItem(LOCAL_GH_KEY, JSON.stringify(ghConfig));
   toast('🔗 GitHub config updated!','success');
 }
-function disconnectGitHub(){
-  if(!confirm('Disconnect from GitHub?')) return;
+function disconnectGitHub() {
+  if (!confirm('Disconnect from GitHub?')) return;
   localStorage.removeItem(LOCAL_GH_KEY);
   location.reload();
 }
-function confirmClearAll(){
-  if(!confirm('⚠️ Delete ALL remote data? This cannot be undone.')) return;
-  appData.capsules=[];diaryData={entries:{'0':[],'1':[]}};messagesData={messages:[]};
-  Promise.all([saveCapsules(),saveDiaryRemote(),saveMessagesRemote()]).then(()=>{
-    toast('🗑 All data cleared','info');renderHome();renderCapsules();renderMessages();
+function confirmClearAll() {
+  if (!confirm('⚠️ Delete ALL remote data? This cannot be undone.')) return;
+  appData.capsules = []; diaryData = { entries:{'0':[],'1':[]} }; messagesData = { messages:[] };
+  Promise.all([saveCapsules(), saveDiaryRemote(), saveMessagesRemote()]).then(() => {
+    toast('🗑 All data cleared','info'); renderHome(); renderCapsules(); renderMessages();
   });
 }
 
 /* ============================================================
-   PIN GATE (settings password = 2580)
+   PIN GATE (settings = 2580)
    ============================================================ */
-function openSettingsPinGate(type){
-  const configs={
-    github:{icon:'⚙️',title:'GitHub Config',sub:'Enter the special password (2580) to modify GitHub settings.'},
-    danger:{icon:'⚠️',title:'Danger Zone',sub:'Enter the special password to access dangerous actions.'},
+function openSettingsPinGate(type) {
+  const configs = {
+    github: { icon:'⚙️', title:'GitHub Config', sub:'Enter the admin password to modify GitHub settings.' },
+    danger: { icon:'⚠️', title:'Danger Zone', sub:'Enter the admin password to access dangerous actions.' },
   };
-  const cfg=configs[type]||{icon:'🔒',title:'Protected',sub:'Enter the special password.'};
-  document.getElementById('pg-icon').textContent=cfg.icon;
-  document.getElementById('pg-title').textContent=cfg.title;
-  document.getElementById('pg-sub').textContent=cfg.sub;
-  document.getElementById('pg-error').textContent='';
-  document.getElementById('pg-input').value='';
-  document.getElementById('pin-gate-title').textContent='🔒 '+cfg.title;
-  pendingPinAction={type:'settings-section',sectionId:type+'settings-inner',pinValue:SETTINGS_PIN};
+  const cfg = configs[type] || { icon:'🔒', title:'Protected', sub:'Enter the password.' };
+  document.getElementById('pg-icon').textContent = cfg.icon;
+  document.getElementById('pg-title').textContent = cfg.title;
+  document.getElementById('pg-sub').textContent = cfg.sub;
+  document.getElementById('pg-error').textContent = '';
+  document.getElementById('pg-input').value = '';
+  document.getElementById('pin-gate-title').textContent = '🔒 '+cfg.title;
+  pendingPinAction = { type:'settings-section', sectionId: type+'-settings-inner', pinValue: SETTINGS_PIN };
   document.getElementById('pin-gate-modal').classList.remove('hidden');
-  setTimeout(()=>document.getElementById('pg-input').focus(),150);
+  setTimeout(() => document.getElementById('pg-input').focus(), 150);
 }
-
-// Generic pin gate used for emergency/edit/delete
-function openPinGate(icon,title,sub,expectedPin,onSuccess){
-  document.getElementById('pg-icon').textContent=icon;
-  document.getElementById('pg-title').textContent=title;
-  document.getElementById('pg-sub').textContent=sub;
-  document.getElementById('pg-error').textContent='';
-  document.getElementById('pg-input').value='';
-  document.getElementById('pin-gate-title').textContent='🔒 '+title;
-  pendingPinAction={type:'custom',expectedPin,onSuccess};
+function openPinGate(icon, title, sub, expectedPin, onSuccess) {
+  document.getElementById('pg-icon').textContent = icon;
+  document.getElementById('pg-title').textContent = title;
+  document.getElementById('pg-sub').textContent = sub;
+  document.getElementById('pg-error').textContent = '';
+  document.getElementById('pg-input').value = '';
+  document.getElementById('pin-gate-title').textContent = '🔒 '+title;
+  pendingPinAction = { type:'custom', expectedPin, onSuccess };
   document.getElementById('pin-gate-modal').classList.remove('hidden');
-  setTimeout(()=>document.getElementById('pg-input').focus(),150);
+  setTimeout(() => document.getElementById('pg-input').focus(), 150);
 }
-
-function confirmPinGate(){
-  const entered=document.getElementById('pg-input').value;
-  if(!pendingPinAction){closePinGateModal();return;}
-  if(pendingPinAction.type==='settings-section'){
-    if(entered===SETTINGS_PIN){
-      const secId=pendingPinAction.sectionId;
+function confirmPinGate() {
+  const entered = document.getElementById('pg-input').value;
+  if (!pendingPinAction) { closePinGateModal(); return; }
+  if (pendingPinAction.type === 'settings-section') {
+    if (entered === SETTINGS_PIN) {
+      const secId = pendingPinAction.sectionId;
       document.getElementById(secId).classList.remove('hidden');
-      // populate if github
-      if(secId==='github-settings-inner'){
-        document.getElementById('s-gh-username').value=ghConfig.username||'';
-        document.getElementById('s-gh-repo').value=ghConfig.repo||'';
+      if (secId === 'github-settings-inner') {
+        document.getElementById('s-gh-username').value = ghConfig.username || '';
+        document.getElementById('s-gh-repo').value = ghConfig.repo || '';
       }
       closePinGateModal();
       toast('🔓 Access granted','success');
-    }else{showPgError('❌ Wrong password');}
-  }else if(pendingPinAction.type==='custom'){
-    if(entered===pendingPinAction.expectedPin){
+    } else { showPgError('❌ Wrong password'); }
+  } else if (pendingPinAction.type === 'custom') {
+    if (entered === pendingPinAction.expectedPin) {
       closePinGateModal();
-      pendingPinAction.onSuccess&&pendingPinAction.onSuccess();
-    }else{showPgError('❌ Wrong code');}
+      pendingPinAction.onSuccess && pendingPinAction.onSuccess();
+    } else { showPgError('❌ Wrong code'); }
   }
 }
-function showPgError(msg){
-  const el=document.getElementById('pg-error');
-  el.textContent=msg;
-  document.getElementById('pg-input').value='';
+function showPgError(msg) {
+  const el = document.getElementById('pg-error');
+  el.textContent = msg;
+  document.getElementById('pg-input').value = '';
   document.getElementById('pg-input').focus();
-  setTimeout(()=>{if(el)el.textContent='';},2500);
+  setTimeout(() => { if(el) el.textContent = ''; }, 2500);
 }
-function closePinGateModal(){document.getElementById('pin-gate-modal').classList.add('hidden');pendingPinAction=null;}
-function closePinGateOnBg(e){if(e.target.id==='pin-gate-modal')closePinGateModal();}
-function pgKeyDown(e){if(e.key==='Enter')confirmPinGate();if(e.key==='Escape')closePinGateModal();}
+function closePinGateModal() { document.getElementById('pin-gate-modal').classList.add('hidden'); pendingPinAction = null; }
+function closePinGateOnBg(e) { if (e.target.id === 'pin-gate-modal') closePinGateModal(); }
+function pgKeyDown(e) { if (e.key === 'Enter') confirmPinGate(); if (e.key === 'Escape') closePinGateModal(); }
 
 /* ============================================================
    NAVIGATION
    ============================================================ */
-function showPage(name){
-  ['home','capsules','diary','messages','settings'].forEach(p=>{
-    document.getElementById('page-'+p).classList.toggle('hidden',p!==name);
+function showPage(name) {
+  ['home','capsules','diary','messages','settings'].forEach(p => {
+    document.getElementById('page-'+p).classList.toggle('hidden', p !== name);
   });
-  document.querySelectorAll('.nav-tab[data-page]').forEach(t=>t.classList.toggle('active',t.dataset.page===name));
-  if(name==='home')     renderHome();
-  if(name==='capsules') renderCapsules();
-  if(name==='diary')    renderDiaryPage();
-  if(name==='messages') renderMessages();
-  if(name==='settings') populateSettingsForm();
+  document.querySelectorAll('.nav-tab[data-page]').forEach(t => t.classList.toggle('active', t.dataset.page === name));
+  if (name === 'home')     renderHome();
+  if (name === 'capsules') renderCapsules();
+  if (name === 'diary')    renderDiaryPage();
+  if (name === 'messages') renderMessages();
+  if (name === 'settings') populateSettingsForm();
 }
-function toggleMobileMenu(){document.getElementById('mobile-menu').classList.toggle('open');}
-function closeMobileMenu(){document.getElementById('mobile-menu').classList.remove('open');}
+function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
+function closeMobileMenu() { document.getElementById('mobile-menu').classList.remove('open'); }
 
 /* ============================================================
    HOME
    ============================================================ */
-function renderHome(){
-  const caps=appData.capsules;
-  const locked=caps.filter(c=>!isUnlocked(c)).length;
-  const unlocked=caps.filter(c=>isUnlocked(c)).length;
-  const d0=(diaryData.entries||{})['0']?.length||0;
-  const d1=(diaryData.entries||{})['1']?.length||0;
-  const msgs=(messagesData.messages||[]).length;
-  document.getElementById('stat-total').textContent=caps.length;
-  document.getElementById('stat-locked').textContent=locked;
-  document.getElementById('stat-unlocked').textContent=unlocked;
-  document.getElementById('stat-diary').textContent=d0+d1;
-  document.getElementById('stat-msgs').textContent=msgs;
-  renderAnniversary();renderBirthdayBanners();
-  const recent=[...caps].reverse().slice(0,3);
-  const grid=document.getElementById('home-capsules-grid');
-  grid.innerHTML='';
-  if(!recent.length){
-    grid.innerHTML=`<div class="glass empty-state"><div class="empty-icon">💌</div><div class="empty-title">No capsules yet</div><div class="empty-sub">Create your first time capsule!</div><button class="btn btn-primary" onclick="openCapsuleModal()">💌 Create First Capsule</button></div>`;
-  }else{recent.forEach(c=>grid.appendChild(buildCapsuleCard(c)));}
+function renderHome() {
+  const caps = appData.capsules;
+  const locked = caps.filter(c => !isUnlocked(c)).length;
+  const unlocked = caps.filter(c => isUnlocked(c)).length;
+  const d0 = (diaryData.entries||{})['0']?.length || 0;
+  const d1 = (diaryData.entries||{})['1']?.length || 0;
+  const msgs = (messagesData.messages||[]).length;
+  document.getElementById('stat-total').textContent = caps.length;
+  document.getElementById('stat-locked').textContent = locked;
+  document.getElementById('stat-unlocked').textContent = unlocked;
+  document.getElementById('stat-diary').textContent = d0 + d1;
+  document.getElementById('stat-msgs').textContent = msgs;
+  renderAnniversary();
+  renderBirthdayBanners();
+  const recent = [...caps].reverse().slice(0, 3);
+  const grid = document.getElementById('home-capsules-grid');
+  grid.innerHTML = '';
+  if (!recent.length) {
+    grid.innerHTML = `<div class="glass empty-state"><div class="empty-icon">💌</div><div class="empty-title">No capsules yet</div><div class="empty-sub">Create your first time capsule!</div><button class="btn btn-primary" onclick="openCapsuleModal()">💌 Create First Capsule</button></div>`;
+  } else { recent.forEach(c => grid.appendChild(buildCapsuleCard(c))); }
 }
 
-function renderAnniversary(){
-  const s=appData.settings;
-  const annEl=document.getElementById('ann-date-label');
-  const npEl=document.getElementById('ann-nepali-label');
-  const timerEl=document.getElementById('ann-timer');
-  if(!s.anniversary){annEl.textContent='Set your anniversary in Settings';npEl.textContent='';timerEl.innerHTML='';return;}
-  const annDate=new Date(s.anniversary);
-  const now=new Date();
-  const thisYear=new Date(now.getFullYear(),annDate.getMonth(),annDate.getDate());
-  const nextAnn=thisYear<now?new Date(now.getFullYear()+1,annDate.getMonth(),annDate.getDate()):thisYear;
-  const diff=nextAnn-now;
-  const years=now.getFullYear()-annDate.getFullYear();
-  const days=Math.floor(diff/86400000);
-  const hours=Math.floor((diff%86400000)/3600000);
-  const mins=Math.floor((diff%3600000)/60000);
-  annEl.textContent=`${annDate.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})} — Together ${years} year${years!==1?'s':''}`;
-  const np=englishToNepali(s.anniversary);
-  npEl.textContent=np?'🇳🇵 '+np:'';
-  if(days===0&&hours===0){
-    timerEl.innerHTML=`<span style="font-family:'Playfair Display',serif;color:var(--pink-deep);font-size:1.2rem;">🎉 Happy Anniversary! 🎉</span>`;
+function renderAnniversary() {
+  const s = appData.settings;
+  const annEl = document.getElementById('ann-date-label');
+  const npEl  = document.getElementById('ann-nepali-label');
+  const timerEl = document.getElementById('ann-timer');
+  if (!s.anniversary) { annEl.textContent = 'Set your anniversary in Settings'; npEl.textContent = ''; timerEl.innerHTML = ''; return; }
+  const annDate = new Date(s.anniversary + 'T00:00:00');
+  const now = new Date();
+  const thisYear = new Date(now.getFullYear(), annDate.getMonth(), annDate.getDate());
+  const nextAnn = thisYear < now ? new Date(now.getFullYear()+1, annDate.getMonth(), annDate.getDate()) : thisYear;
+  const diff = nextAnn - now;
+  const years = now.getFullYear() - annDate.getFullYear();
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor((diff % 86400000) / 3600000);
+  const mins  = Math.floor((diff % 3600000) / 60000);
+  annEl.textContent = `${annDate.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})} — Together ${years} year${years!==1?'s':''}`;
+  const np = englishToNepali(s.anniversary);
+  npEl.textContent = np ? '🇳🇵 ' + np : '';
+  if (days === 0 && hours === 0) {
+    timerEl.innerHTML = `<span style="font-family:'Playfair Display',serif;color:var(--pink-deep);font-size:1.2rem;">🎉 Happy Anniversary! 🎉</span>`;
     sendNotification('💑 Happy Anniversary!','Today is your special day! 💕');
-  }else{
-    timerEl.innerHTML=`<div class="ann-unit"><span class="num">${days}</span><span class="lbl">Days</span></div><div class="ann-unit"><span class="num">${hours}</span><span class="lbl">Hours</span></div><div class="ann-unit"><span class="num">${mins}</span><span class="lbl">Mins</span></div>`;
+  } else {
+    timerEl.innerHTML = `<div class="ann-unit"><span class="num">${days}</span><span class="lbl">Days</span></div><div class="ann-unit"><span class="num">${hours}</span><span class="lbl">Hours</span></div><div class="ann-unit"><span class="num">${mins}</span><span class="lbl">Mins</span></div>`;
   }
 }
 
-function renderBirthdayBanners(){
-  const s=appData.settings;
-  const container=document.getElementById('bday-banners');
-  container.innerHTML='';
-  const bdayPeople=[
-    {name:s.name1||'Swapnil',emoji:s.emoji1||'🌙',date:s.bday1},
-    {name:s.name2||'Sophiya',emoji:s.emoji2||'🌸',date:s.bday2}
+function renderBirthdayBanners() {
+  const s = appData.settings;
+  const container = document.getElementById('bday-banners');
+  container.innerHTML = '';
+
+  // FIXED: explicitly map index 0 → Swapnil, index 1 → Sophiya using s.bday1 and s.bday2
+  const bdayPeople = [
+    { name: s.name1 || 'Swapnil', emoji: s.emoji1 || '🌙', date: s.bday1 },  // Swapnil = bday1
+    { name: s.name2 || 'Sophiya', emoji: s.emoji2 || '🌸', date: s.bday2 },  // Sophiya = bday2
   ];
-  bdayPeople.forEach(p=>{
-    if(!p.date) return;
-    const bd=new Date(p.date);
-    const now=new Date();
-    const thisYear=new Date(now.getFullYear(),bd.getMonth(),bd.getDate());
-    const nextBday=thisYear<now?new Date(now.getFullYear()+1,bd.getMonth(),bd.getDate()):thisYear;
-    const diffDays=Math.round((nextBday-now)/86400000);
-    const np=englishToNepali(p.date);
-    const isToday=diffDays===0||diffDays===365;
-    const banner=document.createElement('div');
-    banner.className='glass bday-banner';
-    banner.style.background='linear-gradient(135deg,rgba(249,168,201,0.12),rgba(201,184,240,0.12))';
-    banner.innerHTML=`
+
+  bdayPeople.forEach(p => {
+    if (!p.date) return;
+    const bd = new Date(p.date + 'T00:00:00');
+    const now = new Date();
+    const thisYear = new Date(now.getFullYear(), bd.getMonth(), bd.getDate());
+    const nextBday = thisYear < now ? new Date(now.getFullYear()+1, bd.getMonth(), bd.getDate()) : thisYear;
+    const diffDays = Math.round((nextBday - now) / 86400000);
+    const np = englishToNepali(p.date);  // Show Nepali date
+    const isToday = diffDays === 0;
+
+    const banner = document.createElement('div');
+    banner.className = 'glass bday-banner';
+    banner.style.background = 'linear-gradient(135deg,rgba(249,168,201,0.12),rgba(201,184,240,0.12))';
+    banner.innerHTML = `
       <div style="font-size:2.8rem;">${p.emoji}</div>
-      <div class="bday-info" style="flex:1;">
-        <div class="bday-name">🎂 ${esc(p.name)}'s Birthday</div>
-        <div class="bday-date">${bd.toLocaleDateString('en-US',{month:'long',day:'numeric'})} ${np?'· 🇳🇵 '+np:''}</div>
-        ${isToday?`<div style="color:var(--pink-deep);font-weight:700;font-family:'Playfair Display',serif;margin-top:4px;">🎉 Happy Birthday ${esc(p.name)}! 🎂</div>`:
-        `<div class="bday-date" style="margin-top:4px;">${diffDays} day${diffDays!==1?'s':''} away</div>`}
+      <div style="flex:1;">
+        <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--text-dark);">🎂 ${esc(p.name)}'s Birthday</div>
+        <div style="font-size:0.8rem;color:var(--text-soft);margin-top:2px;">${np ? '🇳🇵 ' + np : bd.toLocaleDateString('en-US',{month:'long',day:'numeric'})}</div>
+        ${isToday
+          ? `<div style="color:var(--pink-deep);font-weight:700;font-family:'Playfair Display',serif;margin-top:4px;">🎉 Happy Birthday ${esc(p.name)}! 🎂</div>`
+          : `<div style="font-size:0.8rem;color:var(--text-soft);margin-top:4px;">${diffDays} day${diffDays!==1?'s':''} away</div>`}
       </div>
-      <div class="bday-num">${isToday?'🎂':diffDays}</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--pink-deep);">${isToday ? '🎂' : diffDays}</div>
     `;
     container.appendChild(banner);
-    if(isToday) sendNotification(`🎂 Happy Birthday ${p.name}!`,`Today is ${p.name}'s birthday! Don't forget to celebrate! 🎉`);
+    if (isToday) sendNotification(`🎂 Happy Birthday ${p.name}!`, `Today is ${p.name}'s birthday! Don't forget to celebrate! 🎉`);
   });
 }
 
 /* ============================================================
    CAPSULE UTILS
    ============================================================ */
-function isUnlocked(c){return new Date()>=new Date(c.unlockDate);}
-function daysRemaining(c){return Math.ceil((new Date(c.unlockDate)-new Date())/86400000);}
+function isUnlocked(c) { return new Date() >= new Date(c.unlockDate + 'T00:00:00'); }
+function daysRemaining(c) { return Math.ceil((new Date(c.unlockDate + 'T00:00:00') - new Date()) / 86400000); }
 
-function buildCapsuleCard(c){
-  const unlocked=isUnlocked(c);
-  const days=daysRemaining(c);
-  const soon=!unlocked&&days<=7;
-  const status=unlocked?'unlocked':(soon?'soon':'locked');
-  const iconLabel=unlocked?'💌':'🔒';
-  const card=document.createElement('div');
-  card.className='capsule-card glass';card.dataset.id=c.id;
-  const photoHTML=c.photo&&unlocked?`<img class="card-photo" src="${c.photo}" alt="memory" onclick="expandPhoto('${c.photo}')" style="cursor:pointer;" loading="lazy">`:'';
-  const previewText=unlocked?((c.message||'').substring(0,150)):((c.message||'').replace(/./g,'•').substring(0,80)+'...');
-  const previewClass='card-preview'+(unlocked?'':' blurred');
-  const np=englishToNepali(c.unlockDate);
-  const countdownHTML=unlocked?`<span class="countdown-text done">💌 Open now!</span>`:soon?`<span class="countdown-text">⏰ Opens in ${days} day${days!==1?'s':''}!</span>`:`<span class="countdown-text">🔒 ${days} day${days!==1?'s':''} remaining</span>`;
-  card.innerHTML=`
+function buildCapsuleCard(c) {
+  const unlocked = isUnlocked(c);
+  const days = daysRemaining(c);
+  const soon = !unlocked && days <= 7;
+  const status = unlocked ? 'unlocked' : (soon ? 'soon' : 'locked');
+  const iconLabel = unlocked ? '💌' : '🔒';
+  const card = document.createElement('div');
+  card.className = 'capsule-card glass'; card.dataset.id = c.id;
+  const photoHTML = c.photo && unlocked ? `<img class="card-photo" src="${c.photo}" alt="memory" onclick="expandPhoto('${c.photo}')" style="cursor:pointer;" loading="lazy">` : '';
+  const previewText = unlocked ? ((c.message||'').substring(0,150)) : ('•'.repeat(Math.min((c.message||'').length, 60)));
+  const previewClass = 'card-preview' + (unlocked ? '' : ' blurred');
+  const np = englishToNepali(c.unlockDate);
+  const countdownHTML = unlocked
+    ? `<span class="countdown-text done">💌 Open now!</span>`
+    : soon
+      ? `<span class="countdown-text">⏰ Opens in ${days} day${days!==1?'s':''}!</span>`
+      : `<span class="countdown-text">🔒 ${days} day${days!==1?'s':''} remaining</span>`;
+  card.innerHTML = `
     <div class="card-header">
       <div class="card-icon ${status}">${iconLabel}</div>
       <div class="card-meta">
         <div class="card-title">${esc(c.title)}</div>
         <div class="card-by">from <span>${esc(c.from)}</span></div>
-        ${np?`<div style="font-size:0.7rem;color:var(--text-soft);">🇳🇵 ${np}</div>`:''}
+        ${np ? `<div style="font-size:0.7rem;color:var(--text-soft);">🇳🇵 ${np}</div>` : ''}
       </div>
       <div class="card-actions">
         <button class="btn btn-ghost btn-icon btn-sm" onclick="gateEditCapsule('${c.id}')" title="Edit">✏️</button>
@@ -1531,49 +1491,46 @@ function buildCapsuleCard(c){
     </div>
     <div class="card-body">${photoHTML}<div class="${previewClass}">${esc(previewText)}</div></div>
     <div class="card-footer">
-      <span class="status-badge ${status}">${unlocked?'💌 Unlocked':soon?'⏰ Soon':'🔒 Locked'}</span>
+      <span class="status-badge ${status}">${unlocked ? '💌 Unlocked' : soon ? '⏰ Soon' : '🔒 Locked'}</span>
       ${countdownHTML}
     </div>`;
-  card.querySelector('.card-title').addEventListener('click',()=>gateOpenCapsule(c.id));
-  card.querySelector('.card-icon').addEventListener('click',()=>gateOpenCapsule(c.id));
+  card.querySelector('.card-title').addEventListener('click', () => gateOpenCapsule(c.id));
+  card.querySelector('.card-icon').addEventListener('click', () => gateOpenCapsule(c.id));
   return card;
 }
 
-/* Require emergency PIN to edit */
-function gateEditCapsule(id){
-  openPinGate('✏️','Edit Capsule','Enter the emergency code (02518899320) to edit this capsule.',EMERGENCY_PIN,()=>openCapsuleModal(id));
+function gateEditCapsule(id) {
+  openPinGate('✏️','Edit Capsule','Enter the emergency code to edit this capsule.',EMERGENCY_PIN,() => openCapsuleModal(id));
 }
-/* Require emergency PIN to delete */
-function gateDeleteCapsule(id){
-  openPinGate('🗑️','Delete Capsule','Enter the emergency code to delete this capsule.',EMERGENCY_PIN,()=>deleteCapsule(id));
+function gateDeleteCapsule(id) {
+  openPinGate('🗑️','Delete Capsule','Enter the emergency code to delete this capsule.',EMERGENCY_PIN,() => deleteCapsule(id));
 }
-/* Require emergency PIN to open locked capsule */
-function gateOpenCapsule(id){
-  const c=appData.capsules.find(x=>x.id===id);
-  if(!c) return;
-  if(isUnlocked(c)){openCapsuleView(id);}
-  else{openPinGate('🔒','Open Locked Capsule','This capsule is still sealed. Enter the emergency code to open early.',EMERGENCY_PIN,()=>openCapsuleViewForce(id));}
+function gateOpenCapsule(id) {
+  const c = appData.capsules.find(x => x.id === id);
+  if (!c) return;
+  if (isUnlocked(c)) { openCapsuleView(id); }
+  else { openPinGate('🔒','Open Locked Capsule','This capsule is sealed. Enter the emergency code to open early.',EMERGENCY_PIN,() => openCapsuleViewForce(id)); }
 }
 
 /* ============================================================
    CAPSULES PAGE
    ============================================================ */
-function renderCapsules(){
-  const grid=document.getElementById('capsules-grid');
-  grid.innerHTML='';
-  let caps=[...appData.capsules].reverse();
-  if(capsuleFilter==='locked')   caps=caps.filter(c=>!isUnlocked(c)&&daysRemaining(c)>7);
-  if(capsuleFilter==='unlocked') caps=caps.filter(c=>isUnlocked(c));
-  if(capsuleFilter==='soon')     caps=caps.filter(c=>!isUnlocked(c)&&daysRemaining(c)<=7);
-  if(!caps.length){
-    grid.innerHTML=`<div class="empty-state"><div class="empty-icon">💌</div><div class="empty-title">No capsules here</div><div class="empty-sub">Create a new time capsule!</div><button class="btn btn-primary" onclick="openCapsuleModal()">💌 Create Capsule</button></div>`;
+function renderCapsules() {
+  const grid = document.getElementById('capsules-grid');
+  grid.innerHTML = '';
+  let caps = [...appData.capsules].reverse();
+  if (capsuleFilter === 'locked')   caps = caps.filter(c => !isUnlocked(c) && daysRemaining(c) > 7);
+  if (capsuleFilter === 'unlocked') caps = caps.filter(c => isUnlocked(c));
+  if (capsuleFilter === 'soon')     caps = caps.filter(c => !isUnlocked(c) && daysRemaining(c) <= 7);
+  if (!caps.length) {
+    grid.innerHTML = `<div class="empty-state"><div class="empty-icon">💌</div><div class="empty-title">No capsules here</div><div class="empty-sub">Create a new time capsule!</div><button class="btn btn-primary" onclick="openCapsuleModal()">💌 Create Capsule</button></div>`;
     return;
   }
-  caps.forEach(c=>grid.appendChild(buildCapsuleCard(c)));
+  caps.forEach(c => grid.appendChild(buildCapsuleCard(c)));
 }
-function filterCapsules(f,btn){
-  capsuleFilter=f;
-  document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
+function filterCapsules(f, btn) {
+  capsuleFilter = f;
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
   renderCapsules();
 }
@@ -1581,62 +1538,67 @@ function filterCapsules(f,btn){
 /* ============================================================
    CAPSULE MODAL
    ============================================================ */
-function openCapsuleModal(id=null){
-  editingCapsuleId=id;capPhotoData=null;
-  document.getElementById('c-title').value='';
-  document.getElementById('c-message').value='';
-  document.getElementById('c-unlock-date').value='';
-  document.getElementById('c-np-preview').textContent='';
+function openCapsuleModal(id = null) {
+  editingCapsuleId = id; capPhotoData = null;
+  document.getElementById('c-title').value = '';
+  document.getElementById('c-message').value = '';
+  document.getElementById('c-unlock-date').value = '';
+  document.getElementById('c-np-preview').textContent = '';
   document.getElementById('c-img-preview-wrap').classList.add('hidden');
   document.getElementById('c-upload-area').classList.remove('hidden');
-  document.getElementById('c-unlock-date').min=new Date().toISOString().split('T')[0];
+  document.getElementById('c-unlock-date').min = new Date().toISOString().split('T')[0];
   applySettings();
-  if(id){
-    const c=appData.capsules.find(x=>x.id===id);
-    if(c){
-      document.getElementById('capsule-modal-title').textContent='✏️ Edit Capsule';
-      document.getElementById('c-title').value=c.title;
-      document.getElementById('c-message').value=c.message;
-      document.getElementById('c-unlock-date').value=c.unlockDate;
-      document.getElementById('c-from').value=c.from;
-      showNepaliPreview('c-unlock-date','c-np-preview');
-      if(c.photo){capPhotoData=c.photo;document.getElementById('c-img-preview').src=c.photo;document.getElementById('c-img-preview-wrap').classList.remove('hidden');document.getElementById('c-upload-area').classList.add('hidden');}
+  if (id) {
+    const c = appData.capsules.find(x => x.id === id);
+    if (c) {
+      document.getElementById('capsule-modal-title').textContent = '✏️ Edit Capsule';
+      document.getElementById('c-title').value = c.title;
+      document.getElementById('c-message').value = c.message;
+      document.getElementById('c-unlock-date').value = c.unlockDate;
+      document.getElementById('c-from').value = c.from;
+      const np = englishToNepali(c.unlockDate);
+      document.getElementById('c-np-preview').textContent = np ? '🇳🇵 ' + np : '';
+      if (c.photo) { capPhotoData = c.photo; document.getElementById('c-img-preview').src = c.photo; document.getElementById('c-img-preview-wrap').classList.remove('hidden'); document.getElementById('c-upload-area').classList.add('hidden'); }
     }
-  }else{document.getElementById('capsule-modal-title').textContent='💌 New Time Capsule';}
+  } else { document.getElementById('capsule-modal-title').textContent = '💌 New Time Capsule'; }
   document.getElementById('capsule-modal').classList.remove('hidden');
 }
-function closeCapsuleModal(){document.getElementById('capsule-modal').classList.add('hidden');}
-function closeCapsuleModalOnBg(e){if(e.target.id==='capsule-modal')closeCapsuleModal();}
-function capPhotoSelected(e){
-  const f=e.target.files[0];if(!f)return;
-  const r=new FileReader();
-  r.onload=ev=>{capPhotoData=ev.target.result;document.getElementById('c-img-preview').src=capPhotoData;document.getElementById('c-img-preview-wrap').classList.remove('hidden');document.getElementById('c-upload-area').classList.add('hidden');};
+function closeCapsuleModal() { document.getElementById('capsule-modal').classList.add('hidden'); }
+function closeCapsuleModalOnBg(e) { if (e.target.id === 'capsule-modal') closeCapsuleModal(); }
+document.getElementById('c-unlock-date')?.addEventListener('input', function() {
+  const np = englishToNepali(this.value);
+  document.getElementById('c-np-preview').textContent = np ? '🇳🇵 ' + np : '';
+});
+function capPhotoSelected(e) {
+  const f = e.target.files[0]; if (!f) return;
+  const r = new FileReader();
+  r.onload = ev => { capPhotoData = ev.target.result; document.getElementById('c-img-preview').src = capPhotoData; document.getElementById('c-img-preview-wrap').classList.remove('hidden'); document.getElementById('c-upload-area').classList.add('hidden'); };
   r.readAsDataURL(f);
 }
-function removeCapPhoto(){capPhotoData=null;document.getElementById('c-img-preview-wrap').classList.add('hidden');document.getElementById('c-upload-area').classList.remove('hidden');document.getElementById('c-photo-input').value='';}
-async function saveCapsule(){
-  const title=document.getElementById('c-title').value.trim();
-  const message=document.getElementById('c-message').value.trim();
-  const date=document.getElementById('c-unlock-date').value;
-  const from=document.getElementById('c-from').value;
-  if(!title){toast('💬 Please add a title','error');return;}
-  if(!message){toast('💌 Write your love note!','error');return;}
-  if(!date){toast('📅 Choose an unlock date','error');return;}
-  if(editingCapsuleId){
-    const idx=appData.capsules.findIndex(c=>c.id===editingCapsuleId);
-    if(idx!==-1){appData.capsules[idx]={...appData.capsules[idx],title,message,unlockDate:date,from,photo:capPhotoData||appData.capsules[idx].photo};toast('✨ Capsule updated!','success');}
-  }else{
-    appData.capsules.push({id:uid(),title,message,unlockDate:date,from,photo:capPhotoData||null,createdAt:new Date().toISOString()});
-    toast('💌 Capsule sealed! Opens '+new Date(date).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'}),'success');
+function removeCapPhoto() { capPhotoData = null; document.getElementById('c-img-preview-wrap').classList.add('hidden'); document.getElementById('c-upload-area').classList.remove('hidden'); document.getElementById('c-photo-input').value = ''; }
+async function saveCapsule() {
+  const title = document.getElementById('c-title').value.trim();
+  const message = document.getElementById('c-message').value.trim();
+  const date = document.getElementById('c-unlock-date').value;
+  const from = document.getElementById('c-from').value;
+  if (!title)   { toast('💬 Please add a title','error'); return; }
+  if (!message) { toast('💌 Write your love note!','error'); return; }
+  if (!date)    { toast('📅 Choose an unlock date','error'); return; }
+  if (editingCapsuleId) {
+    const idx = appData.capsules.findIndex(c => c.id === editingCapsuleId);
+    if (idx !== -1) { appData.capsules[idx] = { ...appData.capsules[idx], title, message, unlockDate:date, from, photo:capPhotoData||appData.capsules[idx].photo }; toast('✨ Capsule updated!','success'); }
+  } else {
+    appData.capsules.push({ id:uid(), title, message, unlockDate:date, from, photo:capPhotoData||null, createdAt:new Date().toISOString() });
+    toast('💌 Capsule sealed! Opens '+new Date(date+'T00:00:00').toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'}),'success');
     showOpenAnimation();
   }
-  closeCapsuleModal();renderHome();renderCapsules();
+  closeCapsuleModal(); renderHome(); renderCapsules();
   await saveCapsules();
 }
-async function deleteCapsule(id){
-  if(!confirm('Delete this capsule? 💔')) return;
-  appData.capsules=appData.capsules.filter(c=>c.id!==id);
-  renderHome();renderCapsules();
+async function deleteCapsule(id) {
+  if (!confirm('Delete this capsule? 💔')) return;
+  appData.capsules = appData.capsules.filter(c => c.id !== id);
+  renderHome(); renderCapsules();
   toast('🗑 Capsule removed','info');
   await saveCapsules();
 }
@@ -1644,214 +1606,258 @@ async function deleteCapsule(id){
 /* ============================================================
    CAPSULE VIEW
    ============================================================ */
-function openCapsuleView(id){
-  const c=appData.capsules.find(x=>x.id===id);if(!c) return;
-  document.getElementById('view-modal-title').textContent=esc(c.title);
-  const body=document.getElementById('view-modal-body');body.innerHTML='';
-  renderCapsuleContent(body,c);showOpenAnimation();
+function openCapsuleView(id) {
+  const c = appData.capsules.find(x => x.id === id); if (!c) return;
+  document.getElementById('view-modal-title').textContent = esc(c.title);
+  const body = document.getElementById('view-modal-body'); body.innerHTML = '';
+  renderCapsuleContent(body, c); showOpenAnimation();
   document.getElementById('view-modal').classList.remove('hidden');
 }
-function openCapsuleViewForce(id){
-  const c=appData.capsules.find(x=>x.id===id);if(!c) return;
-  document.getElementById('view-modal-title').textContent=esc(c.title);
-  const body=document.getElementById('view-modal-body');body.innerHTML='';
-  const banner=document.createElement('div');
-  banner.style.cssText='background:rgba(244,114,182,0.1);border:1.5px dashed var(--pink);border-radius:12px;padding:10px 14px;font-size:0.78rem;color:var(--pink-deep);margin-bottom:12px;';
-  banner.textContent='🚨 Emergency Access — opened before unlock date';
+function openCapsuleViewForce(id) {
+  const c = appData.capsules.find(x => x.id === id); if (!c) return;
+  document.getElementById('view-modal-title').textContent = esc(c.title);
+  const body = document.getElementById('view-modal-body'); body.innerHTML = '';
+  const banner = document.createElement('div');
+  banner.style.cssText = 'background:rgba(244,114,182,0.1);border:1.5px dashed var(--pink);border-radius:12px;padding:10px 14px;font-size:0.78rem;color:var(--pink-deep);margin-bottom:12px;';
+  banner.textContent = '🚨 Emergency Access — opened before unlock date';
   body.appendChild(banner);
-  renderCapsuleContent(body,c);showOpenAnimation();
+  renderCapsuleContent(body, c); showOpenAnimation();
   document.getElementById('view-modal').classList.remove('hidden');
 }
-function renderCapsuleContent(container,c){
-  const wrapper=document.createElement('div');
-  wrapper.style.cssText='display:flex;flex-direction:column;gap:14px;';
-  const np=englishToNepali(c.unlockDate);
-  wrapper.innerHTML=`<div style="font-size:0.8rem;color:var(--text-soft);">From <strong style="color:var(--pink-deep)">${esc(c.from)}</strong> · Sealed on ${new Date(c.createdAt).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}${np?' · 🇳🇵 Opens '+np:''}</div>`;
-  if(c.photo){const img=document.createElement('img');img.src=c.photo;img.style.cssText='width:100%;max-height:260px;object-fit:cover;border-radius:12px;cursor:pointer;';img.onclick=()=>expandPhoto(c.photo);wrapper.appendChild(img);}
-  const msg=document.createElement('div');msg.style.cssText='font-size:1rem;line-height:1.9;color:var(--text-mid);white-space:pre-wrap;word-break:break-word;';msg.textContent=c.message;
-  wrapper.appendChild(msg);container.appendChild(wrapper);
+function renderCapsuleContent(container, c) {
+  const wrapper = document.createElement('div');
+  wrapper.style.cssText = 'display:flex;flex-direction:column;gap:14px;';
+  const np = englishToNepali(c.unlockDate);
+  wrapper.innerHTML = `<div style="font-size:0.8rem;color:var(--text-soft);">From <strong style="color:var(--pink-deep)">${esc(c.from)}</strong> · Sealed ${new Date(c.createdAt).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}${np?' · 🇳🇵 Opens '+np:''}</div>`;
+  if (c.photo) { const img = document.createElement('img'); img.src = c.photo; img.style.cssText = 'width:100%;max-height:260px;object-fit:cover;border-radius:12px;cursor:pointer;'; img.onclick = () => expandPhoto(c.photo); wrapper.appendChild(img); }
+  const msg = document.createElement('div'); msg.style.cssText = 'font-size:1rem;line-height:1.9;color:var(--text-mid);white-space:pre-wrap;word-break:break-word;'; msg.textContent = c.message;
+  wrapper.appendChild(msg); container.appendChild(wrapper);
 }
-function closeViewModal(){document.getElementById('view-modal').classList.add('hidden');}
-function closeViewModalOnBg(e){if(e.target.id==='view-modal')closeViewModal();}
-function showOpenAnimation(){const b=document.createElement('div');b.className='capsule-open-animation';b.innerHTML='<span class="capsule-open-burst">💌</span>';document.body.appendChild(b);setTimeout(()=>b.remove(),1300);}
-function startCountdownTick(){setInterval(()=>{renderHome();},60000);}
+function closeViewModal() { document.getElementById('view-modal').classList.add('hidden'); }
+function closeViewModalOnBg(e) { if (e.target.id === 'view-modal') closeViewModal(); }
+function showOpenAnimation() { const b = document.createElement('div'); b.className = 'capsule-open-animation'; b.innerHTML = '<span class="capsule-open-burst">💌</span>'; document.body.appendChild(b); setTimeout(() => b.remove(), 1300); }
+function startCountdownTick() { setInterval(() => { renderHome(); }, 60000); }
 
 /* ============================================================
-   DIARY
+   DIARY — Fixed: user's own diary auto-unlocked, other requires PIN
+   diaryUnlocked[0] = swapnil's diary, diaryUnlocked[1] = sophiya's diary
+   swapnil logs in → diaryUnlocked[0]=true (own), diaryUnlocked[1]=false (sophiya's needs pin)
+   sophiya logs in → diaryUnlocked[1]=true (own), diaryUnlocked[0]=false (swapnil's needs pin)
+   guest → both locked, both need PINs
    ============================================================ */
-function selectDiary(person){
-  activeDiaryPerson=person;
-  document.getElementById('diary-card-p1').classList.toggle('selected',person===0);
-  document.getElementById('diary-card-p2').classList.toggle('selected',person===1);
-  hideDiaryPanels();clearDiaryPinInputs();
-  document.getElementById('diary-pin-error').textContent='';
-  if(diaryUnlocked[person]){showDiaryContent();}
-  else{
-    const s=appData.settings;
-    // Check if user's own diary (auto-unlocked)
-    const isOwn=(person===0&&currentUser==='swapnil')||(person===1&&currentUser==='sophiya');
-    if(isOwn){diaryUnlocked[person]=true;showDiaryContent();}
-    else{
-      const name=person===0?s.name1:s.name2;
-      document.getElementById('diary-lock-name').textContent=`Enter PIN to unlock ${name||'this diary'}`;
-      document.getElementById('diary-lock-overlay').classList.remove('hidden');
-    }
+function selectDiary(person) {
+  activeDiaryPerson = person;
+  document.getElementById('diary-card-p1').classList.toggle('selected', person === 0);
+  document.getElementById('diary-card-p2').classList.toggle('selected', person === 1);
+  hideDiaryPanels(); clearDiaryPinInputs();
+  document.getElementById('diary-pin-error').textContent = '';
+
+  if (diaryUnlocked[person]) {
+    showDiaryContent();
+  } else {
+    const s = appData.settings;
+    const name = person === 0 ? (s.name1||'Swapnil') : (s.name2||'Sophiya');
+    document.getElementById('diary-lock-name').textContent = `Enter ${name}'s account PIN to unlock`;
+    document.getElementById('diary-lock-overlay').classList.remove('hidden');
   }
   updateDiaryEntryList();
 }
-function renderDiaryPage(){
-  const s=appData.settings;
-  document.getElementById('diary-name-p1').textContent=s.name1||'Swapnil';
-  document.getElementById('diary-name-p2').textContent=s.name2||'Sophiya';
-  document.getElementById('diary-avatar-p1').textContent=s.emoji1||'🌙';
-  document.getElementById('diary-avatar-p2').textContent=s.emoji2||'🌸';
-  updateDiaryEntryList();selectDiary(activeDiaryPerson);
+function renderDiaryPage() {
+  const s = appData.settings;
+  // p1 = Swapnil (index 0), p2 = Sophiya (index 1) — always
+  document.getElementById('diary-name-p1').textContent = s.name1 || 'Swapnil';
+  document.getElementById('diary-name-p2').textContent = s.name2 || 'Sophiya';
+  document.getElementById('diary-avatar-p1').textContent = s.emoji1 || '🌙';
+  document.getElementById('diary-avatar-p2').textContent = s.emoji2 || '🌸';
+  updateDiaryEntryList();
+  // FIXED: auto-select the current user's diary as the default view
+  const defaultPerson = currentUser === 'sophiya' ? 1 : 0;
+  selectDiary(defaultPerson);
 }
-function updateDiaryEntryList(){
-  [0,1].forEach(p=>{
-    const entries=(diaryData.entries||{})[p.toString()]||[];
-    document.getElementById('diary-count-p'+(p+1)).textContent=entries.length+' entr'+(entries.length===1?'y':'ies');
+function updateDiaryEntryList() {
+  [0, 1].forEach(p => {
+    const entries = (diaryData.entries||{})[p.toString()] || [];
+    document.getElementById('diary-count-p'+(p+1)).textContent = entries.length + ' entr' + (entries.length===1?'y':'ies');
   });
-  const list=document.getElementById('diary-entry-list');list.innerHTML='';
-  if(!diaryUnlocked[activeDiaryPerson]) return;
-  const entries=(diaryData.entries||{})[activeDiaryPerson.toString()]||[];
-  [...entries].reverse().forEach(e=>{
-    const item=document.createElement('div');
-    item.className='diary-entry-item'+(activeDiaryEntry&&activeDiaryEntry.id===e.id?' active':'');
-    item.innerHTML=`<div class="dei-title">${esc(e.title)}</div><div class="dei-date">${new Date(e.createdAt).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</div>`;
-    item.onclick=()=>openDiaryEntry(e.id);list.appendChild(item);
+  const list = document.getElementById('diary-entry-list'); list.innerHTML = '';
+  if (!diaryUnlocked[activeDiaryPerson]) return;
+  const entries = (diaryData.entries||{})[activeDiaryPerson.toString()] || [];
+  [...entries].reverse().forEach(e => {
+    const item = document.createElement('div');
+    item.className = 'diary-entry-item' + (activeDiaryEntry && activeDiaryEntry.id === e.id ? ' active' : '');
+    item.innerHTML = `<div class="dei-title">${esc(e.title)}</div><div class="dei-date">${new Date(e.createdAt).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</div>`;
+    item.onclick = () => openDiaryEntry(e.id); list.appendChild(item);
   });
 }
-function unlockDiary(){
-  const inputs=document.querySelectorAll('#diary-pin-inputs input');
-  const entered=Array.from(inputs).map(i=>i.value).join('');
-  if(entered.length<4){document.getElementById('diary-pin-error').textContent='Enter 4 digits';return;}
-  const s=appData.settings;
-  const pinHash=activeDiaryPerson===0?s.diaryPin1Hash:s.diaryPin2Hash;
-  // Fallback to login PIN if no custom PIN set
-  const fallback=activeDiaryPerson===0?LOGIN_PINS.swapnil:LOGIN_PINS.sophiya;
-  const validByHash=pinHash&&hashPIN(entered)===pinHash;
-  const validByFallback=!pinHash&&entered===fallback;
-  if(validByHash||validByFallback){
-    diaryUnlocked[activeDiaryPerson]=true;
-    document.getElementById('diary-pin-error').textContent='';
-    showDiaryContent();updateDiaryEntryList();
-    toast('📔 Diary unlocked!','success');
-  }else{
-    document.getElementById('diary-pin-error').textContent='❌ Wrong PIN';
+function unlockDiary() {
+  const inputs = document.querySelectorAll('#diary-pin-inputs input');
+  const entered = Array.from(inputs).map(i => i.value).join('');
+  if (entered.length < 4) { document.getElementById('diary-pin-error').textContent = 'Enter 4 digits'; return; }
+  // Use login PINs for diary — same PIN system
+  // Swapnil's diary (index 0) = 1330, Sophiya's diary (index 1) = 1440
+  const diaryPins = { 0: '1330', 1: '1440' };
+  const expectedPin = diaryPins[activeDiaryPerson];
+  if (entered === expectedPin) {
+    diaryUnlocked[activeDiaryPerson] = true;
+    document.getElementById('diary-pin-error').textContent = '';
+    showDiaryContent(); updateDiaryEntryList();
+    const s = appData.settings;
+    const name = activeDiaryPerson === 0 ? (s.name1||'Swapnil') : (s.name2||'Sophiya');
+    toast(`📔 ${name}'s diary unlocked!`, 'success');
+  } else {
+    document.getElementById('diary-pin-error').textContent = '❌ Wrong PIN';
     clearDiaryPinInputs();
   }
 }
-function clearDiaryPinInputs(){document.querySelectorAll('#diary-pin-inputs input').forEach(i=>i.value='');document.querySelectorAll('#diary-pin-inputs input')[0]?.focus();}
-function diaryPinMove(input,idx){
-  if(input.value.length===1&&idx<3) document.querySelectorAll('#diary-pin-inputs input')[idx+1]?.focus();
-  const all=document.querySelectorAll('#diary-pin-inputs input');
-  if(Array.from(all).every(i=>i.value.length===1)) unlockDiary();
+function clearDiaryPinInputs() { document.querySelectorAll('#diary-pin-inputs input').forEach(i => i.value = ''); document.querySelectorAll('#diary-pin-inputs input')[0]?.focus(); }
+function diaryPinMove(input, idx) {
+  if (input.value.length === 1 && idx < 3) document.querySelectorAll('#diary-pin-inputs input')[idx+1]?.focus();
+  const all = document.querySelectorAll('#diary-pin-inputs input');
+  if (Array.from(all).every(i => i.value.length === 1)) unlockDiary();
 }
-function diaryPinBack(e,idx){if(e.key==='Backspace'&&!e.target.value&&idx>0)document.querySelectorAll('#diary-pin-inputs input')[idx-1]?.focus();}
-function hideDiaryPanels(){['diary-lock-overlay','diary-entry-view','diary-editor-panel','diary-empty-state'].forEach(id=>document.getElementById(id).classList.add('hidden'));}
-function showDiaryContent(){
+function diaryPinBack(e, idx) { if (e.key === 'Backspace' && !e.target.value && idx > 0) document.querySelectorAll('#diary-pin-inputs input')[idx-1]?.focus(); }
+function hideDiaryPanels() { ['diary-lock-overlay','diary-entry-view','diary-editor-panel','diary-empty-state'].forEach(id => document.getElementById(id).classList.add('hidden')); }
+function showDiaryContent() {
   hideDiaryPanels();
-  const entries=(diaryData.entries||{})[activeDiaryPerson.toString()]||[];
-  if(!entries.length){document.getElementById('diary-empty-state').classList.remove('hidden');}
-  else{openDiaryEntry(entries[entries.length-1].id);}
+  const entries = (diaryData.entries||{})[activeDiaryPerson.toString()] || [];
+  if (!entries.length) { document.getElementById('diary-empty-state').classList.remove('hidden'); }
+  else { openDiaryEntry(entries[entries.length-1].id); }
 }
-function openDiaryEntry(id){
-  const entries=(diaryData.entries||{})[activeDiaryPerson.toString()]||[];
-  const entry=entries.find(e=>e.id===id);if(!entry)return;
-  activeDiaryEntry=entry;hideDiaryPanels();
-  document.getElementById('diary-view-title').textContent=entry.title;
-  document.getElementById('diary-view-date').textContent=new Date(entry.createdAt).toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
-  document.getElementById('diary-view-content').textContent=entry.content;
+function openDiaryEntry(id) {
+  const entries = (diaryData.entries||{})[activeDiaryPerson.toString()] || [];
+  const entry = entries.find(e => e.id === id); if (!entry) return;
+  activeDiaryEntry = entry; hideDiaryPanels();
+  document.getElementById('diary-view-title').textContent = entry.title;
+  document.getElementById('diary-view-date').textContent = new Date(entry.createdAt).toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+  document.getElementById('diary-view-content').textContent = entry.content;
   document.getElementById('diary-entry-view').classList.remove('hidden');
   updateDiaryEntryList();
 }
-function openDiaryEditor(entryId=null){
-  if(!diaryUnlocked[activeDiaryPerson]){toast('🔐 Unlock the diary first','error');return;}
-  editingDiaryEntryId=entryId;hideDiaryPanels();
-  document.getElementById('diary-editor-title-bar').textContent=entryId?'Edit Entry ✏️':'New Entry ✨';
-  if(entryId){const e=((diaryData.entries||{})[activeDiaryPerson.toString()]||[]).find(x=>x.id===entryId);document.getElementById('diary-entry-title').value=e?.title||'';document.getElementById('diary-entry-body').value=e?.content||'';}
-  else{document.getElementById('diary-entry-title').value='';document.getElementById('diary-entry-body').value='';}
+function openDiaryEditor(entryId = null) {
+  if (!diaryUnlocked[activeDiaryPerson]) { toast('🔐 Unlock the diary first','error'); return; }
+  editingDiaryEntryId = entryId; hideDiaryPanels();
+  document.getElementById('diary-editor-title-bar').textContent = entryId ? 'Edit Entry ✏️' : 'New Entry ✨';
+  if (entryId) { const e = ((diaryData.entries||{})[activeDiaryPerson.toString()]||[]).find(x => x.id === entryId); document.getElementById('diary-entry-title').value = e?.title||''; document.getElementById('diary-entry-body').value = e?.content||''; }
+  else { document.getElementById('diary-entry-title').value = ''; document.getElementById('diary-entry-body').value = ''; }
   document.getElementById('diary-editor-panel').classList.remove('hidden');
   document.getElementById('diary-entry-title').focus();
 }
-function closeDiaryEditor(){hideDiaryPanels();const entries=(diaryData.entries||{})[activeDiaryPerson.toString()]||[];if(entries.length)openDiaryEntry(entries[entries.length-1].id);else document.getElementById('diary-empty-state').classList.remove('hidden');}
-function closeDiaryEntry(){hideDiaryPanels();document.getElementById('diary-empty-state').classList.remove('hidden');activeDiaryEntry=null;updateDiaryEntryList();}
-async function saveDiaryEntry(){
-  const title=document.getElementById('diary-entry-title').value.trim();
-  const content=document.getElementById('diary-entry-body').value.trim();
-  if(!title){toast('📝 Add a title please','error');return;}
-  if(!content){toast('💬 Write something first','error');return;}
-  if(!diaryData.entries)diaryData.entries={};
-  const key=activeDiaryPerson.toString();
-  if(!diaryData.entries[key])diaryData.entries[key]=[];
-  const entries=diaryData.entries[key];
-  if(editingDiaryEntryId){const idx=entries.findIndex(e=>e.id===editingDiaryEntryId);if(idx!==-1){entries[idx]={...entries[idx],title,content,updatedAt:new Date().toISOString()};activeDiaryEntry=entries[idx];}}
-  else{const entry={id:uid(),title,content,createdAt:new Date().toISOString()};entries.push(entry);activeDiaryEntry=entry;}
-  diaryData.entries[key]=entries;
-  toast('💾 Saving...','info');await saveDiaryRemote();
+function closeDiaryEditor() { hideDiaryPanels(); const entries = (diaryData.entries||{})[activeDiaryPerson.toString()]||[]; if (entries.length) openDiaryEntry(entries[entries.length-1].id); else document.getElementById('diary-empty-state').classList.remove('hidden'); }
+function closeDiaryEntry() { hideDiaryPanels(); document.getElementById('diary-empty-state').classList.remove('hidden'); activeDiaryEntry = null; updateDiaryEntryList(); }
+async function saveDiaryEntry() {
+  const title = document.getElementById('diary-entry-title').value.trim();
+  const content = document.getElementById('diary-entry-body').value.trim();
+  if (!title)   { toast('📝 Add a title please','error'); return; }
+  if (!content) { toast('💬 Write something first','error'); return; }
+  if (!diaryData.entries) diaryData.entries = {};
+  const key = activeDiaryPerson.toString();
+  if (!diaryData.entries[key]) diaryData.entries[key] = [];
+  const entries = diaryData.entries[key];
+  if (editingDiaryEntryId) {
+    const idx = entries.findIndex(e => e.id === editingDiaryEntryId);
+    if (idx !== -1) { entries[idx] = { ...entries[idx], title, content, updatedAt:new Date().toISOString() }; activeDiaryEntry = entries[idx]; }
+  } else {
+    const entry = { id:uid(), title, content, createdAt:new Date().toISOString() };
+    entries.push(entry); activeDiaryEntry = entry;
+  }
+  diaryData.entries[key] = entries;
+  toast('💾 Saving...','info'); await saveDiaryRemote();
   toast('💾 Diary entry saved!','success');
-  hideDiaryPanels();openDiaryEntry(activeDiaryEntry.id);updateDiaryEntryList();renderHome();
+  hideDiaryPanels(); openDiaryEntry(activeDiaryEntry.id); updateDiaryEntryList(); renderHome();
 }
-function editCurrentDiaryEntry(){if(activeDiaryEntry)openDiaryEditor(activeDiaryEntry.id);}
-async function deleteCurrentDiaryEntry(){
-  if(!activeDiaryEntry)return;
-  if(!confirm('Delete this diary entry? 💔'))return;
-  const key=activeDiaryPerson.toString();
-  diaryData.entries[key]=(diaryData.entries[key]||[]).filter(e=>e.id!==activeDiaryEntry.id);
-  activeDiaryEntry=null;await saveDiaryRemote();
-  toast('🗑 Entry deleted','info');showDiaryContent();updateDiaryEntryList();renderHome();
+function editCurrentDiaryEntry() { if (activeDiaryEntry) openDiaryEditor(activeDiaryEntry.id); }
+async function deleteCurrentDiaryEntry() {
+  if (!activeDiaryEntry) return;
+  if (!confirm('Delete this diary entry? 💔')) return;
+  const key = activeDiaryPerson.toString();
+  diaryData.entries[key] = (diaryData.entries[key]||[]).filter(e => e.id !== activeDiaryEntry.id);
+  activeDiaryEntry = null; await saveDiaryRemote();
+  toast('🗑 Entry deleted','info'); showDiaryContent(); updateDiaryEntryList(); renderHome();
 }
 
 /* ============================================================
-   MESSAGES
+   MESSAGES — Fixed sender, encryption, edit/delete
    ============================================================ */
-function renderMessages(){
-  const area=document.getElementById('messages-area');
-  const disabled=document.getElementById('msg-disabled-notice');
-  const inputArea=document.getElementById('msg-input-area');
-  const indicator=document.getElementById('msg-user-indicator');
+function renderMessages() {
+  const inputArea = document.getElementById('msg-input-area');
+  const guestBar  = document.getElementById('guest-readonly-bar');
+  const indicator = document.getElementById('msg-user-indicator');
+  const s = appData.settings;
 
-  if(currentUser==='guest'){
-    // Show messages but disable input
-    disabled.style.display='none'; // allow viewing
-    inputArea.style.display='none';
-    indicator.textContent='Read-only — Messaging disabled for guest';
-  }else{
-    disabled.style.display='none';
-    inputArea.style.display='block';
-    const senderName=currentUser==='swapnil'?(appData.settings.name1||'Swapnil'):(appData.settings.name2||'Sophiya');
-    indicator.textContent=`Sending as ${senderName}`;
+  if (currentUser === 'guest') {
+    inputArea.classList.add('hidden');
+    guestBar.classList.remove('hidden');
+    indicator.textContent = '👁️ Read-only mode';
+  } else {
+    inputArea.classList.remove('hidden');
+    guestBar.classList.add('hidden');
+    const senderName = currentUser === 'swapnil' ? (s.name1||'Swapnil') : (s.name2||'Sophiya');
+    indicator.textContent = `Sending as ${senderName}`;
   }
 
-  const msgs=(messagesData.messages||[]);
-  area.innerHTML='';
-  if(!msgs.length){
-    area.innerHTML='<div style="text-align:center;color:var(--text-soft);font-size:0.85rem;font-style:italic;padding:40px 20px;">No messages yet. Say something sweet! 💕</div>';
+  const area = document.getElementById('messages-area');
+  // Decrypt messages for display
+  const msgs = (messagesData.messages||[]).map(m => {
+    try { return decryptMsg(m); } catch { return m; }
+  });
+
+  area.innerHTML = '';
+  if (!msgs.length) {
+    area.innerHTML = '<div style="text-align:center;color:var(--text-soft);font-size:0.85rem;font-style:italic;padding:40px 20px;">No messages yet. Say something sweet! 💕</div>';
     return;
   }
-  msgs.forEach(m=>{
-    const isMine=(currentUser==='swapnil'&&m.sender==='swapnil')||(currentUser==='sophiya'&&m.sender==='sophiya');
-    const wrap=document.createElement('div');
-    wrap.className='msg-bubble-wrap '+(isMine?'mine':'theirs');
-    const senderLabel=m.sender==='swapnil'?(appData.settings.name1||'Swapnil')+' 🌙':(appData.settings.name2||'Sophiya')+' 🌸';
-    let contentHTML='';
-    if(m.type==='text'){contentHTML=`<div class="msg-bubble"><div>${esc(m.content)}</div></div>`;}
-    else if(m.type==='image'){contentHTML=`<div class="msg-bubble" style="padding:6px;"><img class="msg-img" src="${m.content}" onclick="expandPhoto('${m.content}')"></div>`;}
-    else if(m.type==='video'){contentHTML=`<div class="msg-bubble" style="padding:6px;"><video class="msg-video" controls src="${m.content}"></video></div>`;}
-    else if(m.type==='voice'){contentHTML=buildVoiceBubble(m,isMine);}
-    else if(m.type==='file'){contentHTML=buildFileBubble(m);}
-    const time=new Date(m.ts).toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});
-    wrap.innerHTML=`<div class="msg-sender">${esc(senderLabel)}</div>${contentHTML}<div class="msg-time">${time}</div>`;
+
+  msgs.forEach(m => {
+    // FIXED: correctly determine "mine" based on currentUser matching sender
+    const isMine = (currentUser !== 'guest') && (m.sender === currentUser);
+    const wrap = document.createElement('div');
+    wrap.className = 'msg-bubble-wrap ' + (isMine ? 'mine' : 'theirs');
+    wrap.dataset.msgId = m.id;
+
+    // Sender display name — use settings names, not raw IDs
+    const senderDisplayName = m.sender === 'swapnil'
+      ? (s.emoji1||'🌙') + ' ' + (s.name1||'Swapnil')
+      : m.sender === 'sophiya'
+        ? (s.emoji2||'🌸') + ' ' + (s.name2||'Sophiya')
+        : '👁️ Guest';
+
+    let contentHTML = '';
+    if (m.type === 'text') {
+      contentHTML = `<div class="msg-bubble"><div>${esc(m.content)}</div></div>`;
+    } else if (m.type === 'image') {
+      contentHTML = `<div class="msg-bubble" style="padding:6px;"><img class="msg-img" src="${m.content}" onclick="expandPhoto('${m.content}')"></div>`;
+    } else if (m.type === 'video') {
+      contentHTML = `<div class="msg-bubble" style="padding:6px;"><video class="msg-video" controls src="${m.content}"></video></div>`;
+    } else if (m.type === 'voice') {
+      contentHTML = buildVoiceBubble(m, isMine);
+    } else if (m.type === 'file') {
+      contentHTML = buildFileBubble(m);
+    }
+
+    const time = new Date(m.ts).toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});
+
+    // Edit/delete actions — only show for own messages, non-guest
+    let actionsHTML = '';
+    if (isMine && m.type === 'text') {
+      actionsHTML = `<div class="msg-actions">
+        <button class="msg-action-btn" onclick="startEditMsg('${m.id}')" title="Edit">✏️</button>
+        <button class="msg-action-btn" onclick="deleteMsg('${m.id}')" title="Delete">🗑</button>
+      </div>`;
+    } else if (isMine) {
+      actionsHTML = `<div class="msg-actions">
+        <button class="msg-action-btn" onclick="deleteMsg('${m.id}')" title="Delete">🗑</button>
+      </div>`;
+    }
+
+    wrap.innerHTML = `<div class="msg-sender">${esc(senderDisplayName)}</div>${actionsHTML}${contentHTML}<div class="msg-time">${time}${m.edited?' · edited':''}</div>`;
     area.appendChild(wrap);
   });
-  area.scrollTop=area.scrollHeight;
+  area.scrollTop = area.scrollHeight;
 }
 
-function buildVoiceBubble(m,isMine){
-  const id='vp_'+m.id;
-  // Build waveform bars
-  const bars=Array.from({length:18},()=>`<div class="msg-voice-bar" style="height:${4+Math.random()*16}px;"></div>`).join('');
+function buildVoiceBubble(m, isMine) {
+  const id = 'vp_' + m.id;
+  const bars = Array.from({length:18}, () => `<div class="msg-voice-bar" style="height:${4+Math.random()*16}px;"></div>`).join('');
   return `<div class="msg-bubble"><div class="msg-voice">
     <button class="msg-voice-btn" onclick="playVoiceMsg('${id}','${m.content}')" id="vbtn_${m.id}">▶</button>
     <div class="msg-voice-wave">${bars}</div>
@@ -1860,31 +1866,31 @@ function buildVoiceBubble(m,isMine){
   <audio id="${id}" src="${m.content}" onended="document.getElementById('vbtn_${m.id}').textContent='▶'"></audio>
   </div>`;
 }
-function playVoiceMsg(audioId,src){
-  const audio=document.getElementById(audioId);
-  const allAudios=document.querySelectorAll('.msg-bubble audio');
-  allAudios.forEach(a=>{if(a.id!==audioId){a.pause();a.currentTime=0;}});
-  if(audio.paused){audio.play();}else{audio.pause();}
+function playVoiceMsg(audioId) {
+  const audio = document.getElementById(audioId);
+  if (!audio) return;
+  document.querySelectorAll('.msg-bubble audio').forEach(a => { if (a.id !== audioId) { a.pause(); a.currentTime = 0; } });
+  if (audio.paused) { audio.play(); } else { audio.pause(); }
 }
-function buildFileBubble(m){
-  const ext=(m.fileName||'file').split('.').pop().toUpperCase();
-  const fileIcons={'PDF':'📄','MP3':'🎵','MP4':'🎬','TXT':'📝','ZIP':'📦','DOC':'📝','DOCX':'📝','XLS':'📊','XLSX':'📊','PPT':'📊','PPTX':'📊'};
-  const icon=fileIcons[ext]||'📎';
+function buildFileBubble(m) {
+  const ext = (m.fileName||'file').split('.').pop().toUpperCase();
+  const fileIcons = {'PDF':'📄','MP3':'🎵','MP4':'🎬','TXT':'📝','ZIP':'📦','DOC':'📝','DOCX':'📝','XLS':'📊','XLSX':'📊'};
+  const icon = fileIcons[ext] || '📎';
   return `<div class="msg-bubble"><div class="msg-file-attach" onclick="downloadFile('${m.content}','${esc(m.fileName||'file')}')">
     <span class="mfa-icon">${icon}</span>
     <div><div class="mfa-name">${esc(m.fileName||'File')}</div><div class="mfa-size">${ext} file</div></div>
   </div></div>`;
 }
-function downloadFile(dataUrl,name){const a=document.createElement('a');a.href=dataUrl;a.download=name;a.click();}
+function downloadFile(dataUrl, name) { const a = document.createElement('a'); a.href = dataUrl; a.download = name; a.click(); }
 
-async function sendMessage(content=null,type='text',extra={}){
-  if(currentUser==='guest'){toast('Messaging not available for guest','error');return;}
-  const text=content||document.getElementById('msg-text-input')?.value?.trim();
-  if(!text&&type==='text'){return;}
-  const sender=currentUser;
-  const msg={id:uid(),sender,type,content:text,ts:new Date().toISOString(),...extra};
-  if(type==='text') document.getElementById('msg-text-input').value='';
-  if(!messagesData.messages)messagesData.messages=[];
+async function sendMessage(content = null, type = 'text', extra = {}) {
+  if (currentUser === 'guest') { toast('Messaging not available for guests','error'); return; }
+  const text = content || document.getElementById('msg-text-input')?.value?.trim();
+  if (!text && type === 'text') return;
+  // FIXED: sender is always currentUser, which is correctly set on login by PIN
+  const msg = { id:uid(), sender:currentUser, type, content:text, ts:new Date().toISOString(), ...extra };
+  if (type === 'text') { document.getElementById('msg-text-input').value = ''; autoResizeTextarea(document.getElementById('msg-text-input')); }
+  if (!messagesData.messages) messagesData.messages = [];
   messagesData.messages.push(msg);
   renderMessages();
   toast('📨 Sending...','info');
@@ -1893,200 +1899,224 @@ async function sendMessage(content=null,type='text',extra={}){
   renderHome();
 }
 
-function msgKeyDown(e){
-  if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMessage();}
+function startEditMsg(id) {
+  const msgs = messagesData.messages || [];
+  const idx = msgs.findIndex(m => m.id === id);
+  if (idx === -1) return;
+  // Decrypt to show in edit field
+  const decrypted = decryptMsg(msgs[idx]);
+  const wrap = document.querySelector(`[data-msg-id="${id}"]`);
+  if (!wrap) return;
+  const bubble = wrap.querySelector('.msg-bubble');
+  if (!bubble) return;
+  bubble.innerHTML = `<div style="display:flex;gap:8px;align-items:center;">
+    <input class="msg-edit-input" value="${esc(decrypted.content)}" id="edit-input-${id}">
+    <button class="btn btn-primary btn-sm" onclick="confirmEditMsg('${id}')">Save</button>
+    <button class="btn btn-ghost btn-sm" onclick="renderMessages()">✕</button>
+  </div>`;
+  document.getElementById('edit-input-'+id)?.focus();
 }
-function autoResizeTextarea(el){
-  el.style.height='auto';
-  el.style.height=Math.min(el.scrollHeight,120)+'px';
+async function confirmEditMsg(id) {
+  const inputEl = document.getElementById('edit-input-'+id);
+  if (!inputEl) return;
+  const newText = inputEl.value.trim();
+  if (!newText) { toast('Cannot send empty message','error'); return; }
+  const idx = (messagesData.messages||[]).findIndex(m => m.id === id);
+  if (idx === -1) return;
+  messagesData.messages[idx].content = newText;
+  messagesData.messages[idx].edited = true;
+  renderMessages();
+  await saveMessagesRemote();
+  toast('✏️ Message updated!','success');
+}
+async function deleteMsg(id) {
+  if (!confirm('Delete this message?')) return;
+  messagesData.messages = (messagesData.messages||[]).filter(m => m.id !== id);
+  renderMessages();
+  await saveMessagesRemote();
+  toast('🗑 Message deleted','info');
 }
 
-// File handling
-function handleMsgFile(e){
-  const f=e.target.files[0];if(!f)return;
-  const r=new FileReader();
-  r.onload=ev=>{
-    const isVid=f.type.startsWith('video/');
-    sendMessage(ev.target.result,'file',{fileName:f.name,fileSize:f.size});
-  };
-  r.readAsDataURL(f);
-  e.target.value='';
+function msgKeyDown(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
 }
-function handleMsgMedia(e){
-  const f=e.target.files[0];if(!f)return;
-  const r=new FileReader();
-  r.onload=ev=>{
-    const type=f.type.startsWith('video/')?'video':'image';
-    sendMessage(ev.target.result,type,{fileName:f.name});
-  };
-  r.readAsDataURL(f);
-  e.target.value='';
+function autoResizeTextarea(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 120) + 'px';
 }
 
-// Emoji picker
-function buildEmojiGrid(){
-  const grid=document.getElementById('emoji-grid');
-  if(!grid)return;
-  grid.innerHTML='';
-  EMOJIS_LIST.forEach(em=>{
-    const btn=document.createElement('button');
-    btn.className='emoji-btn';btn.textContent=em;
-    btn.onclick=()=>{
-      const inp=document.getElementById('msg-text-input');
-      inp.value+=(inp.value?'':'')+em;
-      inp.focus();toggleEmojiPicker();
-    };
+function handleMsgFile(e) {
+  const f = e.target.files[0]; if (!f) return;
+  const r = new FileReader();
+  r.onload = ev => { sendMessage(ev.target.result, 'file', { fileName:f.name, fileSize:f.size }); };
+  r.readAsDataURL(f); e.target.value = '';
+}
+function handleMsgMedia(e) {
+  const f = e.target.files[0]; if (!f) return;
+  const r = new FileReader();
+  r.onload = ev => { const type = f.type.startsWith('video/') ? 'video' : 'image'; sendMessage(ev.target.result, type, { fileName:f.name }); };
+  r.readAsDataURL(f); e.target.value = '';
+}
+
+function buildEmojiGrid() {
+  const grid = document.getElementById('emoji-grid'); if (!grid) return; grid.innerHTML = '';
+  EMOJIS_LIST.forEach(em => {
+    const btn = document.createElement('button');
+    btn.className = 'emoji-btn'; btn.textContent = em;
+    btn.onclick = () => { const inp = document.getElementById('msg-text-input'); inp.value += em; inp.focus(); toggleEmojiPicker(); };
     grid.appendChild(btn);
   });
 }
-function toggleEmojiPicker(){
-  emojiPickerOpen=!emojiPickerOpen;
-  document.getElementById('emoji-grid').classList.toggle('hidden',!emojiPickerOpen);
+function toggleEmojiPicker() {
+  emojiPickerOpen = !emojiPickerOpen;
+  document.getElementById('emoji-grid').classList.toggle('hidden', !emojiPickerOpen);
 }
-document.addEventListener('click',e=>{
-  const grid=document.getElementById('emoji-grid');
-  if(grid&&!grid.classList.contains('hidden')&&!e.target.closest('.emoji-picker-wrap'))toggleEmojiPicker();
+document.addEventListener('click', e => {
+  const grid = document.getElementById('emoji-grid');
+  if (grid && !grid.classList.contains('hidden') && !e.target.closest('.emoji-picker-wrap')) toggleEmojiPicker();
 });
 
 // Voice recording
-async function toggleVoiceRecord(){
-  if(isRecording){stopRecording();}
-  else{await startRecording();}
+async function toggleVoiceRecord() {
+  if (isRecording) { stopRecording(); } else { await startRecording(); }
 }
-async function startRecording(){
-  try{
-    const stream=await navigator.mediaDevices.getUserMedia({audio:true});
-    mediaRecorder=new MediaRecorder(stream);
-    recordingChunks=[];
-    mediaRecorder.ondataavailable=e=>{if(e.data.size>0)recordingChunks.push(e.data);};
-    mediaRecorder.onstop=processVoiceRecording;
+async function startRecording() {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({audio:true});
+    mediaRecorder = new MediaRecorder(stream);
+    recordingChunks = [];
+    mediaRecorder.ondataavailable = e => { if (e.data.size > 0) recordingChunks.push(e.data); };
+    mediaRecorder.onstop = processVoiceRecording;
     mediaRecorder.start();
-    isRecording=true;recSeconds=0;
+    isRecording = true; recSeconds = 0;
     document.getElementById('recording-indicator').classList.remove('hidden');
-    document.getElementById('record-btn').textContent='⏹';
-    recTimerInterval=setInterval(()=>{
+    document.getElementById('record-btn').textContent = '⏹';
+    recTimerInterval = setInterval(() => {
       recSeconds++;
-      const m=Math.floor(recSeconds/60);const s=recSeconds%60;
-      document.getElementById('rec-timer').textContent=`${m}:${s.toString().padStart(2,'0')}`;
-    },1000);
-  }catch(e){toast('🎤 Microphone access denied','error');}
+      const m = Math.floor(recSeconds/60); const s = recSeconds%60;
+      document.getElementById('rec-timer').textContent = `${m}:${s.toString().padStart(2,'0')}`;
+    }, 1000);
+  } catch(e) { toast('🎤 Microphone access denied','error'); }
 }
-function stopRecording(){
-  if(mediaRecorder&&mediaRecorder.state!=='inactive'){mediaRecorder.stop();mediaRecorder.stream.getTracks().forEach(t=>t.stop());}
-  isRecording=false;clearInterval(recTimerInterval);
+function stopRecording() {
+  if (mediaRecorder && mediaRecorder.state !== 'inactive') { mediaRecorder.stop(); mediaRecorder.stream.getTracks().forEach(t => t.stop()); }
+  isRecording = false; clearInterval(recTimerInterval);
   document.getElementById('recording-indicator').classList.add('hidden');
-  document.getElementById('record-btn').textContent='🎤';
+  document.getElementById('record-btn').textContent = '🎤';
 }
-function cancelRecording(){
-  stopRecording();recordingChunks=[];toast('Recording cancelled','info');
-}
-function processVoiceRecording(){
-  if(!recordingChunks.length)return;
-  const blob=new Blob(recordingChunks,{type:'audio/webm'});
-  const r=new FileReader();
-  r.onload=ev=>{
-    const m=Math.floor(recSeconds/60);const s=recSeconds%60;
-    const dur=`${m}:${s.toString().padStart(2,'0')}`;
-    sendMessage(ev.target.result,'voice',{duration:dur});
+function cancelRecording() { stopRecording(); recordingChunks = []; toast('Recording cancelled','info'); }
+function processVoiceRecording() {
+  if (!recordingChunks.length) return;
+  const blob = new Blob(recordingChunks, {type:'audio/webm'});
+  const r = new FileReader();
+  r.onload = ev => {
+    const m = Math.floor(recSeconds/60); const s = recSeconds%60;
+    sendMessage(ev.target.result, 'voice', { duration:`${m}:${s.toString().padStart(2,'0')}` });
   };
-  r.readAsDataURL(blob);
-  recordingChunks=[];
+  r.readAsDataURL(blob); recordingChunks = [];
 }
 
 /* ============================================================
    NOTIFICATIONS
    ============================================================ */
-let notifGranted=false;
-async function requestNotifPermission(){
-  if(!('Notification' in window)){document.getElementById('notif-btn').textContent='🔕';return;}
-  if(Notification.permission==='granted'){notifGranted=true;document.getElementById('notif-btn').textContent='🔔';return;}
-  if(Notification.permission!=='denied'){
-    const perm=await Notification.requestPermission();
-    notifGranted=perm==='granted';
-    document.getElementById('notif-btn').textContent=notifGranted?'🔔':'🔕';
-    if(notifGranted) toast('🔔 Notifications enabled!','success');
-  }else{document.getElementById('notif-btn').textContent='🔕';}
+let notifGranted = false;
+async function requestNotifPermission() {
+  if (!('Notification' in window)) { document.getElementById('notif-btn').textContent = '🔕'; return; }
+  if (Notification.permission === 'granted') { notifGranted = true; document.getElementById('notif-btn').textContent = '🔔'; return; }
+  if (Notification.permission !== 'denied') {
+    const perm = await Notification.requestPermission();
+    notifGranted = perm === 'granted';
+    document.getElementById('notif-btn').textContent = notifGranted ? '🔔' : '🔕';
+    if (notifGranted) toast('🔔 Notifications enabled!','success');
+  } else { document.getElementById('notif-btn').textContent = '🔕'; }
 }
-function sendNotification(title,body){
-  if(!notifGranted||!('Notification' in window)) return;
-  try{new Notification(title,{body,icon:'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">💌</text></svg>'});}catch(e){}
+function sendNotification(title, body) {
+  if (!notifGranted || !('Notification' in window)) return;
+  try { new Notification(title, { body, icon:'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">💌</text></svg>' }); } catch(e) {}
 }
-function scheduleNotifications(){
-  // Check daily for upcoming events
-  const s=appData.settings;
-  const checkEvents=()=>{
-    const now=new Date();
-    // Capsules unlocking today
-    (appData.capsules||[]).forEach(c=>{
-      const d=new Date(c.unlockDate);
-      if(d.getFullYear()===now.getFullYear()&&d.getMonth()===now.getMonth()&&d.getDate()===now.getDate()){
-        sendNotification('💌 Capsule Unlocked!',`"${c.title}" is ready to open today!`);
+function scheduleNotifications() {
+  const checkEvents = () => {
+    const now = new Date();
+    (appData.capsules||[]).forEach(c => {
+      const d = new Date(c.unlockDate + 'T00:00:00');
+      if (d.getFullYear()===now.getFullYear() && d.getMonth()===now.getMonth() && d.getDate()===now.getDate()) {
+        sendNotification('💌 Capsule Unlocked!', `"${c.title}" is ready to open today!`);
       }
     });
   };
   checkEvents();
-  setInterval(checkEvents,3600000); // check every hour
+  setInterval(checkEvents, 3600000);
 }
 
 /* ============================================================
    AUTO LOCK
    ============================================================ */
 let autoLockTimer;
-function startAutoLock(){clearTimeout(autoLockTimer);autoLockTimer=setTimeout(lockApp,5*60*1000);}
-['click','keydown','touchstart'].forEach(ev=>document.addEventListener(ev,()=>{if(localPrefs.autolock){clearTimeout(autoLockTimer);startAutoLock();}},{passive:true}));
+function startAutoLock() { clearTimeout(autoLockTimer); autoLockTimer = setTimeout(lockApp, 5*60*1000); }
+['click','keydown','touchstart'].forEach(ev => document.addEventListener(ev, () => { if (localPrefs.autolock) { clearTimeout(autoLockTimer); startAutoLock(); } }, {passive:true}));
 
 /* ============================================================
    MUSIC
    ============================================================ */
-let musicLoaded=false;
-const audioEl=document.getElementById('bg-music');
-function loadMusicFile(e){const f=e.target.files[0];if(!f)return;audioEl.src=URL.createObjectURL(f);musicLoaded=true;document.getElementById('music-file-name').textContent=f.name;audioEl.addEventListener('timeupdate',updateMusicProgress);toast('🎵 Music loaded!','success');}
-function playPauseMusic(){if(!musicLoaded){toast('Load an MP3 first 🎵','info');return;}if(audioEl.paused){audioEl.play();document.getElementById('music-play-btn').textContent='⏸ Pause';}else{audioEl.pause();document.getElementById('music-play-btn').textContent='▶ Play';}}
-function stopMusic(){audioEl.pause();audioEl.currentTime=0;document.getElementById('music-play-btn').textContent='▶ Play';document.getElementById('music-progress').style.width='0%';}
-function updateMusicProgress(){if(!audioEl.duration)return;document.getElementById('music-progress').style.width=((audioEl.currentTime/audioEl.duration)*100)+'%';}
-function autoPlayMusic(){if(musicLoaded)audioEl.play().catch(()=>{});}
+let musicLoaded = false;
+const audioEl = document.getElementById('bg-music');
+function loadMusicFile(e) {
+  const f = e.target.files[0]; if (!f) return;
+  audioEl.src = URL.createObjectURL(f); musicLoaded = true;
+  document.getElementById('music-file-name').textContent = f.name;
+  audioEl.addEventListener('timeupdate', updateMusicProgress);
+  toast('🎵 Music loaded!','success');
+}
+function playPauseMusic() {
+  if (!musicLoaded) { toast('Load an MP3 first 🎵','info'); return; }
+  if (audioEl.paused) { audioEl.play(); document.getElementById('music-play-btn').textContent = '⏸ Pause'; }
+  else { audioEl.pause(); document.getElementById('music-play-btn').textContent = '▶ Play'; }
+}
+function stopMusic() { audioEl.pause(); audioEl.currentTime = 0; document.getElementById('music-play-btn').textContent = '▶ Play'; document.getElementById('music-progress').style.width = '0%'; }
+function updateMusicProgress() { if (!audioEl.duration) return; document.getElementById('music-progress').style.width = ((audioEl.currentTime/audioEl.duration)*100)+'%'; }
+function autoPlayMusic() { if (musicLoaded) audioEl.play().catch(() => {}); }
 
 /* ============================================================
    FLOATING HEARTS
    ============================================================ */
-const canvas=document.getElementById('hearts-canvas');
-const ctx=canvas.getContext('2d');
-let hearts=[],heartsRunning=true,animFrame;
-const EMOJIS_FLY=['❤️','💕','💗','💓','💞','💝','🌸','✨','🌷','💌'];
-function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
-window.addEventListener('resize',resizeCanvas);resizeCanvas();
-function createHeart(){return{x:Math.random()*canvas.width,y:canvas.height+40,size:14+Math.random()*22,speed:0.4+Math.random()*0.9,drift:(Math.random()-0.5)*0.6,opacity:0.5+Math.random()*0.5,emoji:EMOJIS_FLY[Math.floor(Math.random()*EMOJIS_FLY.length)],wobble:Math.random()*Math.PI*2,wobbleSpeed:0.02+Math.random()*0.03};}
-function drawHeart(h){ctx.save();ctx.globalAlpha=h.opacity;ctx.font=h.size+'px serif';ctx.textAlign='center';ctx.fillText(h.emoji,h.x,h.y);ctx.restore();}
-function heartLoop(){if(!heartsRunning)return;ctx.clearRect(0,0,canvas.width,canvas.height);if(hearts.length<18&&Math.random()<0.04)hearts.push(createHeart());hearts=hearts.filter(h=>h.y>-50&&h.opacity>0.05);hearts.forEach(h=>{h.y-=h.speed;h.x+=h.drift+Math.sin(h.wobble)*0.4;h.wobble+=h.wobbleSpeed;h.opacity-=0.0008;drawHeart(h);});animFrame=requestAnimationFrame(heartLoop);}
-function startHearts(){if(heartsRunning&&animFrame)return;heartsRunning=true;heartLoop();}
-function stopHearts(){heartsRunning=false;cancelAnimationFrame(animFrame);ctx.clearRect(0,0,canvas.width,canvas.height);}
+const canvas = document.getElementById('hearts-canvas');
+const ctx = canvas.getContext('2d');
+let hearts = [], heartsRunning = true, animFrame;
+const EMOJIS_FLY = ['❤️','💕','💗','💓','💞','💝','🌸','✨','🌷','💌'];
+function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+window.addEventListener('resize', resizeCanvas); resizeCanvas();
+function createHeart() { return { x:Math.random()*canvas.width, y:canvas.height+40, size:14+Math.random()*22, speed:0.4+Math.random()*0.9, drift:(Math.random()-0.5)*0.6, opacity:0.5+Math.random()*0.5, emoji:EMOJIS_FLY[Math.floor(Math.random()*EMOJIS_FLY.length)], wobble:Math.random()*Math.PI*2, wobbleSpeed:0.02+Math.random()*0.03 }; }
+function drawHeart(h) { ctx.save(); ctx.globalAlpha = h.opacity; ctx.font = h.size+'px serif'; ctx.textAlign = 'center'; ctx.fillText(h.emoji, h.x, h.y); ctx.restore(); }
+function heartLoop() { if (!heartsRunning) return; ctx.clearRect(0,0,canvas.width,canvas.height); if (hearts.length < 18 && Math.random() < 0.04) hearts.push(createHeart()); hearts = hearts.filter(h => h.y > -50 && h.opacity > 0.05); hearts.forEach(h => { h.y -= h.speed; h.x += h.drift + Math.sin(h.wobble)*0.4; h.wobble += h.wobbleSpeed; h.opacity -= 0.0008; drawHeart(h); }); animFrame = requestAnimationFrame(heartLoop); }
+function startHearts() { if (heartsRunning && animFrame) return; heartsRunning = true; heartLoop(); }
+function stopHearts() { heartsRunning = false; cancelAnimationFrame(animFrame); ctx.clearRect(0,0,canvas.width,canvas.height); }
 
 /* ============================================================
    MISC UTILS
    ============================================================ */
-function expandPhoto(src){const bd=document.createElement('div');bd.className='photo-expand-backdrop';bd.innerHTML=`<img src="${src}" alt="memory">`;bd.onclick=()=>bd.remove();document.body.appendChild(bd);}
-function toast(msg,type='info',dur=3200){
-  const icons={success:'✅',error:'💔',info:'💌'};
-  const tc=document.getElementById('toast-container');
-  const t=document.createElement('div');t.className=`toast ${type}`;
-  t.innerHTML=`<span class="toast-icon">${icons[type]||'💌'}</span><span>${msg}</span>`;
+function expandPhoto(src) { const bd = document.createElement('div'); bd.className = 'photo-expand-backdrop'; bd.innerHTML = `<img src="${src}" alt="memory">`; bd.onclick = () => bd.remove(); document.body.appendChild(bd); }
+function toast(msg, type='info', dur=3200) {
+  const icons = { success:'✅', error:'💔', info:'💌' };
+  const tc = document.getElementById('toast-container');
+  const t = document.createElement('div'); t.className = `toast ${type}`;
+  t.innerHTML = `<span class="toast-icon">${icons[type]||'💌'}</span><span>${msg}</span>`;
   tc.appendChild(t);
-  setTimeout(()=>{t.style.animation='toastIn 0.3s ease reverse';setTimeout(()=>t.remove(),280);},dur);
+  setTimeout(() => { t.style.animation = 'toastIn 0.3s ease reverse'; setTimeout(() => t.remove(), 280); }, dur);
 }
 
 /* ============================================================
    BOOT
    ============================================================ */
-(async function boot(){
-  try{const p=localStorage.getItem(LOCAL_PREFS);if(p)localPrefs={...localPrefs,...JSON.parse(p)};}catch{}
-  applyTheme(localPrefs.theme||'light');
-  const saved=localStorage.getItem(LOCAL_GH_KEY);
-  if(!saved){return;}
-  try{ghConfig=JSON.parse(saved);}catch{return;}
-  if(!ghConfig.username||!ghConfig.repo||!ghConfig.token){return;}
+(async function boot() {
+  try { const p = localStorage.getItem(LOCAL_PREFS); if (p) localPrefs = { ...localPrefs, ...JSON.parse(p) }; } catch {}
+  applyTheme(localPrefs.theme || 'light');
+  const saved = localStorage.getItem(LOCAL_GH_KEY);
+  if (!saved) return;
+  try { ghConfig = JSON.parse(saved); } catch { return; }
+  if (!ghConfig.username || !ghConfig.repo || !ghConfig.token) return;
   document.getElementById('setup-screen').classList.add('hidden');
   document.getElementById('lock-screen').classList.remove('hidden');
-  try{await loadRemoteData();}catch(e){toast('⚠️ Could not load from GitHub: '+e.message,'error');}
+  try { await loadRemoteData(); } catch(e) { toast('⚠️ Could not load from GitHub: '+e.message,'error'); }
   startHearts();
 })();
 </script>
